@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preise - Kinesiologie-Stone.ch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <h1 class="loader-text">Kinesiologie Stone</h1>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-purple-700">Kinesiologie Stone</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/" class="text-gray-700 hover:text-purple-700">Home</a>
+                <a href="ueber-mich.html" class="text-gray-700 hover:text-purple-700">Über mich</a>
+                <a href="preise.html" class="text-gray-700 hover:text-purple-700">Preise</a>
+                <a href="kontakt.html" class="text-gray-700 hover:text-purple-700">Kontakt</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="/" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Home</a>
+            <a href="ueber-mich.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Über mich</a>
+            <a href="preise.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Preise</a>
+            <a href="kontakt.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Kontakt</a>
+        </div>
+    </header>
+
+    <main id="main-content" class="container mx-auto px-6 py-12 opacity-0">
+        <!-- Prices Section -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-purple-800 mb-4">Preise</h1>
+            <p class="text-lg text-gray-600">Investition in Ihr Wohlbefinden.</p>
+        </section>
+
+        <section class="mb-12">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="p-8">
+                            <img src="https://images.unsplash.com/vector-1746109461706-d188ef74d6a4?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Was ist Kinesiologie?" class="rounded-lg mb-4">
+                            <h3 class="text-2xl font-bold text-purple-700 mb-4">Einzelsitzung</h3>
+                            <p class="text-5xl font-bold text-gray-800 mb-4">150 <span class="text-2xl">CHF</span></p>
+                            <p class="text-gray-600 mb-6">Dauer: 60 Minuten</p>
+                            <a href="kontakt.html" class="bg-purple-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-800 transition-colors duration-300">Termin buchen</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="p-8">
+                            <img src="https://images.unsplash.com/vector-1746109382708-21197227ba3e?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Was ist Kinesiologie?" class="rounded-lg mb-4">
+                            <h3 class="text-2xl font-bold text-purple-700 mb-4">Einzelsitzung Intensiv</h3>
+                            <p class="text-5xl font-bold text-gray-800 mb-4">220 <span class="text-2xl">CHF</span></p>
+                            <p class="text-gray-600 mb-6">Dauer: 90 Minuten</p>
+                            <a href="kontakt.html" class="bg-purple-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-800 transition-colors duration-300">Termin buchen</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg mt-8 text-left">
+                    <h4 class="text-xl font-bold text-purple-700 mb-4">Weitere Informationen</h4>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Die Bezahlung erfolgt in der Regel direkt nach der Sitzung in bar oder per Twint.</li>
+                        <li>Termine, die nicht mindestens 24 Stunden im Voraus abgesagt werden, müssen leider in Rechnung gestellt werden.</li>
+                        <li>Viele Krankenkassen übernehmen im Rahmen der Zusatzversicherung einen Teil der Kosten. Bitte klären Sie die Kostenübernahme direkt mit Ihrer Kasse ab.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="copyright-year"></span> Kinesiologie-Stone.ch | Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

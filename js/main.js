@@ -1,3 +1,5 @@
+console.log('main.js loaded and executing!'); // Added for debugging
+
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     const mainContent = document.getElementById('main-content');
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (mainContent) {
                         mainContent.classList.remove('opacity-0');
                     }
-                }, 100);
+                }, 120);
 
 
                 // After the loader animation is done, hide it completely
@@ -89,5 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyrightYearSpan = document.getElementById('copyright-year');
     if (copyrightYearSpan) {
         copyrightYearSpan.textContent = new Date().getFullYear();
+    }
+
+    // --- Form Validation ---
+    const form = document.getElementById('contact-form'); // Reference by ID
+
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            console.log('Form submit event fired!');
+            event.preventDefault(); // This should stop the form from submitting
+            console.log('Default form submission prevented.');
+        });
     }
 });

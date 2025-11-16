@@ -1,0 +1,23 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# dotenv files
+.env
+.env*.local
+
+# misc
+.sass-cache/
