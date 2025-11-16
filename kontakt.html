@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Kinesiologie-Stone.ch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <h1 class="loader-text">Kinesiologie Stone</h1>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-purple-700">Kinesiologie Stone</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/" class="text-gray-700 hover:text-purple-700">Home</a>
+                <a href="ueber-mich.html" class="text-gray-700 hover:text-purple-700">Über mich</a>
+                <a href="kontakt.html" class="text-gray-700 hover:text-purple-700">Kontakt</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="/" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Home</a>
+            <a href="ueber-mich.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Über mich</a>
+            <a href="kontakt.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Kontakt</a>
+        </div>
+    </header>
+    
+    <main id="main-content" class="container mx-auto px-6 py-12 opacity-0">
+        <section class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-purple-800 mb-4">Kontakt</h1>
+            <p class="text-lg text-gray-600">Ich freue mich auf Ihre Kontaktaufnahme.</p>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-purple-700 mb-4">Kontaktformular</h2>
+                <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 font-bold mb-2">Nachricht</label>
+                        <textarea id="message" name="message" rows="12" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-purple-700 text-white font-bold py-2 px-6 rounded-lg hover:bg-purple-800 transition-colors duration-300">Senden</button>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-purple-700 mb-4">Kontaktinformationen</h2>
+                <div class="text-gray-700">
+                    <p class="mb-4">
+                        <strong>Adresse:</strong><br>
+                        Astrastrasse 27<br>
+                        3612 Steffisburg
+                    </p>
+                    <p class="mb-4">
+                        <strong>Telefon:</strong><br>
+                        <a href="tel:+41787885315" class="text-purple-700 hover:underline">+41 78 788 53 15</a>
+                    </p>
+                    <p class="mb-4">
+                        <strong>Email:</strong><br>
+                        <a href="mailto:info@kinesiologie-stone.ch" class="text-purple-700 hover:underline">info@kinesiologie-stone.ch</a>
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.528827829074!2d7.626571413268358!3d46.774183071005275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478fb322c68bce47%3A0xc2633c19110f8548!2sAstrastrasse%2027%2C%203612%20Steffisburg!5e0!3m2!1sde!2sch!4v1763288235057!5m2!1sde!2sch" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="copyright-year"></span> Kinesiologie-Stone.ch | Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
