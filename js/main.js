@@ -98,9 +98,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (form) {
         form.addEventListener('submit', function(event) {
-            console.log('Form submit event fired!');
-            event.preventDefault(); // This should stop the form from submitting
+            event.preventDefault(); // Prevent default form submission
             console.log('Default form submission prevented.');
+
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            const emailValue = emailInput.value;
+
+            // Explicit JavaScript regex validation
+            const emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}$");
+
+            if (!emailRegex.test(emailValue)) {
+                emailError.classList.remove('hidden');
+                emailInput.classList.add('border-red-500'); // Add a visual cue for error
+            } else {
+                emailError.classList.add('hidden');
+                emailInput.classList.remove('border-red-500'); // Remove error cue
+                // If valid, proceed with form submission
+                console.log('Email is valid, submitting form.');
+                form.submit(); // Submit the form
+            }
         });
     }
 });
