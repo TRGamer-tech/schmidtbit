@@ -5,7 +5,7 @@ Dies ist das offizielle GitHub für die Seite SchmidtBit. Sie unterliegt der MIT
 
 ## Inhalt
 
-- Seite von Sylva Stone (kinesiologie-stone.ch)
+- Seite von Sylva Stone Kinesiology (kinesiologie-stone.ch)
 
 ## Infos
 
