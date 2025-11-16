@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&family=Comfortaa:wght@300..700&display=swap');
 
 @keyframes loader-spin {
     0% {
@@ -30,14 +30,14 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6, .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cherry Swash', serif;
 }
 
 .loader {
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 .loader-text {
     color: #fff;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cherry Swash', serif;
     font-size: 3rem;
     animation: glow 0.5s ease-in-out infinite alternate;
 }
