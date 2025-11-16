@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.schmidtbit.com/</loc>
+    <loc>https://www.schmidtbit.ch/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.schmidtbit.com/#home</loc>
+    <loc>https://www.schmidtbit.ch/#home</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.schmidtbit.com/#services</loc>
+    <loc>https://www.schmidtbit.ch/#services</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.schmidtbit.com/#portfolio</loc>
+    <loc>https://www.schmidtbit.ch/#portfolio</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.schmidtbit.com/#about</loc>
+    <loc>https://www.schmidtbit.ch/#about</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.schmidtbit.com/#contact</loc>
+    <loc>https://www.schmidtbit.ch/#contact</loc>
     <priority>0.7</priority>
   </url>
 </urlset>
