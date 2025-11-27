@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Tech Fact</title>
+    <title>IT Fact of the day</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Courier New', Courier, monospace; }
@@ -87,7 +87,7 @@
             // Lighter variant for body text to ensure readability on dark bg: #63b3ed (Tailwind blue-400ish)
             
             if (referrer.includes("helpdesk.pcetera.ch") || currentUrl.includes("theme=blue")) {
-                console.log("SchmidtBit Protocol Detected: Engaging Blue Theme.");
+                console.log("Helpdesk Protocol Detected: Engaging Blue Theme.");
                 root.style.setProperty('--theme-color', '#1d77a3');       // Main Accent
                 root.style.setProperty('--theme-text', '#63b3ed');        // Body Text (Lighter for contrast)
                 root.style.setProperty('--theme-dim', 'rgba(29, 119, 163, 0.3)');
@@ -125,7 +125,7 @@
             "apollo", "soyuz", "gemini", "skylab", "mir ", "iss", "interstellar"
         ];
 
-        // Expanded Backup facts database with URLs
+        // Expanded Backup facts database with URLs (Doubled the count)
         const BACKUP_FACTS = [
             { text: "The first computer mouse was made of wood.", year: "1964", url: "https://en.wikipedia.org/wiki/Computer_mouse" },
             { text: "The first 1GB hard drive was announced by IBM. It weighed over 500 pounds and cost $40,000.", year: "1980", url: "https://en.wikipedia.org/wiki/IBM_3380" },
@@ -142,7 +142,21 @@
             { text: "More than 90% of the world's currency exists only on computers.", year: "2023", url: "https://en.wikipedia.org/wiki/Digital_currency" },
             { text: "The programming language Python was named after 'Monty Python's Flying Circus', not the snake.", year: "1991", url: "https://en.wikipedia.org/wiki/Python_(programming_language)#History" },
             { text: "The first alarm clock could only ring at 4 a.m.", year: "1787", url: "https://en.wikipedia.org/wiki/Alarm_clock" },
-            { text: "Samsung was 38 years old and selling dried fish and noodles before it started making electronics.", year: "1938", url: "https://en.wikipedia.org/wiki/Samsung#History" }
+            { text: "Samsung was 38 years old and selling dried fish and noodles before it started making electronics.", year: "1938", url: "https://en.wikipedia.org/wiki/Samsung#History" },
+            { text: "The first banner ad ever clicked had a Click-Through Rate (CTR) of 44%.", year: "1994", url: "https://en.wikipedia.org/wiki/Web_banner#History" },
+            { text: "Google's original name was 'Backrub' because it analyzed backlinks.", year: "1996", url: "https://en.wikipedia.org/wiki/Google#History" },
+            { text: "The very first YouTube video was titled 'Me at the zoo' and is 18 seconds long.", year: "2005", url: "https://en.wikipedia.org/wiki/Me_at_the_zoo" },
+            { text: "Bluetooth is named after King Harald Bluetooth who united dissident Danish tribes.", year: "1997", url: "https://en.wikipedia.org/wiki/Bluetooth#Etymology" },
+            { text: "The first photo ever uploaded to the web was of a comedy band called Les Horribles Cernettes.", year: "1992", url: "https://en.wikipedia.org/wiki/Les_Horribles_Cernettes" },
+            { text: "The first mobile phone call was made by Martin Cooper of Motorola to his rival at Bell Labs.", year: "1973", url: "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)" },
+            { text: "The first hard drive, the IBM 305 RAMAC, held only 5MB of data and had to be moved by forklift.", year: "1956", url: "https://en.wikipedia.org/wiki/IBM_305_RAMAC" },
+            { text: "There is a 3D-printed castle on a grain of sand created by researchers.", year: "2022", url: "https://en.wikipedia.org/wiki/3D_printing" },
+            { text: "The original Xbox contained snippets of actual transmissions from the Apollo space missions.", year: "2001", url: "https://en.wikipedia.org/wiki/Xbox_(console)" },
+            { text: "Spacewar!, widely considered the first computer video game, was written at MIT.", year: "1962", url: "https://en.wikipedia.org/wiki/Spacewar!" },
+            { text: "The first computer virus, Creeper, simply displayed the message: 'I'm the creeper, catch me if you can!'", year: "1971", url: "https://en.wikipedia.org/wiki/Creeper_(program)" },
+            { text: "Amazon's first name was 'Cadabra', but Jeff Bezos changed it because it sounded like 'cadaver'.", year: "1994", url: "https://en.wikipedia.org/wiki/Amazon_(company)#History" },
+            { text: "The first Apple logo featured Isaac Newton sitting under an apple tree.", year: "1976", url: "https://en.wikipedia.org/wiki/Apple_Inc.#Logo" },
+            { text: "The computing power inside a modern smartphone is millions of times greater than the Apollo guidance computer.", year: "1969", url: "https://en.wikipedia.org/wiki/Apollo_Guidance_Computer" }
         ];
 
         // Strict "No Ess-Tsett" Policy
@@ -171,9 +185,17 @@
             
             dateDisplay.innerText = "Target Date: " + displayDate;
 
+            // Speed Hack: Set a timeout controller. If Wikipedia takes > 1.5s, we bail to backup.
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 1500);
+
             try {
                 // Fetch from Wikipedia On This Day API for TODAY
-                const response = await fetch(`https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/${month}/${day}`);
+                const response = await fetch(`https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/${month}/${day}`, {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId); // Clear timeout if successful
+
                 if (!response.ok) throw new Error("API Failure");
                 
                 const data = await response.json();
@@ -224,8 +246,8 @@
             }
         }
 
-        // Run on load
-        window.onload = () => loadFact();
+        // Run immediately to feel faster (don't wait for full window load)
+        loadFact();
     </script>
 </body>
 </html>
