@@ -187,7 +187,7 @@
 
             // Speed Hack: Set a timeout controller. If Wikipedia takes > 1.5s, we bail to backup.
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 1500);
+            const timeoutId = setTimeout(() => controller.abort(), 3000);
 
             try {
                 // Fetch from Wikipedia On This Day API for TODAY
