@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCHMIDTBIT - IT Fact of the Day</title>
+    <title>SCHMIDTBIT - IT Fact of the day</title>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Courier New', Courier, monospace; }
@@ -96,8 +97,9 @@
             const referrer = document.referrer || "";
             const currentUrl = window.location.href;
             
+            // Check for helpdesk (substring) or schmidtbit or URL param
             if (referrer.includes("schmidtbit.ch") || referrer.includes("helpdesk") || currentUrl.includes("theme=blue")) {
-                console.log("Helpdesk Protocol Detected: Engaging Blue Theme.");
+                console.log("Blue Theme Protocol Detected.");
                 root.style.setProperty('--theme-color', '#1d77a3');       
                 root.style.setProperty('--theme-text', '#63b3ed');        
                 root.style.setProperty('--theme-dim', 'rgba(29, 119, 163, 0.3)');
@@ -119,7 +121,7 @@
             "programming language", "source code", "open source", "videogame", "video game", 
             "nintendo", "sega", "atari", "playstation", "xbox", "cloud computing", "virtual reality",
             "supercomputer", "mainframe", "firewall", "encryption", "cryptography", "tcp/ip",
-            "microcomputer", "motherboard", "peripheral", "modem", "router", "bandwidth", "ai"
+            "microcomputer", "motherboard", "peripheral", "modem", "router", "bandwidth"
         ];
 
         // Exclude Space, Nature, and DEPRESSION ERA stuff
