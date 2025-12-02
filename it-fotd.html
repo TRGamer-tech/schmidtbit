@@ -172,7 +172,27 @@
             { text: "The first computer virus, Creeper, simply displayed the message: 'I'm the creeper, catch me if you can!'", year: "1971", url: "https://en.wikipedia.org/wiki/Creeper_(program)" },
             { text: "Amazon's first name was 'Cadabra', but Jeff Bezos changed it because it sounded like 'cadaver'.", year: "1994", url: "https://en.wikipedia.org/wiki/Amazon_(company)#History" },
             { text: "The first Apple logo featured Isaac Newton sitting under an apple tree.", year: "1976", url: "https://en.wikipedia.org/wiki/Apple_Inc.#Logo" },
-            { text: "The computing power inside a modern smartphone is millions of times greater than the Apollo guidance computer.", year: "1969", url: "https://en.wikipedia.org/wiki/Apollo_Guidance_Computer" }
+            { text: "The computing power inside a modern smartphone is millions of times greater than the Apollo guidance computer.", year: "1969", url: "https://en.wikipedia.org/wiki/Apollo_Guidance_Computer" },
+            { text: "Google's first storage server was built with LEGO bricks.", year: "1996", url: "https://en.wikipedia.org/wiki/Google_platform#History" },
+            { text: "The term 'spam' for junk email comes from a Monty Python sketch.", year: "1970", url: "https://en.wikipedia.org/wiki/Spam_(food)#Monty_Python_sketch" },
+            { text: "eBay's first sold item was a broken laser pointer for $14.83.", year: "1995", url: "https://en.wikipedia.org/wiki/EBay#History" },
+            { text: "The word 'robot' comes from the Czech word 'robota' meaning forced labor.", year: "1920", url: "https://en.wikipedia.org/wiki/Robot#Etymology" },
+            { text: "The first website ever built by Tim Berners-Lee is still online at CERN.", year: "1991", url: "https://en.wikipedia.org/wiki/Info.cern.ch" },
+            { text: "Ray Tomlinson chose the '@' symbol for email because it was rarely used.", year: "1971", url: "https://en.wikipedia.org/wiki/Ray_Tomlinson" },
+            { text: "The Apple I computer was sold for $666.66.", year: "1976", url: "https://en.wikipedia.org/wiki/Apple_I" },
+            { text: "Four bits (half a byte) is technically called a 'nibble'.", year: "1958", url: "https://en.wikipedia.org/wiki/Nibble" },
+            { text: "The IBM Simon was the first commercially available smartphone.", year: "1994", url: "https://en.wikipedia.org/wiki/IBM_Simon" },
+            { text: "Ada Lovelace is widely considered the first computer programmer.", year: "1843", url: "https://en.wikipedia.org/wiki/Ada_Lovelace" },
+            { text: "Twitter's bird logo was named 'Larry' after basketball legend Larry Bird.", year: "2011", url: "https://en.wikipedia.org/wiki/Twitter#Branding" },
+            { text: "The PlayStation exists because Nintendo betrayed Sony on a CD-ROM deal.", year: "1994", url: "https://en.wikipedia.org/wiki/PlayStation_(console)#History" },
+            { text: "YouTube was founded by three former PayPal employees.", year: "2005", url: "https://en.wikipedia.org/wiki/YouTube#History" },
+            { text: "Android was originally designed for digital cameras, not phones.", year: "2004", url: "https://en.wikipedia.org/wiki/Android_(operating_system)#History" },
+            { text: "The first wiki was named WikiWikiWeb after the Hawaiian word for 'fast'.", year: "1995", url: "https://en.wikipedia.org/wiki/WikiWikiWeb" },
+            { text: "Steve Wozniak sold his HP scientific calculator to raise capital for Apple.", year: "1976", url: "https://en.wikipedia.org/wiki/Apple_Inc.#History" },
+            { text: "Pong was the first commercially successful video game.", year: "1972", url: "https://en.wikipedia.org/wiki/Pong" },
+            { text: "The Space Invaders game caused a temporary shortage of 100-yen coins in Japan.", year: "1978", url: "https://en.wikipedia.org/wiki/Space_Invaders#Impact" },
+            { text: "The most viewed photo in history is likely the Windows XP 'Bliss' wallpaper.", year: "1996", url: "https://en.wikipedia.org/wiki/Bliss_(image)" },
+            { text: "Computer scientist Grace Hopper popularized the term 'debugging'.", year: "1947", url: "https://en.wikipedia.org/wiki/Grace_Hopper" }
         ];
 
         function sanitizeText(text) {
@@ -183,7 +203,7 @@
         function copyToClipboard() {
             const fact = document.getElementById('fact-text').innerText;
             const year = document.getElementById('year-display').innerText;
-            const textToCopy = `${fact} (${year}) - via TechFact.sys`;
+            const textToCopy = `${fact} (${year}) - via schmidtbit.ch`;
             
             // Modern Clipboard API
             navigator.clipboard.writeText(textToCopy).then(() => {
