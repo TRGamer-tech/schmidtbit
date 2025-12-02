@@ -99,7 +99,7 @@
             
             // Check for helpdesk (substring) or schmidtbit or URL param
             if (referrer.includes("schmidtbit.ch") || referrer.includes("helpdesk") || currentUrl.includes("theme=blue")) {
-                console.log("Blue Theme Protocol Detected.");
+                console.log("Facts are being displayed in helpdesk: Blue Theme Protocol engaged.");
                 root.style.setProperty('--theme-color', '#1d77a3');       
                 root.style.setProperty('--theme-text', '#63b3ed');        
                 root.style.setProperty('--theme-dim', 'rgba(29, 119, 163, 0.3)');
@@ -250,6 +250,9 @@
                     factText.innerText = cleanText;
                     yearDisplay.innerText = event.year;
                     
+                    // STATUS: ONLINE MODE
+                    dateDisplay.innerText = displayDate + " [ONLINE MODE]";
+                    
                     // Add "You Are Old" Metric
                     if (!isNaN(yearsAgo) && yearsAgo > 0) {
                         timeDelta.innerText = `[${yearsAgo} YRS AGO]`;
@@ -274,7 +277,9 @@
                 const eventYear = parseInt(backup.year);
                 const yearsAgo = currentYear - eventYear;
                 
+                // STATUS: ARCHIVE MODE
                 dateDisplay.innerText = displayDate + " [ARCHIVE MODE]";
+                
                 factText.innerText = cleanText;
                 yearDisplay.innerText = backup.year;
 
