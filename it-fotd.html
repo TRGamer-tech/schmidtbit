@@ -108,11 +108,12 @@
             }
         })();
 
-        // Refined Tech keywords - No more broad terms like "network" or "server"
-        const TECH_KEYWORDS = [
+        // BROAD TECH KEYWORDS (Substring Match is OK for these)
+        // Removed short acronyms from here to prevent "P-RAM-ount" matching
+        const BROAD_KEYWORDS = [
             "computer", "internet", "world wide web", "software", "hardware", "microchip", 
-            "microprocessor", "cpu", "gpu", "ram", "algorithm", "cyber", "digital", 
-            "web server", "computer network", "user interface", "gui", "pixel", "artificial intelligence", 
+            "microprocessor", "algorithm", "cyber", "digital", 
+            "web server", "computer network", "user interface", "pixel", "artificial intelligence", 
             "neural network", "machine learning", "apple inc", "macintosh", "microsoft", 
             "ibm", "google", "amazon.com", "facebook", "linux", "unix", "ubuntu", 
             "transistor", "silicon valley", "semiconductor", "telecom", "wireless", 
@@ -124,7 +125,12 @@
             "microcomputer", "motherboard", "peripheral", "modem", "router", "bandwidth"
         ];
 
-        // Exclude Space, Nature, and DEPRESSION ERA stuff
+        // STRICT KEYWORDS (Must be whole words to avoid partial matches like 'Program' -> 'RAM')
+        const STRICT_KEYWORDS = [
+            "CPU", "GPU", "RAM", "GUI", "API", "IP", "IOS", "BIOS", "USB", "SSD", "HDD"
+        ];
+
+        // Exclude Space, Nature, History, Religion, and Politics
         const EXCLUDED_KEYWORDS = [
             "river", "forest", "jungle", // Amazon
             "fruit", "beatles", "corps", // Apple
@@ -136,9 +142,11 @@
             "space shuttle", "spacecraft", "astronaut", "cosmonaut", "rocket", "orbit", 
             "mars", "moon", "solar system", "galaxy", "telescope", "space station", 
             "apollo", "soyuz", "gemini", "skylab", "mir ", "iss", "interstellar",
-            // History/Depression Exclusions
+            // History/Depression/Politics Exclusions
             "great depression", "economic", "recession", "bank", "financial", "stock market", 
-            "radio", "television", "tv", "broadcast", "railway", "railroad", "treaty", "war", "battle"
+            "radio", "television", "tv", "broadcast", "railway", "railroad", "treaty", "war", "battle",
+            "nuclear", "atomic", "bomb", "president", "election", "fatwa", "islam", "christian", "religion",
+            "church", "pope", "law", "court", "supreme"
         ];
 
         // Backup facts database
@@ -256,9 +264,22 @@
                 
                 const techEvents = data.events.filter(event => {
                     const content = (event.text + " " + event.pages.map(p => p.title).join(" ")).toLowerCase();
-                    const hasKeyword = TECH_KEYWORDS.some(keyword => content.includes(keyword.toLowerCase()));
+                    
+                    // Check exclusion first
                     const hasExclusion = EXCLUDED_KEYWORDS.some(keyword => content.includes(keyword.toLowerCase()));
-                    return hasKeyword && !hasExclusion;
+                    if (hasExclusion) return false;
+
+                    // Check BROAD keywords (substring)
+                    const hasBroad = BROAD_KEYWORDS.some(keyword => content.includes(keyword.toLowerCase()));
+                    if (hasBroad) return true;
+
+                    // Check STRICT keywords (regex boundary)
+                    const hasStrict = STRICT_KEYWORDS.some(keyword => {
+                        const regex = new RegExp(`\\b${keyword}\\b`, 'i');
+                        return regex.test(content);
+                    });
+                    
+                    return hasStrict;
                 });
 
                 if (techEvents.length > 0) {
