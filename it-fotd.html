@@ -211,7 +211,7 @@
         function copyToClipboard() {
             const fact = document.getElementById('fact-text').innerText;
             const year = document.getElementById('year-display').innerText;
-            const textToCopy = `${fact} (${year}) - via schmidtbit.ch`;
+            const textToCopy = `Today in ${year}: ${fact} - via schmidtbit.ch/it-fotd`;
             
             // Modern Clipboard API
             navigator.clipboard.writeText(textToCopy).then(() => {
