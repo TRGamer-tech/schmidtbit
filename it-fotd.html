@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Courier New', Courier, monospace; }
+        body { font-family: 'Courier New', Courier, monospace; background-color: transparent !important; background-image: none !important; }
         .blink { animation: blinker 1s linear infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
         /* Custom scrollbar */
@@ -22,6 +22,7 @@
             --theme-dim: rgba(34,197,94,0.3);
             --theme-glow: 0 0 20px rgba(34,197,94,0.3);
             --theme-shadow-text: 2px 2px 0px rgba(34,197,94,0.2);
+            color-scheme: light dark;
         }
 
         /* DYNAMIC THEME CLASSES */
