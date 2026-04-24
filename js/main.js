@@ -64,12 +64,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- Mobile Menu ---
+  const mobileMenuClose = document.getElementById("mobile-menu-close");
+  
   if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener("click", () => {
       const isActive = mobileMenu.classList.toggle("is-active");
       mobileMenuButton.classList.toggle("is-active");
       document.body.style.overflow = isActive ? "hidden" : "";
     });
+
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener("click", () => {
+        mobileMenu.classList.remove("is-active");
+        mobileMenuButton.classList.remove("is-active");
+        document.body.style.overflow = "";
+      });
+    }
 
     // Close menu when a link is clicked
     mobileMenu.querySelectorAll("a").forEach((link) => {
