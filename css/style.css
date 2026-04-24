@@ -43,15 +43,27 @@
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.01); }
-  100% { transform: scale(1); }
+  0%, 15% {
+    transform: scale(0.01);
+  }
+  40%, 60% {
+    transform: scale(1);
+  }
+  85%, 100% {
+    transform: scale(0.01);
+  }
 }
 
 @keyframes fade {
-  0% { background: #A78BFA; }
-  50% { background: #7e22ce; }
-  100% { background: #A78BFA; }
+  0%, 15% {
+    background: #ddd6fe;
+  }
+  40%, 60% {
+    background: #c4b5fd;
+  }
+  85%, 100% {
+    background: #ddd6fe;
+  }
 }
 
 .background-honeycomb {
@@ -78,22 +90,27 @@
 }
 
 .hex-brick {
-  background: #A78BFA;
+  background: #ddd6fe;
   width: var(--hex-w);
   height: var(--hex-h);
   position: absolute;
-  top: 5px;
+  top: calc((var(--hex-w) - var(--hex-h)) / 2);
   animation: fade var(--anim-speed) infinite;
 }
 
-.h2 { transform: rotate(60deg); }
-.h3 { transform: rotate(-60deg); }
+.h2 {
+  transform: rotate(60deg);
+}
+.h3 {
+  transform: rotate(-60deg);
+}
 
 .gel {
   height: var(--hex-w);
   width: var(--hex-w);
-  transition: all .3s;
+  transition: all 0.3s;
   position: absolute;
+  transform: scale(0.01);
   animation: pulse var(--anim-speed) infinite;
 }
 

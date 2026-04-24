@@ -117,10 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const fragment = document.createDocumentFragment();
         
-        for (let r = -1; r < rows; r++) {
-            for (let c = -1; c < cols; c++) {
-                const x = c * hSpacing;
-                const y = r * vSpacing + (c % 2 === 0 ? 0 : vSpacing / 2);
+        for (let r = -2; r < rows; r++) {
+            for (let c = -2; c < cols; c++) {
+                // Seamless honeycomb math with zero gaps
+                const hStep = hexWidth; 
+                const vStep = hexWidth * 0.866; 
+                
+                const x = c * hStep + (r % 2 === 0 ? 0 : hStep / 2);
+                const y = r * vStep;
                 
                 const gel = document.createElement('div');
                 gel.className = 'gel';
