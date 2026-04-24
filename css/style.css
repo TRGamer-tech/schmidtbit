@@ -239,6 +239,7 @@ h6,
   border-top-right-radius: 9999px;
   border-top-left-radius: 9999px;
   box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Clips the spots to the shell */
 }
 
 .body::after {
@@ -272,38 +273,29 @@ h6,
   border-top-left-radius: 9999px;
 }
 
-/* Eye */
+/* Happy Chill Eye */
 .head::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  background: #2e1065;
-  border: 3px solid #fff;
-  border-radius: 50%;
+  display: none;
 }
 
 .head::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 55%;
   top: 50%;
-  transform: translate(-50%, -100%) scaleY(0.7); /* Half-closed heavy lid */
-  transform-origin: bottom;
-  width: 24px;
-  height: 20px;
-  background: #a78bfa;
-  border-radius: 50% 50% 0 0; /* Eyelid shape */
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 10px;
+  border: 4px solid #2e1065;
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
   z-index: 100;
-  animation: chill-blink 4s ease-in-out infinite;
+  animation: chill-squint 3s ease-in-out infinite;
 }
 
-@keyframes chill-blink {
-  0%, 94%, 100% { transform: translate(-50%, -100%) scaleY(0.7); }
-  97% { transform: translate(-50%, -100%) scaleY(1.3); }
+@keyframes chill-squint {
+  0%, 100% { transform: translate(-50%, -50%) scaleY(1); }
+  50% { transform: translate(-50%, -50%) scaleY(0.7); }
 }
 
 .loader-text {
