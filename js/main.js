@@ -64,29 +64,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- Mobile Menu ---
-  const mobileMenuClose = document.getElementById("mobile-menu-close");
-  
-  if (mobileMenuButton) {
+  if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.remove("hidden");
-      document.body.style.overflow = "hidden"; // Disable scroll
+      const isActive = mobileMenu.classList.toggle("is-active");
+      mobileMenuButton.classList.toggle("is-active");
+      document.body.style.overflow = isActive ? "hidden" : "";
+    });
+
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("is-active");
+        mobileMenuButton.classList.remove("is-active");
+        document.body.style.overflow = "";
+      });
     });
   }
-
-  if (mobileMenuClose) {
-    mobileMenuClose.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      document.body.style.overflow = ""; // Enable scroll
-    });
-  }
-
-  // Close menu when a link is clicked
-  mobileMenu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      document.body.style.overflow = "";
-    });
-  });
 
   // Animations on scroll
   const animatedElements = document.querySelectorAll(".transform");

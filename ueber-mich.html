@@ -36,77 +36,47 @@
           >
         </div>
         <div class="hidden md:flex space-x-6">
-          <a href="/" class="text-gray-700 hover:text-purple-700">Home</a>
-          <a href="ueber-mich.html" class="text-gray-700 hover:text-purple-700"
+          <a href="/" class="nav-link text-gray-700 hover:text-purple-700">Home</a>
+          <a href="ueber-mich.html" class="nav-link text-gray-700 hover:text-purple-700"
             >Über mich</a
           >
-          <a href="preise.html" class="text-gray-700 hover:text-purple-700"
+          <a href="preise.html" class="nav-link text-gray-700 hover:text-purple-700"
             >Preise</a
           >
-          <a href="kontakt.html" class="text-gray-700 hover:text-purple-700"
+          <a href="kontakt.html" class="nav-link text-gray-700 hover:text-purple-700"
             >Kontakt</a
           >
         </div>
-        <div class="md:hidden">
+        <div class="md:hidden z-[1001]">
           <button
             id="mobile-menu-button"
-            class="text-gray-700 focus:outline-none"
+            class="hamburger-btn focus:outline-none"
           >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
+            <span class="hamburger-line line-1"></span>
+            <span class="hamburger-line line-2"></span>
+            <span class="hamburger-line line-3"></span>
           </button>
         </div>
       </nav>
       <div
         id="mobile-menu"
-        class="hidden md:hidden fixed inset-0 bg-white z-[1000] flex flex-col justify-center items-center"
+        class="fixed inset-0 bg-white z-[1000] flex flex-col justify-center items-center"
       >
-        <button
-          id="mobile-menu-close"
-          class="absolute top-6 right-6 text-gray-700 focus:outline-none"
-        >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            ></path>
-          </svg>
-        </button>
-        <div class="flex flex-col space-y-8 text-center">
-          <a href="/" class="text-3xl font-bold text-gray-700 hover:text-purple-700">Home</a>
+        <div class="flex flex-col space-y-12 text-center">
+          <a href="/" class="nav-link text-3xl font-bold text-gray-700 hover:text-purple-700">Home</a>
           <a
             href="ueber-mich.html"
-            class="text-3xl font-bold text-gray-700 hover:text-purple-700"
+            class="nav-link text-3xl font-bold text-gray-700 hover:text-purple-700"
             >Über mich</a
           >
           <a
             href="preise.html"
-            class="text-3xl font-bold text-gray-700 hover:text-purple-700"
+            class="nav-link text-3xl font-bold text-gray-700 hover:text-purple-700"
             >Preise</a
           >
           <a
             href="kontakt.html"
-            class="text-3xl font-bold text-gray-700 hover:text-purple-700"
+            class="nav-link text-3xl font-bold text-gray-700 hover:text-purple-700"
             >Kontakt</a
           >
         </div>
