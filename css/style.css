@@ -29,6 +29,27 @@
     }
 }
 
+@keyframes turtle-float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+    75% {
+        transform: translateY(5px) rotate(-2deg);
+    }
+}
+
+@keyframes shell-pulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 body {
     font-family: 'Comfortaa', sans-serif;
     display: flex;
@@ -108,6 +129,51 @@ main {
 
 .transform:hover {
     transform: scale(1.05);
+}
+
+.turtle-shell-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.turtle-shell-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('turtle-pattern.svg');
+    background-repeat: repeat;
+    animation: shell-pulse 4s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.turtle-shell-bg > * {
+    position: relative;
+    z-index: 10;
+}
+
+.turtle-card {
+    border-radius: 40px 15px 40px 15px;
+    border: 1px solid rgba(126, 34, 206, 0.1);
+}
+
+.turtle-float {
+    animation: turtle-float 6s ease-in-out infinite;
+}
+
+.turtle-icon-bg {
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, rgba(167, 139, 250, 0) 70%);
+}
+
+.loader-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+    animation: turtle-float 4s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {

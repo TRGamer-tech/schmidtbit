@@ -9,14 +9,18 @@
 </head>
 <body class="bg-gray-100">
     <!-- Loader -->
-    <div id="loader" class="loader">
+    <div id="loader" class="loader flex-col">
+        <img src="images/turtle-logo.png" alt="Turtle Mascot" class="loader-logo">
         <h1 class="loader-text">Kinesiologie Stone</h1>
     </div>
 
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-purple-700">Kinesiologie Stone</a>
+            <div class="flex items-center">
+                <img src="images/turtle-logo.png" alt="Turtle" class="h-10 w-auto mr-3 turtle-float">
+                <a href="/" class="text-2xl font-bold text-purple-700">Kinesiologie Stone</a>
+            </div>
             <div class="hidden md:flex space-x-6">
                 <a href="/" class="text-gray-700 hover:text-purple-700">Home</a>
                 <a href="ueber-mich.html" class="text-gray-700 hover:text-purple-700">Über mich</a>
@@ -44,9 +48,10 @@
             <h1 class="text-4xl md:text-6xl font-bold text-purple-800 mb-4">Über mich</h1>
         </section>
 
-        <section class="flex flex-col md:flex-row items-center md:space-x-12">
-            <div class="md:w-1/3 mb-8 md:mb-0">
-                <img src="https://plus.unsplash.com/premium_vector-1720979174155-d94ea30c59a0?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sylva Stone" class="rounded-full shadow-lg mx-auto">
+        <section class="flex flex-col md:flex-row items-center md:space-x-12 mb-16 turtle-shell-bg p-8 rounded-3xl">
+            <div class="md:w-1/3 mb-8 md:mb-0 relative">
+                <div class="absolute -inset-4 bg-purple-200 rounded-full opacity-30 animate-pulse"></div>
+                <img src="https://plus.unsplash.com/premium_vector-1720979174155-d94ea30c59a0?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sylva Stone" class="rounded-full shadow-lg mx-auto relative z-10 border-4 border-white">
             </div>
             <div class="md:w-2/3">
                 <h2 class="text-2xl font-bold text-purple-700 mb-4">Sylva Stone</h2>
@@ -72,7 +77,7 @@
             <h2 class="text-3xl font-bold text-purple-800 mb-8">Starten Sie Ihre Reise zu innerer Balance</h2>
             <div class="grid md:grid-cols-3 gap-8 mb-8 text-left">
                 <!-- Selling Point 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-purple-700 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         <h3 class="text-xl font-bold text-purple-700">Stress reduzieren</h3>
@@ -80,7 +85,7 @@
                     <p class="text-gray-700">Finden Sie Ruhe und Gelassenheit im Alltag und bauen Sie emotionalen Druck effektiv ab.</p>
                 </div>
                 <!-- Selling Point 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-purple-700 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 16 9 L 16 13 M 14 11 L 18 11 M 8 5 L 8 9 M 6 7 L 10 7 M 8 14 L 8 18 M 6 16 L 10 16"></path></svg>
                         <h3 class="text-xl font-bold text-purple-700">Energie tanken</h3>
@@ -88,7 +93,7 @@
                     <p class="text-gray-700">Lösen Sie tiefsitzende Blockaden und aktivieren Sie Ihre körpereigene Lebenskraft neu.</p>
                 </div>
                 <!-- Selling Point 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-purple-700 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <h3 class="text-xl font-bold text-purple-700">Potenzial entfalten</h3>
