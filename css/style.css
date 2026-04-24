@@ -43,25 +43,31 @@
 }
 
 @keyframes pulse {
-  0%, 25% {
+  0%,
+  25% {
     transform: scale(0.01);
   }
-  45%, 75% {
+  45%,
+  75% {
     transform: scale(1);
   }
-  95%, 100% {
+  95%,
+  100% {
     transform: scale(0.01);
   }
 }
 
 @keyframes fade {
-  0%, 25% {
+  0%,
+  25% {
     background: #ddd6fe;
   }
-  45%, 75% {
+  45%,
+  75% {
     background: #c4b5fd;
   }
-  95%, 100% {
+  95%,
+  100% {
     background: #ddd6fe;
   }
 }
@@ -132,65 +138,191 @@ h6,
   font-family: "Cherry Swash", serif;
 }
 
+/* --- Purple Swimming Turtle Loader --- */
 .loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgb(110, 17, 176), #f292ff);
+  background: #a78bfa; /* Light purple sky */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
   z-index: 9999;
-  transform: translateY(0);
-  transition: transform 1s ease;
-  box-shadow: 0 25px 50px -12px rgba(110, 17, 176, 1);
-}
-
-.loader.is-flying-out {
-  transform: translateY(105%);
-  box-shadow: 0 -25px 50px -12px rgba(110, 17, 176, 0.75);
-}
-
-.loader.is-offscreen-top {
-  transform: translateY(-100%);
-}
-
-.loader.no-transition {
-  transition: none;
+  transition: opacity 0.5s ease-out;
 }
 
 .loader.is-hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.loader-hidden-final {
-  display: none;
+/* The Water / Sea Surface */
+.turtle-container {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  background: #7e22ce; /* Dark purple water */
+  border-top: 8px solid #2e1065; /* The "Center Line" / Surface */
+}
+
+.turtle {
+  position: absolute;
+  left: -250px;
+  top: -8px; /* Sit on the surface line */
+  width: 218px;
+  height: 92px;
+  transform: translateX(-50%);
+  animation: turtle-bob 3s ease-in-out infinite;
+}
+
+@keyframes turtle-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Page Load Animation: Swim to center */
+.loader.is-entering .turtle {
+  animation: swim-to-center 1.5s ease-out forwards;
+}
+
+@keyframes swim-to-center {
+  from { left: -250px; }
+  to { left: 50%; }
+}
+
+/* Page Exit Animation: Swim to right */
+.loader.is-exiting .turtle {
+  animation: swim-to-right 1.2s ease-in forwards;
+}
+
+@keyframes swim-to-right {
+  from { left: 50%; }
+  to { left: 110%; }
+}
+
+.leg {
+  width: 46px;
+  height: 46px;
+  background: #a78bfa;
+  border: 8px solid #2e1065;
+  border-bottom-right-radius: 9999px;
+  border-bottom-left-radius: 1500px;
+  box-shadow: inset 0 3px 0 0 rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 0;
+}
+
+.leg::after {
+  content: "";
+  position: absolute;
+  left: 90px;
+  top: -8px;
+  width: 46px;
+  height: 46px;
+  background: #a78bfa;
+  border: 8px solid #2e1065;
+  border-bottom-right-radius: 9999px;
+  border-bottom-left-radius: 1500px;
+  box-shadow: inset 0 3px 0 0 rgba(255, 255, 255, 0.2);
+}
+
+.body {
+  position: absolute;
+  left: 48px;
+  top: -50px;
+  width: 88px;
+  height: 42px;
+  background: #7e22ce;
+  border: 8px solid #2e1065;
+  border-top-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.body::after {
+  content: "";
+  position: absolute;
+  left: 35px;
+  top: 6px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 12px 0 0 0 rgba(255, 255, 255, 0.3),
+    -12px 12px 0 0 rgba(255, 255, 255, 0.3),
+    5px 12px 0 0 rgba(255, 255, 255, 0.3),
+    23px 12px 0 0 rgba(255, 255, 255, 0.3),
+    -22px 22px 0 0 rgba(255, 255, 255, 0.3),
+    -5px 22px 0 0 rgba(255, 255, 255, 0.3),
+    15px 22px 0 0 rgba(255, 255, 255, 0.3),
+    30px 22px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+.head {
+  position: absolute;
+  left: 151px;
+  top: -50px;
+  width: 88px;
+  height: 42px;
+  background: #a78bfa;
+  border: 8px solid #2e1065;
+  border-top-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+}
+
+/* Eye */
+.head::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #2e1065;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.head::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -100%) scaleY(0.7); /* Half-closed heavy lid */
+  transform-origin: bottom;
+  width: 24px;
+  height: 20px;
+  background: #a78bfa;
+  border-radius: 50% 50% 0 0; /* Eyelid shape */
+  z-index: 100;
+  animation: chill-blink 4s ease-in-out infinite;
+}
+
+@keyframes chill-blink {
+  0%, 94%, 100% { transform: translate(-50%, -100%) scaleY(0.7); }
+  97% { transform: translate(-50%, -100%) scaleY(1.3); }
 }
 
 .loader-text {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   color: #fff;
   font-family: "Cherry Swash", serif;
   font-size: 3rem;
-  animation: glow 0.5s ease-in-out infinite alternate;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: text-glow 1.5s ease-in-out infinite alternate;
+  z-index: 10;
+  white-space: nowrap;
 }
 
-@keyframes glow {
-  from {
-    text-shadow:
-      0 0 10px #fff,
-      0 0 20px #fff,
-      0 0 30px #a78bfa,
-      0 0 40px #a78bfa;
-  }
-  to {
-    text-shadow:
-      0 0 20px #fff,
-      0 0 30px #a78bfa,
-      0 0 40px #a78bfa,
-      0 0 50px #a78bfa;
-  }
+@keyframes text-glow {
+  from { opacity: 0.8; transform: translateX(-50%) scale(0.98); }
+  to { opacity: 1; transform: translateX(-50%) scale(1.02); }
 }
 
 main {
@@ -210,19 +342,10 @@ main {
   transform: scale(1.05);
 }
 
-.turtle-shell-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-.turtle-shell-bg > * {
-  position: relative;
-  z-index: 10;
-}
-
 .turtle-card {
   border-radius: 40px 15px 40px 15px;
   border: 1px solid rgba(126, 34, 206, 0.1);
+  background: white;
 }
 
 .turtle-float {
