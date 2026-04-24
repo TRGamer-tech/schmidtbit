@@ -43,10 +43,19 @@
 
 @keyframes shell-pulse {
     0%, 100% {
-        opacity: 0.3;
+        opacity: 0.4;
     }
     50% {
-        opacity: 0.5;
+        opacity: 0.8;
+    }
+}
+
+@keyframes shell-drift {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 60px 60px;
     }
 }
 
@@ -145,7 +154,7 @@ main {
     bottom: 0;
     background-image: url('turtle-pattern.svg');
     background-repeat: repeat;
-    animation: shell-pulse 4s ease-in-out infinite;
+    animation: shell-pulse 4s ease-in-out infinite, shell-drift 20s linear infinite;
     z-index: 0;
     pointer-events: none;
 }
