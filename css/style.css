@@ -317,6 +317,100 @@ h6,
   to { opacity: 1; transform: translateX(-50%) scale(1.02); }
 }
 
+/* --- Navigation Animations --- */
+
+/* Hamburger Button */
+.hamburger-btn {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #4b5563; /* text-gray-600 */
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.is-active .line-1 {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.is-active .line-2 {
+  opacity: 0;
+}
+
+.is-active .line-3 {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Full Screen Menu Animation */
+#mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Underline Hover Animation */
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #7e22ce; /* purple-700 */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Hide desktop nav underline if needed */
+@media (max-width: 768px) {
+  #mobile-menu .nav-link {
+    font-size: 2.5rem;
+  }
+}
+
+.loader-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  animation: turtle-float 4s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .loader-text {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+/* --- Global Styles --- */
 main {
   transition: opacity 0.5s ease-in;
   flex-grow: 1;
@@ -350,19 +444,4 @@ main {
     rgba(167, 139, 250, 0.2) 0%,
     rgba(167, 139, 250, 0) 70%
   );
-}
-
-.loader-logo {
-  width: 150px;
-  height: auto;
-  margin-bottom: 2rem;
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
-  animation: turtle-float 4s ease-in-out infinite;
-}
-
-@media (max-width: 768px) {
-  .loader-text {
-    font-size: 2rem;
-    text-align: center;
-  }
 }

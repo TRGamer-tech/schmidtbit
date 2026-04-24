@@ -64,11 +64,29 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- Mobile Menu ---
+  const mobileMenuClose = document.getElementById("mobile-menu-close");
+  
   if (mobileMenuButton) {
     mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.remove("hidden");
+      document.body.style.overflow = "hidden"; // Disable scroll
     });
   }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      document.body.style.overflow = ""; // Enable scroll
+    });
+  }
+
+  // Close menu when a link is clicked
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      document.body.style.overflow = "";
+    });
+  });
 
   // Animations on scroll
   const animatedElements = document.querySelectorAll(".transform");
