@@ -1,88 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kinesiologie-Stone.ch</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-gray-100">
-
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-100">
     <!-- Loader -->
     <div id="loader" class="loader flex-col">
-        <img src="images/turtle-logo.png" alt="Turtle Mascot" class="loader-logo">
-        <h1 class="loader-text">Kinesiologie Stone</h1>
+      <img
+        src="images/turtle-logo.png"
+        alt="Turtle Mascot"
+        class="loader-logo"
+      />
+      <h1 class="loader-text">Kinesiologie Stone</h1>
     </div>
 
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="images/turtle-logo.png" alt="Turtle" class="h-10 w-auto mr-3 turtle-float">
-                <a href="/" class="text-2xl font-bold text-purple-700">Kinesiologie Stone</a>
-            </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="/" class="text-gray-700 hover:text-purple-700">Home</a>
-                <a href="ueber-mich.html" class="text-gray-700 hover:text-purple-700">Über mich</a>
-                <a href="preise.html" class="text-gray-700 hover:text-purple-700">Preise</a>
-                <a href="kontakt.html" class="text-gray-700 hover:text-purple-700">Kontakt</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="/" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Home</a>
-            <a href="ueber-mich.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Über mich</a>
-            <a href="preise.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Preise</a>
-            <a href="kontakt.html" class="block px-6 py-2 text-gray-700 hover:bg-purple-100">Kontakt</a>
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <img
+            src="images/turtle-logo.png"
+            alt="Turtle"
+            class="h-10 w-auto mr-3 turtle-float"
+          />
+          <a href="/" class="text-2xl font-bold text-purple-700"
+            >Kinesiologie Stone</a
+          >
         </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="/" class="text-gray-700 hover:text-purple-700">Home</a>
+          <a href="ueber-mich.html" class="text-gray-700 hover:text-purple-700"
+            >Über mich</a
+          >
+          <a href="preise.html" class="text-gray-700 hover:text-purple-700"
+            >Preise</a
+          >
+          <a href="kontakt.html" class="text-gray-700 hover:text-purple-700"
+            >Kontakt</a
+          >
+        </div>
+        <div class="md:hidden">
+          <button
+            id="mobile-menu-button"
+            class="text-gray-700 focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden">
+        <a href="/" class="block px-6 py-2 text-gray-700 hover:bg-purple-100"
+          >Home</a
+        >
+        <a
+          href="ueber-mich.html"
+          class="block px-6 py-2 text-gray-700 hover:bg-purple-100"
+          >Über mich</a
+        >
+        <a
+          href="preise.html"
+          class="block px-6 py-2 text-gray-700 hover:bg-purple-100"
+          >Preise</a
+        >
+        <a
+          href="kontakt.html"
+          class="block px-6 py-2 text-gray-700 hover:bg-purple-100"
+          >Kontakt</a
+        >
+      </div>
     </header>
 
     <main id="main-content" class="container mx-auto px-6 py-12 opacity-0">
-        <!-- Hero Section -->
-        <section class="text-center mb-16 relative py-12 turtle-shell-bg rounded-3xl">
-            <div class="relative z-10">
-                <img src="images/turtle-logo.png" alt="Turtle Logo" class="mx-auto mb-6 h-32 md:h-48 w-auto turtle-float drop-shadow-2xl">
-                <h1 class="text-4xl md:text-6xl font-bold text-purple-800 mb-4">Willkommen bei <br> Kinesiologie-Stone.ch</h1>
-                <p class="text-lg text-gray-600">Ihr Weg zu mehr Wohlbefinden und innerer Balance.</p>
-            </div>
-        </section>
+      <!-- Hero Section -->
+      <section
+        class="text-center mb-16 relative py-12 turtle-shell-bg rounded-3xl"
+      >
+        <div class="relative z-10">
+          <img
+            src="images/turtle-logo.png"
+            alt="Turtle Logo"
+            class="mx-auto mb-6 h-32 md:h-48 w-auto turtle-float drop-shadow-2xl"
+          />
+          <h1 class="text-4xl md:text-6xl font-bold text-purple-800 mb-4">
+            Willkommen bei <br />
+            Kinesiologie-Stone.ch
+          </h1>
+          <p class="text-lg text-gray-600">
+            Ihr Weg zu mehr Wohlbefinden und innerer Balance.
+          </p>
+        </div>
+      </section>
 
-        <!-- Angebot Section -->
-        <section id="angebot" class="mb-12">
-            <h2 class="text-3xl font-bold text-center text-purple-800 mb-8">Angebot</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-t-4 border-purple-400">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1220&q=80" alt="Was ist Kinesiologie?" class="rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-purple-700 mb-2">Was ist Kinesiologie?</h3>
-                    <p class="text-gray-700">Kinesiologie ist eine sanfte und ganzheitliche Methode, um Blockaden im Körper aufzuspüren und zu lösen. Sie verbindet westliches Wissen über Anatomie und Physiologie mit der östlichen Lehre der Energiebahnen (Meridiane).</p>
-                </div>
-                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-t-4 border-purple-400">
-                    <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?q=80&w=1499&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Was kann Kinesiologie bewirken?" class="rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-purple-700 mb-2">Was kann Kinesiologie bewirken?</h3>
-                    <p class="text-gray-700">Kinesiologie kann helfen, Stress abzubauen, die Selbstheilungskräfte zu aktivieren, das körperliche und seelische Gleichgewicht wiederherzustellen und die Lebensqualität zu verbessern.</p>
-                </div>
-                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-t-4 border-purple-400">
-                    <img src="https://images.unsplash.com/photo-1533371452382-d45a9da51ad9?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Typische Anwendungsgebiete" class="rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-purple-700 mb-2">Typische Anwendungsgebiete</h3>
-                    <ul class="list-disc list-inside text-gray-700">
-                        <li>Stress und Burnout</li>
-                        <li>Ängste und Phobien</li>
-                        <li>Schlafstörungen</li>
-                        <li>Lernschwierigkeiten</li>
-                        <li>Allergien und Unverträglichkeiten</li>
-                        <li>Schmerzen und Verspannungen</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+      <!-- Angebot Section -->
+      <section id="angebot" class="mb-12">
+        <h2 class="text-3xl font-bold text-center text-purple-800 mb-8">
+          Angebot
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-t-4 border-purple-400"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1220&q=80"
+              alt="Was ist Kinesiologie?"
+              class="rounded-lg mb-4"
+            />
+            <h3 class="text-xl font-bold text-purple-700 mb-2">
+              Was ist Kinesiologie?
+            </h3>
+            <p class="text-gray-700">
+              Kinesiologie ist eine sanfte und ganzheitliche Methode, um
+              Blockaden im Körper aufzuspüren und zu lösen. Sie verbindet
+              westliches Wissen über Anatomie und Physiologie mit der östlichen
+              Lehre der Energiebahnen (Meridiane).
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-t-4 border-purple-400"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?q=80&w=1499&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Was kann Kinesiologie bewirken?"
+              class="rounded-lg mb-4"
+            />
+            <h3 class="text-xl font-bold text-purple-700 mb-2">
+              Was kann Kinesiologie bewirken?
+            </h3>
+            <p class="text-gray-700">
+              Kinesiologie kann helfen, Stress abzubauen, die
+              Selbstheilungskräfte zu aktivieren, das körperliche und seelische
+              Gleichgewicht wiederherzustellen und die Lebensqualität zu
+              verbessern.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-t-4 border-purple-400"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1533371452382-d45a9da51ad9?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Typische Anwendungsgebiete"
+              class="rounded-lg mb-4"
+            />
+            <h3 class="text-xl font-bold text-purple-700 mb-2">
+              Typische Anwendungsgebiete
+            </h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Stress und Burnout</li>
+              <li>Ängste und Phobien</li>
+              <li>Schlafstörungen</li>
+              <li>Lernschwierigkeiten</li>
+              <li>Allergien und Unverträglichkeiten</li>
+              <li>Schmerzen und Verspannungen</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <!-- Anwendungsbereiche Section 
+      <!-- Anwendungsbereiche Section 
         <section id="anwendungsbereiche" class="mb-12">
             <h2 class="text-3xl font-bold text-center text-purple-800 mb-8">Anwendungsbereiche</h2>
             <div class="bg-white p-8 rounded-lg shadow-lg">
@@ -112,50 +204,119 @@
             </div>
         </section>
         -->
-        
-        <!-- Call to Action Section -->
-        <section id="kontakt-cta" class="mb-12 text-center">
-            <h2 class="text-3xl font-bold text-purple-800 mb-8">Starten Sie Ihre Reise zu innerer Balance</h2>
-            <div class="grid md:grid-cols-3 gap-8 mb-8 text-left">
-                <!-- Selling Point 1 -->
-                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-8 h-8 text-purple-700 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        <h3 class="text-xl font-bold text-purple-700">Stress reduzieren</h3>
-                    </div>
-                    <p class="text-gray-700">Finden Sie Ruhe und Gelassenheit im Alltag und bauen Sie emotionalen Druck effektiv ab.</p>
-                </div>
-                <!-- Selling Point 2 -->
-                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-8 h-8 text-purple-700 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 16 9 L 16 13 M 14 11 L 18 11 M 8 5 L 8 9 M 6 7 L 10 7 M 8 14 L 8 18 M 6 16 L 10 16"></path></svg>
-                        <h3 class="text-xl font-bold text-purple-700">Energie tanken</h3>
-                    </div>
-                    <p class="text-gray-700">Lösen Sie tiefsitzende Blockaden und aktivieren Sie Ihre körpereigene Lebenskraft neu.</p>
-                </div>
-                <!-- Selling Point 3 -->
-                <div class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-8 h-8 text-purple-700 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="text-xl font-bold text-purple-700">Potenzial entfalten</h3>
-                    </div>
-                    <p class="text-gray-700">Stärken Sie Ihr Selbstvertrauen und gewinnen Sie die Klarheit, um Ihre Ziele zu erreichen.</p>
-                </div>
+
+      <!-- Call to Action Section -->
+      <section id="kontakt-cta" class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-purple-800 mb-8">
+          Starten Sie Ihre Reise zu innerer Balance
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 mb-8 text-left">
+          <!-- Selling Point 1 -->
+          <div
+            class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500"
+          >
+            <div class="flex items-center mb-4">
+              <svg
+                class="w-8 h-8 text-purple-700 mr-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+              <h3 class="text-xl font-bold text-purple-700">
+                Stress reduzieren
+              </h3>
             </div>
-            <p class="text-lg text-gray-600 mb-6">Sind Sie bereit, den ersten Schritt zu machen? Ich freue mich darauf, Sie auf Ihrem individuellen Weg zu begleiten.</p>
-            <a href="kontakt.html" class="bg-purple-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-800 transition-colors duration-300 text-lg">
-                Jetzt Kontakt aufnehmen
-            </a>
-        </section>
+            <p class="text-gray-700">
+              Finden Sie Ruhe und Gelassenheit im Alltag und bauen Sie
+              emotionalen Druck effektiv ab.
+            </p>
+          </div>
+          <!-- Selling Point 2 -->
+          <div
+            class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500"
+          >
+            <div class="flex items-center mb-4">
+              <svg
+                class="w-8 h-8 text-purple-700 mr-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M 16 9 L 16 13 M 14 11 L 18 11 M 8 5 L 8 9 M 6 7 L 10 7 M 8 14 L 8 18 M 6 16 L 10 16"
+                ></path>
+              </svg>
+              <h3 class="text-xl font-bold text-purple-700">Energie tanken</h3>
+            </div>
+            <p class="text-gray-700">
+              Lösen Sie tiefsitzende Blockaden und aktivieren Sie Ihre
+              körpereigene Lebenskraft neu.
+            </p>
+          </div>
+          <!-- Selling Point 3 -->
+          <div
+            class="bg-white p-6 turtle-card shadow-lg transform hover:scale-105 transition-transform duration-300 border-l-4 border-purple-500"
+          >
+            <div class="flex items-center mb-4">
+              <svg
+                class="w-8 h-8 text-purple-700 mr-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <h3 class="text-xl font-bold text-purple-700">
+                Potenzial entfalten
+              </h3>
+            </div>
+            <p class="text-gray-700">
+              Stärken Sie Ihr Selbstvertrauen und gewinnen Sie die Klarheit, um
+              Ihre Ziele zu erreichen.
+            </p>
+          </div>
+        </div>
+        <p class="text-lg text-gray-600 mb-6">
+          Sind Sie bereit, den ersten Schritt zu machen? Ich freue mich darauf,
+          Sie auf Ihrem individuellen Weg zu begleiten.
+        </p>
+        <a
+          href="kontakt.html"
+          class="bg-purple-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-800 transition-colors duration-300 text-lg"
+        >
+          Jetzt Kontakt aufnehmen
+        </a>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="bg-purple-800 text-white py-6 mt-12">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="copyright-year"></span> Kinesiologie-Stone.ch | Alle Rechte vorbehalten.</p>
-        </div>
+      <div class="container mx-auto px-6 text-center">
+        <p>
+          &copy; <span id="copyright-year"></span> Kinesiologie-Stone.ch | Alle
+          Rechte vorbehalten.
+        </p>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

@@ -1,193 +1,304 @@
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&family=Comfortaa:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&family=Comfortaa:wght@300..700&display=swap");
 
 @keyframes loader-spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes loader-inner-spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(-360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
 @keyframes fly-out {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 }
 
 @keyframes turtle-float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-5px) rotate(2deg);
-    }
-    75% {
-        transform: translateY(5px) rotate(-2deg);
-    }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-2deg);
+  }
 }
 
-@keyframes shell-pulse {
-    0%, 100% {
-        opacity: 0.4;
-    }
-    50% {
-        opacity: 0.8;
-    }
+@keyframes honeycomb-ripple {
+  0% {
+    opacity: 0;
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      transparent 0%,
+      black 0%,
+      transparent 15%
+    );
+    mask-image: radial-gradient(
+      circle at center,
+      transparent 0%,
+      black 0%,
+      transparent 15%
+    );
+    transform: rotate(45deg) scale(0.8);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  20% {
+    opacity: 1;
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      transparent 10%,
+      black 20%,
+      transparent 35%
+    );
+    mask-image: radial-gradient(
+      circle at center,
+      transparent 10%,
+      black 20%,
+      transparent 35%
+    );
+  }
+  40% {
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      transparent 30%,
+      black 40%,
+      transparent 55%
+    );
+    mask-image: radial-gradient(
+      circle at center,
+      transparent 30%,
+      black 40%,
+      transparent 55%
+    );
+  }
+  60% {
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      transparent 50%,
+      black 60%,
+      transparent 75%
+    );
+    mask-image: radial-gradient(
+      circle at center,
+      transparent 50%,
+      black 60%,
+      transparent 75%
+    );
+  }
+  80% {
+    opacity: 1;
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      transparent 70%,
+      black 80%,
+      transparent 95%
+    );
+    mask-image: radial-gradient(
+      circle at center,
+      transparent 70%,
+      black 80%,
+      transparent 95%
+    );
+  }
+  100% {
+    opacity: 0;
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      transparent 90%,
+      black 100%,
+      transparent 115%
+    );
+    mask-image: radial-gradient(
+      circle at center,
+      transparent 90%,
+      black 100%,
+      transparent 115%
+    );
+    transform: rotate(45deg) scale(1.2);
+  }
 }
 
 @keyframes shell-drift {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 60px 60px;
-    }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 120px 120px;
+  }
 }
 
 body {
-    font-family: 'Comfortaa', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Comfortaa", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 
-h1, h2, h3, h4, h5, h6, .font-serif {
-    font-family: 'Cherry Swash', serif;
+body::before {
+  content: "";
+  position: fixed;
+  top: -50vh;
+  left: -50vw;
+  width: 200vw;
+  height: 200vh;
+  background-image: url("turtle-pattern.svg");
+  background-repeat: repeat;
+  background-size: 100px 150px;
+  z-index: -1;
+  pointer-events: none;
+  transform: rotate(45deg);
+  animation:
+    shell-drift 30s linear infinite,
+    honeycomb-ripple 6s linear infinite;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif {
+  font-family: "Cherry Swash", serif;
 }
 
 .loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgb(110, 17, 176), #f292ff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transform: translateY(0);
-    transition: transform 1s ease;
-    box-shadow: 0 25px 50px -12px rgba(110, 17, 176, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgb(110, 17, 176), #f292ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transform: translateY(0);
+  transition: transform 1s ease;
+  box-shadow: 0 25px 50px -12px rgba(110, 17, 176, 1);
 }
 
 .loader.is-flying-out {
-    transform: translateY(105%);
-    box-shadow: 0 -25px 50px -12px rgba(110, 17, 176, 0.75);
+  transform: translateY(105%);
+  box-shadow: 0 -25px 50px -12px rgba(110, 17, 176, 0.75);
 }
 
 .loader.is-offscreen-top {
-    transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 .loader.no-transition {
-    transition: none;
+  transition: none;
 }
 
 .loader.is-hidden {
-    display: none;
+  display: none;
 }
 
 .loader-hidden-final {
-    display: none;
+  display: none;
 }
 
 .loader-text {
-    color: #fff;
-    font-family: 'Cherry Swash', serif;
-    font-size: 3rem;
-    animation: glow 0.5s ease-in-out infinite alternate;
+  color: #fff;
+  font-family: "Cherry Swash", serif;
+  font-size: 3rem;
+  animation: glow 0.5s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    from {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #A78BFA, 0 0 40px #A78BFA;
-    }
-    to {
-        text-shadow: 0 0 20px #fff, 0 0 30px #A78BFA, 0 0 40px #A78BFA, 0 0 50px #A78BFA;
-    }
+  from {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 30px #a78bfa,
+      0 0 40px #a78bfa;
+  }
+  to {
+    text-shadow:
+      0 0 20px #fff,
+      0 0 30px #a78bfa,
+      0 0 40px #a78bfa,
+      0 0 50px #a78bfa;
+  }
 }
 
 main {
-    transition: opacity 0.5s ease-in;
-    flex-grow: 1;
+  transition: opacity 0.5s ease-in;
+  flex-grow: 1;
 }
 
 .animate-fade-in {
-    opacity: 1;
+  opacity: 1;
 }
 
 .transform {
-    transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .transform:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .turtle-shell-bg {
-    position: relative;
-    overflow: hidden;
-}
-
-.turtle-shell-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('turtle-pattern.svg');
-    background-repeat: repeat;
-    animation: shell-pulse 4s ease-in-out infinite, shell-drift 20s linear infinite;
-    z-index: 0;
-    pointer-events: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .turtle-shell-bg > * {
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }
 
 .turtle-card {
-    border-radius: 40px 15px 40px 15px;
-    border: 1px solid rgba(126, 34, 206, 0.1);
+  border-radius: 40px 15px 40px 15px;
+  border: 1px solid rgba(126, 34, 206, 0.1);
 }
 
 .turtle-float {
-    animation: turtle-float 6s ease-in-out infinite;
+  animation: turtle-float 6s ease-in-out infinite;
 }
 
 .turtle-icon-bg {
-    background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, rgba(167, 139, 250, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.2) 0%,
+    rgba(167, 139, 250, 0) 70%
+  );
 }
 
 .loader-logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
-    animation: turtle-float 4s ease-in-out infinite;
+  width: 150px;
+  height: auto;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  animation: turtle-float 4s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
-    .loader-text {
-        font-size: 2rem;
-        text-align: center;
-    }
+  .loader-text {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
