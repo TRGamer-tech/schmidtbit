@@ -104,37 +104,38 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get size from CSS variable or use default
         const style = getComputedStyle(document.querySelector('.background-honeycomb') || document.documentElement);
         const hexWidth = parseInt(style.getPropertyValue('--hex-w')) || 120;
-        const hexHeight = hexWidth * 0.866;
-        const hSpacing = hexWidth * 0.75;
-        const vSpacing = hexHeight;
+        // Precise centering math
+        const hStep = hexWidth; 
+        const vStep = hexWidth * 0.866; 
         
-        const cols = Math.ceil(window.innerWidth / hSpacing) + 1;
-        const rows = Math.ceil(window.innerHeight / vSpacing) + 1;
+        const cols = Math.ceil(window.innerWidth / hStep) + 4;
+        const rows = Math.ceil(window.innerHeight / vStep) + 4;
         
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
-        const maxDist = Math.sqrt(centerX**2 + centerY**2);
+        
+        // Start the grid from a centered offset
+        const startX = centerX - (Math.floor(cols / 2) * hStep);
+        const startY = centerY - (Math.floor(rows / 2) * vStep);
+        
+        const maxDist = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)) / 2;
         
         const fragment = document.createDocumentFragment();
         
-        for (let r = -2; r < rows; r++) {
-            for (let c = -2; c < cols; c++) {
-                // Seamless honeycomb math with zero gaps
-                const hStep = hexWidth; 
-                const vStep = hexWidth * 0.866; 
-                
-                const x = c * hStep + (r % 2 === 0 ? 0 : hStep / 2);
-                const y = r * vStep;
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x = startX + c * hStep + (r % 2 === 0 ? 0 : hStep / 2);
+                const y = startY + r * vStep;
                 
                 const gel = document.createElement('div');
                 gel.className = 'gel';
                 gel.style.left = `${x}px`;
                 gel.style.top = `${y}px`;
                 
-                const dx = x - centerX;
-                const dy = y - centerY;
+                const dx = x - (centerX - hexWidth / 2); // Adjust for gel center
+                const dy = y - (centerY - hexWidth / 2);
                 const dist = Math.sqrt(dx*dx + dy*dy);
-                const delay = (dist / maxDist) * 3; // Waves spread out
+                const delay = (dist / maxDist) * 2.5; // Ripple speed control
                 
                 gel.style.animationDelay = `${delay}s`;
                 

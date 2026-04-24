@@ -43,25 +43,25 @@
 }
 
 @keyframes pulse {
-  0%, 15% {
+  0%, 25% {
     transform: scale(0.01);
   }
-  40%, 60% {
+  45%, 75% {
     transform: scale(1);
   }
-  85%, 100% {
+  95%, 100% {
     transform: scale(0.01);
   }
 }
 
 @keyframes fade {
-  0%, 15% {
+  0%, 25% {
     background: #ddd6fe;
   }
-  40%, 60% {
+  45%, 75% {
     background: #c4b5fd;
   }
-  85%, 100% {
+  95%, 100% {
     background: #ddd6fe;
   }
 }
