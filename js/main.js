@@ -109,6 +109,42 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(element);
   });
 
+  // --- Navbar Turtle Backflip ---
+  const navbarTurtle = document.getElementById("navbar-turtle");
+  if (navbarTurtle) {
+    navbarTurtle.addEventListener("click", () => {
+      navbarTurtle.classList.add("is-flipping");
+      
+      // Wait for flip animation to finish (800ms)
+      setTimeout(() => {
+        if (loader) {
+          // Trigger loader exit animation
+          loader.classList.remove("is-hidden");
+          loader.classList.remove("is-entering");
+          loader.classList.add("is-exiting");
+          
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 1000);
+        } else {
+          window.location.href = "/";
+        }
+      }, 800);
+    });
+  }
+
+  // --- Hero Turtle Backflip ---
+  const heroTurtle = document.getElementById("hero-turtle");
+  if (heroTurtle) {
+    heroTurtle.addEventListener("click", () => {
+      heroTurtle.classList.add("is-flipping");
+      // Remove class after animation to allow re-triggering
+      setTimeout(() => {
+        heroTurtle.classList.remove("is-flipping");
+      }, 800);
+    });
+  }
+
   // --- Copyright Year ---
   const copyrightYearSpan = document.getElementById("copyright-year");
   if (copyrightYearSpan) {

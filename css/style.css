@@ -438,6 +438,16 @@ main {
   animation: turtle-float 6s ease-in-out infinite;
 }
 
+@keyframes turtle-backflip {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-25deg) scale(1.1); } /* Wind-up */
+  100% { transform: rotate(360deg) scale(1); } /* Smooth spin right */
+}
+
+.is-flipping {
+  animation: turtle-backflip 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) !important;
+}
+
 .turtle-icon-bg {
   background: radial-gradient(
     circle,
