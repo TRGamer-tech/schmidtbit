@@ -42,109 +42,59 @@
   }
 }
 
-@keyframes honeycomb-ripple {
-  0% {
-    opacity: 0;
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      transparent 0%,
-      black 0%,
-      transparent 15%
-    );
-    mask-image: radial-gradient(
-      circle at center,
-      transparent 0%,
-      black 0%,
-      transparent 15%
-    );
-    transform: rotate(45deg) scale(0.8);
-  }
-  10% {
-    opacity: 0.5;
-  }
-  20% {
-    opacity: 1;
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      transparent 10%,
-      black 20%,
-      transparent 35%
-    );
-    mask-image: radial-gradient(
-      circle at center,
-      transparent 10%,
-      black 20%,
-      transparent 35%
-    );
-  }
-  40% {
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      transparent 30%,
-      black 40%,
-      transparent 55%
-    );
-    mask-image: radial-gradient(
-      circle at center,
-      transparent 30%,
-      black 40%,
-      transparent 55%
-    );
-  }
-  60% {
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      transparent 50%,
-      black 60%,
-      transparent 75%
-    );
-    mask-image: radial-gradient(
-      circle at center,
-      transparent 50%,
-      black 60%,
-      transparent 75%
-    );
-  }
-  80% {
-    opacity: 1;
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      transparent 70%,
-      black 80%,
-      transparent 95%
-    );
-    mask-image: radial-gradient(
-      circle at center,
-      transparent 70%,
-      black 80%,
-      transparent 95%
-    );
-  }
-  100% {
-    opacity: 0;
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      transparent 90%,
-      black 100%,
-      transparent 115%
-    );
-    mask-image: radial-gradient(
-      circle at center,
-      transparent 90%,
-      black 100%,
-      transparent 115%
-    );
-    transform: rotate(45deg) scale(1.2);
-  }
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.01); }
+  100% { transform: scale(1); }
 }
 
-@keyframes shell-drift {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 120px 120px;
-  }
+@keyframes fade {
+  0% { background: #A78BFA; }
+  50% { background: #7e22ce; }
+  100% { background: #A78BFA; }
+}
+
+.background-honeycomb {
+  --hex-w: 120px;
+  --hex-h: calc(var(--hex-w) * 0.57);
+  --anim-speed: 8s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.socket {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hex-brick {
+  background: #A78BFA;
+  width: var(--hex-w);
+  height: var(--hex-h);
+  position: absolute;
+  top: 5px;
+  animation: fade var(--anim-speed) infinite;
+}
+
+.h2 { transform: rotate(60deg); }
+.h3 { transform: rotate(-60deg); }
+
+.gel {
+  height: var(--hex-w);
+  width: var(--hex-w);
+  transition: all .3s;
+  position: absolute;
+  animation: pulse var(--anim-speed) infinite;
 }
 
 body {
@@ -153,24 +103,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: -50vh;
-  left: -50vw;
-  width: 200vw;
-  height: 200vh;
-  background-image: url("turtle-pattern.svg");
-  background-repeat: repeat;
-  background-size: 100px 150px;
-  z-index: -1;
-  pointer-events: none;
-  transform: rotate(45deg);
-  animation:
-    shell-drift 30s linear infinite,
-    honeycomb-ripple 6s linear infinite;
 }
 
 h1,

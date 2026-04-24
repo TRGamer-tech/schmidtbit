@@ -94,8 +94,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Form Validation ---
-    const form = document.getElementById('contact-form'); // Reference by ID
+    // --- Honeycomb Background Generation ---
+    function initHoneycomb() {
+        const socket = document.querySelector('.socket');
+        if (!socket) return;
+        
+        socket.innerHTML = '';
+        
+        // Get size from CSS variable or use default
+        const style = getComputedStyle(document.querySelector('.background-honeycomb') || document.documentElement);
+        const hexWidth = parseInt(style.getPropertyValue('--hex-w')) || 120;
+        const hexHeight = hexWidth * 0.866;
+        const hSpacing = hexWidth * 0.75;
+        const vSpacing = hexHeight;
+        
+        const cols = Math.ceil(window.innerWidth / hSpacing) + 1;
+        const rows = Math.ceil(window.innerHeight / vSpacing) + 1;
+        
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const maxDist = Math.sqrt(centerX**2 + centerY**2);
+        
+        const fragment = document.createDocumentFragment();
+        
+        for (let r = -1; r < rows; r++) {
+            for (let c = -1; c < cols; c++) {
+                const x = c * hSpacing;
+                const y = r * vSpacing + (c % 2 === 0 ? 0 : vSpacing / 2);
+                
+                const gel = document.createElement('div');
+                gel.className = 'gel';
+                gel.style.left = `${x}px`;
+                gel.style.top = `${y}px`;
+                
+                const dx = x - centerX;
+                const dy = y - centerY;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                const delay = (dist / maxDist) * 3; // Waves spread out
+                
+                gel.style.animationDelay = `${delay}s`;
+                
+                gel.innerHTML = `
+                    <div class="hex-brick h1" style="animation-delay: ${delay}s"></div>
+                    <div class="hex-brick h2" style="animation-delay: ${delay}s"></div>
+                    <div class="hex-brick h3" style="animation-delay: ${delay}s"></div>
+                `;
+                fragment.appendChild(gel);
+            }
+        }
+        socket.appendChild(fragment);
+    }
 
+    initHoneycomb();
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initHoneycomb, 250);
+    });
+
+    const form = document.getElementById('contact-form');
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
