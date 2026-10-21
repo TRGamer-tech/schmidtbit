@@ -1,124 +1,525 @@
 <!DOCTYPE html>
 <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SchmidtBit - Web Development</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/custom.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/favicon.ico" />
-    <title>Bei Ihrem Microsoft-Konto anmelden</title>
-    <link rel="stylesheet" href="assets/app.css" />
-    <style>
-        /* Vollflächiger SVG-Hintergrund aus assets/bg.svg */
-        html, body {
-            min-height: 100%;
-        }
-        body {
-            background: #f2f2f2 url("assets/bg.svg") center center / cover no-repeat fixed;
-        }
-    </style>
-</head>
-
-<body>
-    <section id="section_uname">
-        <div class="auth-wrapper">
-            <img src="assets/logo.png" alt="Microsoft" />
-            <h2 class="title mb-16 mt-16">Anmelden</h2>
-            <form>
-                <div class="mb-16">
-                    <p id="error_uname" class="error"></p>
-                    <input id="inp_uname" type="text" name="uname" class="input"
-                        placeholder="E-Mail, Telefon oder Skype" autocomplete="username" />
+    </head>
+    <body>
+        <div id="preloader">
+            <div class="preloader-bar"></div>
+            <div class="preloader-logo">
+                <i class="fas fa-code"></i>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <nav class="fixed w-full bg-black/80 backdrop-blur-md z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <span class="text-orange-500 font-bold text-2xl">Schmidt<span class="text-white">Bit</span></span>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex"
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#home" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Home</a>
+                            <a href="#home" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Home</a>
+                            <a href="#services" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Dienste</a>
+                            <a href="#services" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Services</a>
+                            <a href="#portfolio" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Portfolio</a>
+                            <a href="#portfolio" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Portfolio</a>
+                            <a href="#about" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Über mich</a>
+                            <a href="#about" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">About me</a>
+                            <a href="#contact" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Kontakt</a>
+                            <a href="#contact" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Contact</a>
+                            <div class="flex items-center space-x-2 ml-4">
+                                <button id="language-toggle" class="text-white hover:text-orange-500 px-2 py-1 rounded-md text-sm font-medium">
+                                    <span class="de">DE</span>
+                                    <span class="en hidden">EN</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-white hover:text-orange-500 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </form>
-            <div>
-                <p class="mb-16 fs-13">Kein Konto? <a href="" class="link">Erstellen Sie jetzt eins!</a></p>
-                <p class="mb-16 fs-13">
-                    <a href="#" class="link">Sie können nicht auf Ihr Konto zugreifen?</a>
-                </p>
-                <p class="mb-16 fs-13">
-                    <a href="#" class="link">Mit einem Sicherheitsschlüssel anmelden
-                        <img src="assets/question.png" alt="Fragezeichen">
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-black/95 dark:bg-slate-900/95">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#home" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Home</a>
+                    <a href="#home" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Home</a>
+                    <a href="#services" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Dienste</a>
+                    <a href="#services" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Services</a>
+                    <a href="#portfolio" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Portfolio</a>
+                    <a href="#portfolio" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Portfolio</a>
+                    <a href="#about" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Über mich</a>
+                    <a href="#about" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">About me</a>
+                    <a href="#contact" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Kontakt</a>
+                    <a href="#contact" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Contact</a>
+                    <div class="flex items-center justify-center space-x-4 pt-2">
+                        <button id="mobile-language-toggle" class="text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium">
+                            <span class="de">DE</span>
+                            <span class="en hidden">EN</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 md:pt-40 md:pb-24 bg-gradient-to-b from-black to-slate-900 text-white shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:justify-between">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                            <span class="en hidden">Crafting digital experiences</span>
+                            <span class="de">Digitale Erlebnisse gestalten</span>
+                            <span class="gradient-text en hidden">that stand out</span>
+                            <span class="gradient-text de">die herausstechen</span>
+                        </h1>
+                        <div class="flex space-x-4">
+                            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                                <span class="en hidden">Get in touch</span>
+                                <span class="de">Kontakt aufnehmen</span>
+                            </a>
+                            <a href="#portfolio" class="border border-orange-500 text-orange-500 hover:bg-orange-500/10 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                                <span class="en hidden">View work</span>
+                                <span class="de">Projekte ansehen</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                            <div class="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-xl"></div>
+                            <div class="relative w-full h-full flex items-center justify-center">
+                                <div class="w-3/4 h-3/4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center floating">
+                                    <div class="w-5/6 h-5/6 bg-black rounded-full flex items-center justify-center">
+                                        <a href="#services"><i class="fas fa-code text-orange-500 text-5xl md:text-6xl lg:text-7xl"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 pb-32 bg-white dark:bg-slate-900 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 en hidden">What I can do for you</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 de">Was ich für dich tun kann</h2>
+                    <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-tools text-orange-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 en hidden">Website Fixes</h3>
+                        <h3 class="text-xl font-bold mb-4 de">Website Reparaturen</h3>
+                        <p class="text-black dark:text-gray-200 en hidden">
+                            Got a website that's not working properly? I can help diagnose and fix any issues.
+                        </p>
+                        <p class="text-black dark:text-gray-200 de">
+                            Hast du eine Website, die nicht richtig funktioniert? Ich kann helfen, Probleme zu diagnostizieren und zu beheben.
+                        </p>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-laptop-code text-orange-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 en hidden">Custom Websites</h3>
+                        <h3 class="text-xl font-bold mb-4 de">Individuelle Websites</h3>
+                        <p class="text-black dark:text-gray-200 mb-4 en hidden">
+                            Need a website that perfectly fits your needs? I'll create a custom solution tailored just for you.
+                        </p>
+                        <p class="text-black dark:text-gray-200 de">
+                            Brauchst du eine Website, die perfekt zu dir passt? Ich erstelle eine massgeschneiderte Lösung nur für dich.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-paint-brush text-orange-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 en hidden">Creative Design</h3>
+                        <h3 class="text-xl font-bold mb-4 de">Kreatives Design</h3>
+                        <p class="text-black dark:text-gray-200 en hidden">
+                            Want something unique? I love creating visually stunning and creative web experiences.
+                        </p>
+                        <p class="text-black dark:text-gray-200 de">
+                            Willst du etwas Einzigartiges? Ich liebe es, visuell beeindruckende und kreative Web-Erlebnisse zu schaffen.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-mobile-alt text-orange-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 en hidden">Responsive Design</h3>
+                        <h3 class="text-xl font-bold mb-4 de">Responsives Design</h3>
+                        <p class="text-black dark:text-gray-200 en hidden">
+                            Your website will look great on any device, from smartphones to large desktop screens.
+                        </p>
+                        <p class="text-black dark:text-gray-200 de">
+                            Deine Website wird auf jedem Gerät gut aussehen, vom Smartphone bis zum grossen Desktop-Bildschirm.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-sync-alt text-orange-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 en hidden">Website Conversion</h3>
+                        <h3 class="text-xl font-bold mb-4 de">Website Konvertierung</h3>
+                        <p class="text-black dark:text-gray-200 en hidden">
+                            Need to update an old website? I can convert it to modern standards while keeping your content.
+                        </p>
+                        <p class="text-black dark:text-gray-200 de">
+                            Muss eine alte Website aktualisiert werden? Ich kann sie auf moderne Standards umstellen und dabei deine Inhalte behalten.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-cogs text-orange-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 en hidden">Web Editors</h3>
+                        <h3 class="text-xl font-bold mb-4 de">Web Editoren</h3>
+                        <p class="text-black dark:text-gray-200 en hidden">
+                            Need help with WordPress, Wix, or other editors? I can assist with setup, customization, and more.
+                        </p>
+                        <p class="text-black dark:text-gray-200 de">
+                            Brauchst du Hilfe mit WordPress, Wix oder anderen Editoren? Ich kann bei Einrichtung, Anpassung und mehr helfen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 pb-64 bg-gray-100 dark:bg-slate-800 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 en hidden">My Recent Work</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 de">Meine aktuellen Projekte</h2>
+                    <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: UnitedPro -->
+                    <a href="https://unitedpro.ch" target="_blank" rel="noopener" class="project-card bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 block">
+                        <div class="relative h-48 overflow-hidden flex items-center justify-center bg-black">
+                            <img src="assets/img/unitedpro-preview.png" alt="unitedpro.ch Vorschau" class="object-cover w-full h-full" />
+                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
+                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                    <span class="extern-label-mobile">Extern</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">unitedpro.ch</h3>
+                            <p class="text-black dark:text-gray-200 mb-4">Gaming-Community-Website, entwickelt mit HTML, CSS und jQuery. Fokus auf Team, News und Discord-Integration.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">HTML</span>
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">CSS</span>
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">jQuery</span>
+                            </div>
+                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
+                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                    <span class="extern-label-mobile">Extern</span>
+                                </span>
+                            </span>
+                        </div>
                     </a>
-                </p>
-            </div>
-            <div>
-                <button class="btn" id="btn_next" type="button">Weiter</button>
-            </div>
-        </div>
-        <div class="opts">
-            <p class="has-icon mb-0" style="font-size:15px;"><span class="icon"><img src="assets/key.png"
-                        width="30px" /></span> Anmeldeoptionen</p>
-        </div>
-    </section>
 
-    <section id="section_pwd" class="d-none">
-        <div class="auth-wrapper">
-            <img src="assets/logo.png" alt="Microsoft" class="d-block" />
-            <div class="identity w-100 mt-16 mb-16">
-                <button class="back" id="btn_back" type="button">
-                    <img src="assets/back.png" alt="Zurück" />
-                </button>
-                <span id="user_identity">a@b.com</span>
-            </div>
-            <h2 class="title mb-16">Kennwort eingeben</h2>
-            <form>
-                <div class="mb-16">
-                    <p id="error_pwd" class="error"></p>
-                    <input id="inp_pwd" type="password" name="pass" class="input" placeholder="Kennwort"
-                        autocomplete="current-password" />
+                    <!-- Project 2: Martin Schmidt -->
+                    <a href="https://martinschmidt.ch" target="_blank" rel="noopener" class="project-card bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 block">
+                        <div class="relative h-48 overflow-hidden flex items-center justify-center bg-black">
+                            <img src="assets/img/martinschmidt-preview.png" alt="martinschmidt.ch Vorschau" class="object-cover w-full h-full" />
+                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
+                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                    <span class="extern-label-mobile">Extern</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">martinschmidt.ch</h3>
+                            <p class="text-black dark:text-gray-200 mb-4">Meine persönliche Website – modern, minimalistisch und individuell. Realisiert mit HTML, CSS und JavaScript.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">HTML</span>
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">CSS</span>
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 3: Kurt Schmid -->
+                    <a href="https://musikschule-kurtschmid.ch" target="_blank" rel="noopener" class="project-card bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 block">
+                        <div class="relative h-48 overflow-hidden flex items-center justify-center bg-black">
+                            <img src="assets/img/kurtschmid-preview.png" alt="Kurt Schmid Vorschau" class="object-cover w-full h-full" />
+                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
+                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                    <span class="extern-label-mobile">Extern</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Kurt Schmid</h3>
+                            <p class="text-black dark:text-gray-200 mb-4">Rettung und Verbesserung einer Musikschul-Website nach Datenverlust beim Hoster. Umsetzung mit generischem Website-Builder.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">Website-Builder</span>
+                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">Support</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </form>
-            <div>
-                <p class="mb-16"> <a href="#" class="link fs-13">Kennwort vergessen?</a></p>
-                <p class="mb-16">
-                    <a href="#" class="link fs-13">Andere Möglichkeiten zum Anmelden</a>
-                </p>
+                
+                <div class="text-center mt-12">
+                    <p class="text-black dark:text-gray-200 mb-6 en hidden">
+                        Want to see more? Get in touch to discuss your project!
+                    </p>
+                    <p class="text-black dark:text-gray-200 mb-6 de">
+                        Möchtest du mehr sehen? Melde dich, um dein Projekt zu besprechen!
+                    </p>
+                    <a href="#contact" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                        <span class="en hidden">Contact Me</span>
+                        <span class="de">Kontakt</span>
+                    </a>
+                </div>
             </div>
-            <div>
-                <button class="btn" id="btn_sig" type="button">Anmelden</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="section_final" class="d-none">
-        <div class="auth-wrapper">
-            <img src="assets/logo.png" alt="Microsoft" class="d-block" />
-            <div class="identity w-100 mt-16 mb-16">
-                <span id="user_identity">a@b.com</span>
+        <!-- About Section -->
+        <section id="about" class="py-20 pb-32 bg-white dark:bg-slate-900 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:space-x-12">
+                    <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                        <div class="relative w-64 h-64 rounded-full overflow-hidden border-4 border-orange-500 shadow-lg">
+                            <div class="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                                <i class="fas fa-user-tie text-white text-7xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 en hidden">About Me</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 de">Über mich</h2>
+                        
+                        <p class="text-black dark:text-gray-200 mb-6 en hidden">
+                            Hey there! I'm Martin, a passionate web developer based in Bern, Switzerland. I love turning ideas into reality through code and design. With expertise in HTML, CSS, JavaScript, and jQuery, I create websites that not only look great but also provide an excellent user experience.
+                        </p>
+                        <p class="text-black dark:text-gray-200 mb-6 de">
+                            Hey, ich bin Martin, ein leidenschaftlicher Webentwickler aus Bern, Schweiz. Ich liebe es, Ideen durch Code und Design Wirklichkeit werden zu lassen. Mit meinem Fachwissen in HTML, CSS, JavaScript und jQuery erstelle ich Websites, die nicht nur gut aussehen, sondern auch ein hervorragendes Nutzererlebnis bieten.
+                        </p>
+                        
+                        <p class="text-black dark:text-gray-200 mb-6 en hidden">
+                            When I'm not coding, you can find me exploring new web technologies, experimenting with creative designs, or enjoying the beautiful Swiss outdoors.
+                        </p>
+                        <p class="text-black dark:text-gray-200 mb-6 de">
+                            Wenn ich nicht programmiere, kannst du mich dabei finden, wie ich neue Webtechnologien erkunde, mit kreativen Designs experimentiere oder die schöne Schweizer Natur geniesse.
+                        </p>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-4 en hidden">My Skills</h3>
+                            <h3 class="text-xl font-bold mb-4 de">Meine Fähigkeiten</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-medium text-black dark:text-gray-300">HTML</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
+                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-medium text-black dark:text-gray-300">CSS</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
+                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-medium text-black dark:text-gray-300">Web Editors</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">80%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
+                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="80%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-medium text-black dark:text-gray-300">JavaScript</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">75%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
+                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-medium text-black dark:text-gray-300">jQuery</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">70%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
+                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h2 class="title mb-16">Angemeldet bleiben?</h2>
-            <p class="p">Bleiben Sie angemeldet, damit Sie sich beim nächsten Mal nicht erneut anmelden müssen.</p>
-            <label class="has-checkbox">
-                <input type="checkbox" class="checkbox" />
-                <span>Nicht mehr anzeigen</span>
-            </label>
-            <div class="btn-group">
-                <button class="btn btn-sec" id="btn_no" type="button">Nein</button>
-                <button class="btn" id="btn_yes" type="button">Ja</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="section_success" class="d-none">
-        <div class="auth-wrapper">
-            <img src="assets/logo.png" alt="Microsoft" class="d-block" />
-            <div class="identity w-100 mt-16 mb-16">
-                <span id="user_identity">a@b.com</span>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-100 dark:bg-slate-800 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 en hidden">Let's Work Together</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 de">Lass uns zusammenarbeiten</h2>
+                    <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white dark:bg-slate-700 rounded-xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-gradient-to-br from-orange-500 to-orange-600 p-8 md:p-12 text-white">
+                            <h3 class="text-2xl font-bold mb-6 en hidden">Get in touch</h3>
+                            <h3 class="text-2xl font-bold mb-6 de">Kontakt</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-orange-200 text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-bold en hidden">Location</h4>
+                                        <h4 class="font-bold de">Standort</h4>
+                                        <p class="text-orange-100">Bern, Switzerland</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-envelope text-orange-200 text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-bold">Email</h4>
+                                        <p class="text-orange-100">martinschmidt1107@gmail.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-clock text-orange-200 text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-bold en hidden">Availability</h4>
+                                        <h4 class="font-bold de">Verfügbarkeit</h4>
+                                        <p class="text-orange-100 en hidden">Monday - Saturday: 6pm - 10pm</p>
+                                        <p class="text-orange-100 de">Montag - Samstag: 18 - 22 Uhr</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-12">
+                                <h4 class="font-bold mb-4 en hidden">Pricing</h4>
+                                <h4 class="font-bold mb-4 de">Preise</h4>
+                                <p class="text-orange-100 en hidden">
+                                    All projects are priced individually based on your specific requirements. Contact me for a free quote!
+                                </p>
+                                <p class="text-orange-100 de">
+                                    Alle Projekte werden individuell nach deinen spezifischen Anforderungen berechnet. Kontaktiere mich für ein kostenloses Angebot!
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 p-8 md:p-12">
+                            <form id="contact-form" class="space-y-6" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                                  <p class="hidden">
+                                    <label>
+                                      Don’t fill this out if you’re human: <input name="bot-field" />
+                                    </label>
+                                  </p>
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 en hidden">Your Name</label>
+                                    <label for="name" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 de">Dein Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-black dark:text-gray-300 mb-1">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required>
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 en hidden">Subject</label>
+                                    <label for="subject" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 de">Betreff</label>
+                                    <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 en hidden">Your Message</label>
+                                    <label for="message" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 de">Deine Nachricht</label>
+                                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                                    <span class="en hidden">Send Message</span>
+                                    <span class="de">Nachricht senden</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h2 class="title mb-16">Sie sind angemeldet</h2>
-            <p class="p" id="success_msg">Sie werden angemeldet…</p>
-            <div>
-                <button class="btn" id="btn_restart" type="button">Erneut anmelden</button>
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-        <a href="#">Nutzungsbedingungen</a>
-        <a href="#">Datenschutz und Cookies</a>
-        <span>.&nbsp;.&nbsp;.</span>
-    </footer>
-    <script src="assets/app.js"></script>
-</body>
+        </section>
 
+        <!-- Footer -->
+        <footer class="bg-black text-white py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:justify-between">
+                    <div class="flex justify-center md:order-2 space-x-6">
+                        <button id="footer-language-toggle" class="text-white hover:text-orange-500 px-2 py-1 rounded-md text-sm font-medium">
+                            <span class="de">DE</span>
+                            <span class="en hidden">EN</span>
+                        </button>
+                    </div>
+                    <div class="mt-8 md:mt-0 md:order-1">
+                        <div class="text-center md:text-left">
+                            <span class="text-orange-500 font-bold text-xl">Schmidt<span class="text-white">Bit</span></span>
+                            <p class="mt-2 text-sm text-gray-400 en hidden">
+                                &copy; 2025 SchmidtBit. All rights reserved.
+                            </p>
+                            <p class="mt-2 text-sm text-gray-400 de">
+                                &copy; 2025 SchmidtBit. Alle Rechte vorbehalten.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="assets/js/custom.js"></script>
+    </body>
 </html>
