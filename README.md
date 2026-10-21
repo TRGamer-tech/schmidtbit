@@ -1,5 +1,5 @@
 # SchmidtBit
-## Wo Webseiten ernst genommen werden.
+## Wo Webseiten ernst genommen werden
 
 Dies ist das offizielle GitHub für die Seite SchmidtBit. Sie unterliegt der MIT Lizenz und ist somit frei benutzbar.
 
