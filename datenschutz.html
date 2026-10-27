@@ -13,61 +13,88 @@
     <nav class="bg-black/90 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="/" class="text-orange-500 font-bold text-2xl">Schmidt<span class="text-white">Bit</span></a>
-            <a href="/" class="text-sm hover:text-orange-500">&larr; Zurück zur Startseite</a>
+            <div class="flex items-center space-x-4 text-sm">
+                <a href="/" class="hover:text-orange-500">&larr; <span class="de">Startseite</span><span class="en hidden">Home</span></a>
+                <button id="language-toggle" class="hover:text-orange-500 px-2 py-1 rounded-md font-medium">
+                    <span class="de">DE</span>
+                    <span class="en hidden">EN</span>
+                </button>
+            </div>
         </div>
     </nav>
     <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-8 leading-relaxed">
-        <h1 class="text-4xl font-bold text-orange-500">Datenschutzerklärung</h1>
-        <p class="text-sm text-gray-500">Stand: Oktober 2026</p>
+        <h1 class="text-4xl font-bold text-orange-500"><span class="de">Datenschutzerklärung</span><span class="en hidden">Privacy Statement</span></h1>
+        <p class="text-sm text-gray-500"><span class="de">Stand: Oktober 2026</span><span class="en hidden">Last updated: October 2026</span></p>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">1. Verantwortlicher</h2>
-            <p class="mb-3">SchmidtBit, Martin Schmidt, Bern, Schweiz, E-Mail: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">1. Verantwortlicher</span><span class="en hidden">1. Controller</span></h2>
+            <p class="mb-3 de">SchmidtBit, Martin Schmidt, Bern, Schweiz, E-Mail: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+            <p class="mb-3 en hidden">SchmidtBit, Martin Schmidt, Bern, Switzerland, email: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">2. Allgemeines</h2>
-            <p class="mb-3">Der Schutz deiner Personendaten ist mir wichtig. Ich bearbeite Personendaten nur im Rahmen des schweizerischen Datenschutzgesetzes (DSG) und, soweit anwendbar, der DSGVO. Diese Erklärung beschreibt, welche Daten beim Besuch dieser Website anfallen und wie sie verwendet werden.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">2. Allgemeines</span><span class="en hidden">2. General</span></h2>
+            <p class="mb-3 de">Der Schutz deiner Personendaten ist mir wichtig. Ich bearbeite Personendaten nur im Rahmen des schweizerischen Datenschutzgesetzes (DSG) und, soweit anwendbar, der DSGVO. Diese Erklärung beschreibt, welche Daten beim Besuch dieser Website anfallen und wie sie verwendet werden.</p>
+            <p class="mb-3 en hidden">Protecting your personal data matters to me. I process personal data only in accordance with the Swiss Federal Act on Data Protection (FADP) and, where applicable, the GDPR. This statement describes which data arises when you visit this website and how it is used.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">3. Hosting und Server-Logfiles</h2>
-            <p class="mb-3">Diese Website wird bei Netlify, Inc. (USA) gehostet. Beim Aufruf werden technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp und Referrer in Server-Logfiles verarbeitet. Das ist für den sicheren und stabilen Betrieb nötig (berechtigtes Interesse). Netlify kann Daten in die USA übermitteln; die Übermittlung stützt sich auf die vom Anbieter bereitgestellten Garantien (z. B. Standardvertragsklauseln).</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">3. Hosting und Server-Logfiles</span><span class="en hidden">3. Hosting and server log files</span></h2>
+            <p class="mb-3 de">Diese Website wird bei Netlify, Inc. (USA) gehostet. Beim Aufruf werden technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp und Referrer in Server-Logfiles verarbeitet. Das ist für den sicheren und stabilen Betrieb nötig (berechtigtes Interesse). Netlify kann Daten in die USA übermitteln; die Übermittlung stützt sich auf die vom Anbieter bereitgestellten Garantien (z. B. Standardvertragsklauseln).</p>
+            <p class="mb-3 en hidden">This website is hosted by Netlify, Inc. (USA). When you visit it, technically necessary data such as IP address, date and time, requested page, browser type and referrer is processed in server log files. This is required for secure and stable operation (legitimate interest). Netlify may transfer data to the USA; the transfer relies on the safeguards provided by the vendor (e.g. standard contractual clauses).</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">4. Kontaktformular</h2>
-            <p class="mb-3">Wenn du das Kontaktformular nutzt, werden deine Angaben (z. B. Name, E-Mail-Adresse, Nachricht) über Netlify Forms entgegengenommen und zur Bearbeitung deiner Anfrage verwendet. Ohne Rückfrage von dir gebe ich sie nicht an Dritte weiter. Anfragen werden gelöscht, sobald sie erledigt sind und keine gesetzliche Aufbewahrungspflicht besteht.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">4. Kontaktformular</span><span class="en hidden">4. Contact form</span></h2>
+            <p class="mb-3 de">Wenn du das Kontaktformular nutzt, werden deine Angaben (z. B. Name, E-Mail-Adresse, Nachricht) über Netlify Forms entgegengenommen und zur Bearbeitung deiner Anfrage verwendet. Ohne Rückfrage von dir gebe ich sie nicht an Dritte weiter. Anfragen werden gelöscht, sobald sie erledigt sind und keine gesetzliche Aufbewahrungspflicht besteht.</p>
+            <p class="mb-3 en hidden">If you use the contact form, your details (e.g. name, email address, message) are received via Netlify Forms and used to handle your enquiry. I do not pass them on to third parties without asking you first. Enquiries are deleted once handled, unless a legal retention duty applies.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">5. Kontakt per E-Mail</h2>
-            <p class="mb-3">Bei Kontakt per E-Mail verarbeite ich deine Angaben ausschliesslich zur Beantwortung deiner Anfrage.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">5. Kontakt per E-Mail</span><span class="en hidden">5. Contact by email</span></h2>
+            <p class="mb-3 de">Bei Kontakt per E-Mail verarbeite ich deine Angaben ausschliesslich zur Beantwortung deiner Anfrage.</p>
+            <p class="mb-3 en hidden">If you contact me by email, I process your details solely to answer your enquiry.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">6. Externe Ressourcen (CDN)</h2>
-            <p class="mb-3">Diese Website lädt Bibliotheken und Schriftsymbole von Drittanbietern (Tailwind CSS, jQuery via jsDelivr, Font Awesome via cdnjs). Dabei wird deine IP-Adresse an die jeweiligen Anbieter übermittelt, damit die Inhalte ausgeliefert werden können.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">6. Externe Ressourcen (CDN)</span><span class="en hidden">6. External resources (CDN)</span></h2>
+            <p class="mb-3 de">Diese Website lädt Bibliotheken und Schriftsymbole von Drittanbietern (Tailwind CSS, jQuery via jsDelivr, Font Awesome via cdnjs). Dabei wird deine IP-Adresse an die jeweiligen Anbieter übermittelt, damit die Inhalte ausgeliefert werden können.</p>
+            <p class="mb-3 en hidden">This website loads libraries and icon fonts from third parties (Tailwind CSS, jQuery via jsDelivr, Font Awesome via cdnjs). Your IP address is transmitted to these providers so the content can be delivered.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">7. Lokale Speicherung</h2>
-            <p class="mb-3">Deine Sprachauswahl (Deutsch oder Englisch) wird im localStorage deines Browsers gespeichert. Diese Information verlässt dein Gerät nicht. Es werden keine Tracking- oder Werbe-Cookies eingesetzt.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">7. Lokale Speicherung</span><span class="en hidden">7. Local storage</span></h2>
+            <p class="mb-3 de">Deine Sprachauswahl (Deutsch oder Englisch) wird im localStorage deines Browsers gespeichert. Diese Information verlässt dein Gerät nicht. Es werden keine Tracking- oder Werbe-Cookies eingesetzt.</p>
+            <p class="mb-3 en hidden">Your language choice (German or English) is stored in your browser's localStorage. This information does not leave your device. No tracking or advertising cookies are used.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">8. Analyse und Tracking</h2>
-            <p class="mb-3">Es kommen keine Analyse- oder Tracking-Tools zum Einsatz.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">8. Analyse und Tracking</span><span class="en hidden">8. Analytics and tracking</span></h2>
+            <p class="mb-3 de">Es kommen keine Analyse- oder Tracking-Tools zum Einsatz.</p>
+            <p class="mb-3 en hidden">No analytics or tracking tools are used.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">9. Deine Rechte</h2>
-            <p class="mb-3">Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Bearbeitung und Herausgabe deiner Personendaten sowie auf Widerspruch. Schreib dazu an die oben genannte E-Mail-Adresse. Zudem kannst du dich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">9. Deine Rechte</span><span class="en hidden">9. Your rights</span></h2>
+            <p class="mb-3 de">Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Bearbeitung und Herausgabe deiner Personendaten sowie auf Widerspruch. Schreib dazu an die oben genannte E-Mail-Adresse. Zudem kannst du dich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren.</p>
+            <p class="mb-3 en hidden">You have the right to access, rectification, erasure, restriction of processing, data portability and objection. Write to the email address above. You may also lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC).</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">10. Änderungen</h2>
-            <p class="mb-3">Ich kann diese Datenschutzerklärung jederzeit anpassen. Es gilt die jeweils auf dieser Seite veröffentlichte Fassung.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">10. Änderungen</span><span class="en hidden">10. Changes</span></h2>
+            <p class="mb-3 de">Ich kann diese Datenschutzerklärung jederzeit anpassen. Es gilt die jeweils auf dieser Seite veröffentlichte Fassung.</p>
+            <p class="mb-3 en hidden">I may amend this privacy statement at any time. The version published on this page applies.</p>
         </section>
     </main>
     <footer class="bg-black text-gray-400 py-8 text-sm">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row gap-4 justify-between items-center">
-            <span>&copy; 2025 SchmidtBit. Alle Rechte vorbehalten.</span>
+            <span><span class="de">&copy; 2025 SchmidtBit. Alle Rechte vorbehalten.</span><span class="en hidden">&copy; 2025 SchmidtBit. All rights reserved.</span></span>
             <div class="space-x-4">
-                <a href="/datenschutz.html" class="hover:text-orange-500">Datenschutz</a>
-                <a href="/nutzungsbedingungen.html" class="hover:text-orange-500">Nutzungsbedingungen</a>
+                <a href="/impressum.html" class="hover:text-orange-500">Impressum</a>
+                <a href="/datenschutz.html" class="hover:text-orange-500"><span class="de">Datenschutz</span><span class="en hidden">Privacy</span></a>
+                <a href="/nutzungsbedingungen.html" class="hover:text-orange-500"><span class="de">Nutzungsbedingungen</span><span class="en hidden">Terms of Use</span></a>
             </div>
         </div>
     </footer>
+    <script>
+        function toggleLanguage() {
+            document.querySelectorAll('.en, .de').forEach(function (el) { el.classList.toggle('hidden'); });
+            var en = !document.querySelector('.en').classList.contains('hidden');
+            document.documentElement.lang = en ? 'en' : 'de';
+            try { localStorage.setItem('language', en ? 'en' : 'de'); } catch (e) {}
+        }
+        try { if (localStorage.getItem('language') === 'en') toggleLanguage(); } catch (e) {}
+        document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
+    </script>
 </body>
 </html>

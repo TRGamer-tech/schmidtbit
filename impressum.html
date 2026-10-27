@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - SchmidtBit</title>
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'media' };</script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <nav class="bg-black/90 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="/" class="text-orange-500 font-bold text-2xl">Schmidt<span class="text-white">Bit</span></a>
+            <div class="flex items-center space-x-4 text-sm">
+                <a href="/" class="hover:text-orange-500">&larr; <span class="de">Startseite</span><span class="en hidden">Home</span></a>
+                <button id="language-toggle" class="hover:text-orange-500 px-2 py-1 rounded-md font-medium">
+                    <span class="de">DE</span>
+                    <span class="en hidden">EN</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-8 leading-relaxed">
+        <h1 class="text-4xl font-bold text-orange-500"><span class="de">Impressum</span><span class="en hidden">Legal Notice</span></h1>
+        <p class="text-sm text-gray-500"><span class="de">Stand: Oktober 2026</span><span class="en hidden">Last updated: October 2026</span></p>
+        <section>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">Anbieter</span><span class="en hidden">Provider</span></h2>
+            <p class="mb-3 de">SchmidtBit, Martin Schmidt, Bern, Schweiz, E-Mail: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+            <p class="mb-3 en hidden">SchmidtBit, Martin Schmidt, Bern, Switzerland, email: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+        </section>
+        <section>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">Haftung für Inhalte</span><span class="en hidden">Liability for content</span></h2>
+            <p class="mb-3 de">Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität wird jedoch keine Gewähr übernommen.</p>
+            <p class="mb-3 en hidden">The content of this website was created with great care. However, no warranty is given for accuracy, completeness or timeliness.</p>
+        </section>
+        <section>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">Haftung für Links</span><span class="en hidden">Liability for links</span></h2>
+            <p class="mb-3 de">Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Verantwortlich ist stets der jeweilige Betreiber.</p>
+            <p class="mb-3 en hidden">This website contains links to external third-party websites whose content I cannot influence. The respective operator is always responsible.</p>
+        </section>
+        <section>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">Urheberrecht</span><span class="en hidden">Copyright</span></h2>
+            <p class="mb-3 de">Die Inhalte dieser Website unterliegen dem Urheberrecht. Details findest du in den <a class="text-orange-500 hover:underline" href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>.</p>
+            <p class="mb-3 en hidden">The content of this website is protected by copyright. See the <a class="text-orange-500 hover:underline" href="/nutzungsbedingungen.html">terms of use</a> for details.</p>
+        </section>
+        <section>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">Datenschutz</span><span class="en hidden">Privacy</span></h2>
+            <p class="mb-3 de">Siehe <a class="text-orange-500 hover:underline" href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+            <p class="mb-3 en hidden">See the <a class="text-orange-500 hover:underline" href="/datenschutz.html">privacy statement</a>.</p>
+        </section>
+    </main>
+    <footer class="bg-black text-gray-400 py-8 text-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row gap-4 justify-between items-center">
+            <span><span class="de">&copy; 2025 SchmidtBit. Alle Rechte vorbehalten.</span><span class="en hidden">&copy; 2025 SchmidtBit. All rights reserved.</span></span>
+            <div class="space-x-4">
+                <a href="/impressum.html" class="hover:text-orange-500">Impressum</a>
+                <a href="/datenschutz.html" class="hover:text-orange-500"><span class="de">Datenschutz</span><span class="en hidden">Privacy</span></a>
+                <a href="/nutzungsbedingungen.html" class="hover:text-orange-500"><span class="de">Nutzungsbedingungen</span><span class="en hidden">Terms of Use</span></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleLanguage() {
+            document.querySelectorAll('.en, .de').forEach(function (el) { el.classList.toggle('hidden'); });
+            var en = !document.querySelector('.en').classList.contains('hidden');
+            document.documentElement.lang = en ? 'en' : 'de';
+            try { localStorage.setItem('language', en ? 'en' : 'de'); } catch (e) {}
+        }
+        try { if (localStorage.getItem('language') === 'en') toggleLanguage(); } catch (e) {}
+        document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
+    </script>
+</body>
+</html>

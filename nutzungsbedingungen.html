@@ -13,57 +13,83 @@
     <nav class="bg-black/90 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="/" class="text-orange-500 font-bold text-2xl">Schmidt<span class="text-white">Bit</span></a>
-            <a href="/" class="text-sm hover:text-orange-500">&larr; Zurück zur Startseite</a>
+            <div class="flex items-center space-x-4 text-sm">
+                <a href="/" class="hover:text-orange-500">&larr; <span class="de">Startseite</span><span class="en hidden">Home</span></a>
+                <button id="language-toggle" class="hover:text-orange-500 px-2 py-1 rounded-md font-medium">
+                    <span class="de">DE</span>
+                    <span class="en hidden">EN</span>
+                </button>
+            </div>
         </div>
     </nav>
     <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-8 leading-relaxed">
-        <h1 class="text-4xl font-bold text-orange-500">Nutzungsbedingungen</h1>
-        <p class="text-sm text-gray-500">Stand: Oktober 2026</p>
+        <h1 class="text-4xl font-bold text-orange-500"><span class="de">Nutzungsbedingungen</span><span class="en hidden">Terms of Use</span></h1>
+        <p class="text-sm text-gray-500"><span class="de">Stand: Oktober 2026</span><span class="en hidden">Last updated: October 2026</span></p>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">1. Geltungsbereich</h2>
-            <p class="mb-3">Diese Nutzungsbedingungen gelten für die Nutzung der Website schmidtbit.ch. Mit dem Besuch der Website erklärst du dich damit einverstanden. Für einzelne Aufträge gelten zusätzlich die individuell vereinbarten Konditionen.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">1. Geltungsbereich</span><span class="en hidden">1. Scope</span></h2>
+            <p class="mb-3 de">Diese Nutzungsbedingungen gelten für die Nutzung der Website schmidtbit.ch. Mit dem Besuch der Website erklärst du dich damit einverstanden. Für einzelne Aufträge gelten zusätzlich die individuell vereinbarten Konditionen.</p>
+            <p class="mb-3 en hidden">These terms of use apply to the use of the website schmidtbit.ch. By visiting the website you agree to them. Individually agreed conditions additionally apply to specific projects.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">2. Anbieter</h2>
-            <p class="mb-3">SchmidtBit, Martin Schmidt, Bern, Schweiz, E-Mail: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">2. Anbieter</span><span class="en hidden">2. Provider</span></h2>
+            <p class="mb-3 de">SchmidtBit, Martin Schmidt, Bern, Schweiz, E-Mail: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+            <p class="mb-3 en hidden">SchmidtBit, Martin Schmidt, Bern, Switzerland, email: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">3. Leistungen und Verfügbarkeit</h2>
-            <p class="mb-3">Die Website informiert über meine Dienstleistungen im Bereich Webentwicklung. Die Inhalte dienen der allgemeinen Information und stellen kein verbindliches Angebot dar. Ich kann Inhalte jederzeit ohne Ankündigung ändern oder die Website einstellen. Eine ununterbrochene Verfügbarkeit wird nicht garantiert.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">3. Leistungen und Verfügbarkeit</span><span class="en hidden">3. Services and availability</span></h2>
+            <p class="mb-3 de">Die Website informiert über meine Dienstleistungen im Bereich Webentwicklung. Die Inhalte dienen der allgemeinen Information und stellen kein verbindliches Angebot dar. Ich kann Inhalte jederzeit ohne Ankündigung ändern oder die Website einstellen. Eine ununterbrochene Verfügbarkeit wird nicht garantiert.</p>
+            <p class="mb-3 en hidden">The website informs about my web development services. Content is for general information and is not a binding offer. I may change content or discontinue the website at any time without notice. Uninterrupted availability is not guaranteed.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">4. Geistiges Eigentum</h2>
-            <p class="mb-3">Texte, Grafiken, Code und weitere Inhalte dieser Website sind urheberrechtlich geschützt. Eine Verwendung, Vervielfältigung oder Weitergabe ausserhalb des gesetzlich Erlaubten braucht meine vorherige schriftliche Zustimmung. Marken und Logos Dritter gehören ihren jeweiligen Inhabern.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">4. Geistiges Eigentum</span><span class="en hidden">4. Intellectual property</span></h2>
+            <p class="mb-3 de">Texte, Grafiken, Code und weitere Inhalte dieser Website sind urheberrechtlich geschützt. Eine Verwendung, Vervielfältigung oder Weitergabe ausserhalb des gesetzlich Erlaubten braucht meine vorherige schriftliche Zustimmung. Marken und Logos Dritter gehören ihren jeweiligen Inhabern.</p>
+            <p class="mb-3 en hidden">Texts, graphics, code and other content on this website are protected by copyright. Any use, reproduction or distribution beyond what the law permits requires my prior written consent. Third-party trademarks and logos belong to their respective owners.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">5. Zulässige Nutzung</h2>
-            <p class="mb-3">Du verpflichtest dich, die Website nicht missbräuchlich zu nutzen. Untersagt sind insbesondere Angriffe auf die Systeme, automatisiertes Auslesen in grossem Umfang, das Einschleusen von Schadcode sowie das Versenden rechtswidriger oder belästigender Inhalte über das Kontaktformular.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">5. Zulässige Nutzung</span><span class="en hidden">5. Acceptable use</span></h2>
+            <p class="mb-3 de">Du verpflichtest dich, die Website nicht missbräuchlich zu nutzen. Untersagt sind insbesondere Angriffe auf die Systeme, automatisiertes Auslesen in grossem Umfang, das Einschleusen von Schadcode sowie das Versenden rechtswidriger oder belästigender Inhalte über das Kontaktformular.</p>
+            <p class="mb-3 en hidden">You agree not to misuse the website. In particular, attacks on the systems, large-scale automated scraping, injecting malicious code and sending unlawful or harassing content via the contact form are prohibited.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">6. Haftungsausschluss</h2>
-            <p class="mb-3">Ich bemühe mich um korrekte und aktuelle Inhalte, übernehme aber keine Gewähr für Richtigkeit, Vollständigkeit und Aktualität. Soweit gesetzlich zulässig, ist die Haftung für Schäden aus der Nutzung der Website ausgeschlossen. Für Inhalte verlinkter externer Seiten sind allein deren Betreiber verantwortlich.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">6. Haftungsausschluss</span><span class="en hidden">6. Disclaimer</span></h2>
+            <p class="mb-3 de">Ich bemühe mich um korrekte und aktuelle Inhalte, übernehme aber keine Gewähr für Richtigkeit, Vollständigkeit und Aktualität. Soweit gesetzlich zulässig, ist die Haftung für Schäden aus der Nutzung der Website ausgeschlossen. Für Inhalte verlinkter externer Seiten sind allein deren Betreiber verantwortlich.</p>
+            <p class="mb-3 en hidden">I strive for correct and up-to-date content but give no warranty as to accuracy, completeness or timeliness. To the extent permitted by law, liability for damages arising from use of the website is excluded. The operators of linked external sites are solely responsible for their content.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">7. Datenschutz</h2>
-            <p class="mb-3">Informationen zur Bearbeitung von Personendaten findest du in der <a class="text-orange-500 hover:underline" href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">7. Datenschutz</span><span class="en hidden">7. Privacy</span></h2>
+            <p class="mb-3 de">Informationen zur Bearbeitung von Personendaten findest du in der <a class="text-orange-500 hover:underline" href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+            <p class="mb-3 en hidden">Information on the processing of personal data can be found in the <a class="text-orange-500 hover:underline" href="/datenschutz.html">privacy statement</a>.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">8. Änderungen</h2>
-            <p class="mb-3">Ich kann diese Nutzungsbedingungen jederzeit anpassen. Es gilt die jeweils auf dieser Seite veröffentlichte Fassung.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">8. Änderungen</span><span class="en hidden">8. Changes</span></h2>
+            <p class="mb-3 de">Ich kann diese Nutzungsbedingungen jederzeit anpassen. Es gilt die jeweils auf dieser Seite veröffentlichte Fassung.</p>
+            <p class="mb-3 en hidden">I may amend these terms at any time. The version published on this page applies.</p>
         </section>
         <section>
-            <h2 class="text-2xl font-semibold mb-3">9. Anwendbares Recht und Gerichtsstand</h2>
-            <p class="mb-3">Es gilt schweizerisches Recht. Gerichtsstand ist Bern, soweit nicht zwingende gesetzliche Bestimmungen etwas anderes vorsehen.</p>
+            <h2 class="text-2xl font-semibold mb-3"><span class="de">9. Anwendbares Recht und Gerichtsstand</span><span class="en hidden">9. Governing law and jurisdiction</span></h2>
+            <p class="mb-3 de">Es gilt schweizerisches Recht. Gerichtsstand ist Bern, soweit nicht zwingende gesetzliche Bestimmungen etwas anderes vorsehen.</p>
+            <p class="mb-3 en hidden">Swiss law applies. The place of jurisdiction is Bern, unless mandatory statutory provisions provide otherwise.</p>
         </section>
     </main>
     <footer class="bg-black text-gray-400 py-8 text-sm">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row gap-4 justify-between items-center">
-            <span>&copy; 2025 SchmidtBit. Alle Rechte vorbehalten.</span>
+            <span><span class="de">&copy; 2025 SchmidtBit. Alle Rechte vorbehalten.</span><span class="en hidden">&copy; 2025 SchmidtBit. All rights reserved.</span></span>
             <div class="space-x-4">
-                <a href="/datenschutz.html" class="hover:text-orange-500">Datenschutz</a>
-                <a href="/nutzungsbedingungen.html" class="hover:text-orange-500">Nutzungsbedingungen</a>
+                <a href="/impressum.html" class="hover:text-orange-500">Impressum</a>
+                <a href="/datenschutz.html" class="hover:text-orange-500"><span class="de">Datenschutz</span><span class="en hidden">Privacy</span></a>
+                <a href="/nutzungsbedingungen.html" class="hover:text-orange-500"><span class="de">Nutzungsbedingungen</span><span class="en hidden">Terms of Use</span></a>
             </div>
         </div>
     </footer>
+    <script>
+        function toggleLanguage() {
+            document.querySelectorAll('.en, .de').forEach(function (el) { el.classList.toggle('hidden'); });
+            var en = !document.querySelector('.en').classList.contains('hidden');
+            document.documentElement.lang = en ? 'en' : 'de';
+            try { localStorage.setItem('language', en ? 'en' : 'de'); } catch (e) {}
+        }
+        try { if (localStorage.getItem('language') === 'en') toggleLanguage(); } catch (e) {}
+        document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
+    </script>
 </body>
 </html>
