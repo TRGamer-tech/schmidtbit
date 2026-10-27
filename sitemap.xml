@@ -24,4 +24,12 @@
     <loc>https://www.schmidtbit.ch/#contact</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.schmidtbit.ch/datenschutz.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.schmidtbit.ch/nutzungsbedingungen.html</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>
