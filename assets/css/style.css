@@ -1128,11 +1128,6 @@ html[data-theme="light"] .theme-toggle .i-moon {
   font-weight: 600;
   font-size: 0.98rem;
 }
-.meter-top b span {
-  font: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-}
 .meter-top > span {
   font: 600 0.82rem/1 var(--mono);
   color: var(--muted);

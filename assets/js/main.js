@@ -378,14 +378,19 @@
   $$(".h2, .page-head h1").forEach(function (block) {
     var spans = $$(".line > span", block);
     if (!spans.length) return;
-    gsap.from(spans, {
-      yPercent: 112,
-      duration: 1.05,
-      stagger: 0.1,
-      ease: "power4.out",
-      scrollTrigger: { trigger: block, start: "top 84%" },
-      overwrite: true,
-    });
+    gsap.fromTo(
+      spans,
+      { yPercent: 112, y: 0 },
+      {
+        yPercent: 0,
+        y: 0,
+        duration: 1.05,
+        stagger: 0.1,
+        ease: "power4.out",
+        scrollTrigger: { trigger: block, start: "top 84%" },
+        overwrite: true,
+      },
+    );
   });
 
   /* --- Eyebrows & Notizen -------------------------------------------------- */
