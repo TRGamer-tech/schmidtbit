@@ -449,6 +449,10 @@ html[lang="en"] [data-l="de"] {
   margin-right: 0.6rem;
   image-rendering: pixelated;
 }
+.brand .wordmark {
+  display: inline-flex;
+  align-items: baseline;
+}
 .brand em {
   font-style: normal;
   color: var(--accent);
@@ -701,7 +705,7 @@ html[data-theme="light"] .theme-toggle .i-moon {
 }
 
 .hero h1 {
-  font-size: min(5rem, calc((100vw - 5 * var(--gut)) / 7.6));
+  font-size: min(5.5rem, 11vw);
   font-weight: 880;
   font-stretch: 134%;
   line-height: 0.9;
@@ -720,6 +724,14 @@ html[data-theme="light"] .theme-toggle .i-moon {
 @media (min-width: 60rem) {
   .hero-grid {
     grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  }
+}
+@media (min-width: 60rem) {
+  .hero h1 {
+    font-size: min(
+      5.5rem,
+      calc((min(100vw - 2 * var(--gut), var(--max)) - 2rem) * 0.075)
+    );
   }
 }
 .hero-side {
@@ -921,13 +933,10 @@ html[data-theme="light"] .theme-toggle .i-moon {
   font-weight: 800;
   font-stretch: 104%;
   letter-spacing: -0.01em;
-  transition:
-    font-stretch 0.5s var(--ease),
-    color 0.3s;
+  transition: color 0.3s;
 }
 @media (hover: hover) {
   .svc-row:hover h3 {
-    font-stretch: 112%;
     color: var(--accent);
   }
 }
@@ -1024,16 +1033,13 @@ html[data-theme="light"] .theme-toggle .i-moon {
   line-height: 0.98;
   min-width: 0;
   overflow-wrap: anywhere;
-  transition:
-    font-stretch 0.5s var(--ease),
-    color 0.3s;
+  transition: color 0.3s;
 }
 .work-info h3 a {
   text-decoration: none;
 }
 @media (hover: hover) {
   .work-info h3:hover {
-    font-stretch: 116%;
     color: var(--accent);
   }
 }
@@ -1056,6 +1062,14 @@ html[data-theme="light"] .theme-toggle .i-moon {
   .profile {
     grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
     align-items: start;
+  }
+}
+@media (min-width: 56rem) {
+  .profile-text .h2 {
+    font-size: min(
+      5.6rem,
+      calc((min(100vw - 2 * var(--gut), var(--max)) - 5rem) * 0.07)
+    );
   }
 }
 .profile-text p {
@@ -1114,6 +1128,11 @@ html[data-theme="light"] .theme-toggle .i-moon {
   font-weight: 600;
   font-size: 0.98rem;
 }
+.meter-top b span {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
 .meter-top > span {
   font: 600 0.82rem/1 var(--mono);
   color: var(--muted);
@@ -1158,7 +1177,7 @@ html[data-theme="light"] .theme-toggle .i-moon {
 }
 .mail {
   display: inline-block;
-  font: 850 clamp(1.05rem, 4.6vw, 3.6rem)/1.1 var(--display);
+  font: 850 clamp(1rem, 3.6vw, 2.4rem)/1.1 var(--display);
   font-stretch: 100%;
   letter-spacing: -0.01em;
   max-width: 100%;
@@ -1166,12 +1185,6 @@ html[data-theme="light"] .theme-toggle .i-moon {
   text-decoration: underline;
   text-decoration-thickness: 0.05em;
   text-underline-offset: 0.12em;
-  transition: font-stretch 0.5s var(--ease);
-}
-@media (hover: hover) {
-  .mail:hover {
-    font-stretch: 112%;
-  }
 }
 .reach-list {
   display: flex;
@@ -1285,7 +1298,7 @@ html[data-theme="light"] .theme-toggle .i-moon {
   padding: clamp(3rem, 7vw, 5rem) 0 2rem;
 }
 .foot-mark {
-  font: 880 clamp(1.6rem, 9.4vw, 9rem)/0.95 var(--display);
+  font: 880 clamp(1.4rem, 7.4vw, 7rem)/0.95 var(--display);
   font-stretch: 130%;
   overflow: hidden;
   white-space: nowrap;

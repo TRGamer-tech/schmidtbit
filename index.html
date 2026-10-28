@@ -26,11 +26,11 @@
           l;
         try {
           localStorage.removeItem("sb-theme");
-        t =
-              window.matchMedia &&
-              matchMedia("(prefers-color-scheme: light)").matches
-                ? "light"
-                : "dark";
+          t =
+            window.matchMedia &&
+            matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
         } catch (e) {
           t = "dark";
         }
@@ -69,24 +69,57 @@
   </head>
   <body>
     <a class="skip" href="#main">
-      <span data-l="de">Zum Inhalt springen</span><span data-l="en">Skip to content</span>
+      <span data-l="de">Zum Inhalt springen</span>
+      <span data-l="en">Skip to content</span>
     </a>
 
     <!-- Intro -->
     <div id="intro" aria-hidden="true">
-      <div class="intro-mark"><img class="intro-logo" src="assets/img/favicon.png" alt="" width="96" height="96" /><span>SCHMIDT<em>BIT</em></span></div>
+      <div class="intro-mark">
+        <img
+          class="intro-logo"
+          src="assets/img/favicon.png"
+          alt=""
+          width="96"
+          height="96"
+        />
+        <!-- prettier-ignore -->
+        <span>SCHMIDT<em>BIT</em></span>
+      </div>
       <div class="intro-count" id="intro-count">000</div>
       <div class="intro-bar"></div>
     </div>
 
     <!-- Header -->
     <header class="site-head" id="site-head">
-      <a class="brand" href="#top" aria-label="SchmidtBit — Startseite"><img class="brand-logo" src="assets/img/favicon.png" alt="" width="32" height="32" />SCHMIDT<em>BIT</em><sup>.CH</sup></a>
+      <a class="brand" href="#top" aria-label="SchmidtBit — Startseite">
+        <img
+          class="brand-logo"
+          src="assets/img/favicon.png"
+          alt=""
+          width="32"
+          height="32"
+        />
+        <!-- prettier-ignore -->
+        <span class="wordmark">SCHMIDT<em>BIT</em><sup>.CH</sup></span>
+      </a>
       <nav class="site-nav" aria-label="Hauptnavigation">
-        <a href="#leistungen"><span data-l="de">Leistungen</span><span data-l="en">Services</span></a>
-        <a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a>
-        <a href="#profil"><span data-l="de">Profil</span><span data-l="en">About</span></a>
-        <a href="#kontakt"><span data-l="de">Kontakt</span><span data-l="en">Contact</span></a>
+        <a href="#leistungen">
+          <span data-l="de">Leistungen</span>
+          <span data-l="en">Services</span>
+        </a>
+        <a href="#arbeit">
+          <span data-l="de">Arbeit</span>
+          <span data-l="en">Work</span>
+        </a>
+        <a href="#profil">
+          <span data-l="de">Profil</span>
+          <span data-l="en">About</span>
+        </a>
+        <a href="#kontakt">
+          <span data-l="de">Kontakt</span>
+          <span data-l="en">Contact</span>
+        </a>
       </nav>
       <div class="head-tools">
         <button
@@ -94,7 +127,8 @@
           type="button"
           aria-label="Sprache wechseln / Switch language"
         >
-          <span data-setlang="de" aria-pressed="true">DE</span><span data-setlang="en" aria-pressed="false">EN</span>
+          <span data-setlang="de" aria-pressed="true">DE</span>
+          <span data-setlang="en" aria-pressed="false">EN</span>
         </button>
         <button
           class="theme-toggle"
@@ -126,11 +160,26 @@
 
     <!-- Mobiles Menü -->
     <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
-      <a href="#leistungen"><span data-l="de">Leistungen</span><span data-l="en">Services</span></a>
-      <a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a>
-      <a href="#profil"><span data-l="de">Profil</span><span data-l="en">About</span></a>
-      <a href="#kontakt"><span data-l="de">Kontakt</span><span data-l="en">Contact</span></a>
-      <p class="meta mm-foot">Thun, CH — <span id="mm-clock">--:--:--</span></p>
+      <a href="#leistungen">
+        <span data-l="de">Leistungen</span>
+        <span data-l="en">Services</span>
+      </a>
+      <a href="#arbeit">
+        <span data-l="de">Arbeit</span>
+        <span data-l="en">Work</span>
+      </a>
+      <a href="#profil">
+        <span data-l="de">Profil</span>
+        <span data-l="en">About</span>
+      </a>
+      <a href="#kontakt">
+        <span data-l="de">Kontakt</span>
+        <span data-l="en">Contact</span>
+      </a>
+      <p class="meta mm-foot">
+        Thun, CH —
+        <span id="mm-clock">--:--:--</span>
+      </p>
     </nav>
 
     <main id="main">
@@ -182,19 +231,37 @@
 
         <div class="ticker" aria-hidden="true">
           <div class="ticker-track">
-            <span>HTML <b>✦</b> CSS <b>✦</b> JavaScript <b>✦</b> CSS
+            <span>
+              HTML
+              <b>✦</b>
+              CSS
+              <b>✦</b>
+              JavaScript
+              <b>✦</b>
+              CSS
               <b>✦</b>
               <span data-l="de">Website-Rettung</span>
-              <span data-l="en">Website rescue</span> <b>✦</b>
+              <span data-l="en">Website rescue</span>
+              <b>✦</b>
               <span data-l="de">Responsives Design</span>
-              <span data-l="en">Responsive design</span> <b>✦</b>
+              <span data-l="en">Responsive design</span>
+              <b>✦</b>
             </span>
-            <span>HTML <b>✦</b> CSS <b>✦</b> JavaScript <b>✦</b> CSS
+            <span>
+              HTML
+              <b>✦</b>
+              CSS
+              <b>✦</b>
+              JavaScript
+              <b>✦</b>
+              CSS
               <b>✦</b>
               <span data-l="de">Website-Rettung</span>
-              <span data-l="en">Website rescue</span> <b>✦</b>
+              <span data-l="en">Website rescue</span>
+              <b>✦</b>
               <span data-l="de">Responsives Design</span>
-              <span data-l="en">Responsive design</span> <b>✦</b>
+              <span data-l="en">Responsive design</span>
+              <b>✦</b>
             </span>
           </div>
         </div>
@@ -206,7 +273,8 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">
-                <b>01</b> <span data-l="de">Leistungen</span>
+                <b>01</b>
+                <span data-l="de">Leistungen</span>
                 <span data-l="en">Services</span>
               </p>
               <h2 class="h2">
@@ -236,75 +304,105 @@
             <div class="svc-row">
               <span class="svc-num">01</span>
               <h3>
-                <span data-l="de">Website-Reparaturen</span><span data-l="en">Website fixes</span>
+                <span data-l="de">Website-Reparaturen</span>
+                <span data-l="en">Website fixes</span>
               </h3>
               <p>
-                <span data-l="de">Kaputte Layouts, fehlerhafte Skripte, tote Links: Ich
+                <span data-l="de">
+                  Kaputte Layouts, fehlerhafte Skripte, tote Links: Ich
                   diagnostiziere gründlich und repariere nachhaltig — auch an
-                  Code, den ich nicht selbst geschrieben habe.</span>
-                <span data-l="en">Broken layouts, faulty scripts, dead links: I diagnose
+                  Code, den ich nicht selbst geschrieben habe.
+                </span>
+                <span data-l="en">
+                  Broken layouts, faulty scripts, dead links: I diagnose
                   thoroughly and fix things properly — including code I didn't
-                  write myself.</span>
+                  write myself.
+                </span>
               </p>
             </div>
             <div class="svc-row">
               <span class="svc-num">02</span>
               <h3>
-                <span data-l="de">Individuelle Websites</span><span data-l="en">Custom websites</span>
+                <span data-l="de">Individuelle Websites</span>
+                <span data-l="en">Custom websites</span>
               </h3>
               <p>
-                <span data-l="de">Massgeschneidert statt von der Stange: Struktur, Design und
-                  Code entstehen für dich — nicht für alle.</span>
-                <span data-l="en">Tailored instead of off-the-rack: structure, design and code
-                  are made for you — not for everyone.</span>
+                <span data-l="de">
+                  Massgeschneidert statt von der Stange: Struktur, Design und
+                  Code entstehen für dich — nicht für alle.
+                </span>
+                <span data-l="en">
+                  Tailored instead of off-the-rack: structure, design and code
+                  are made for you — not for everyone.
+                </span>
               </p>
             </div>
             <div class="svc-row">
               <span class="svc-num">03</span>
               <h3>
-                <span data-l="de">Kreatives Design</span><span data-l="en">Creative design</span>
+                <span data-l="de">Kreatives Design</span>
+                <span data-l="en">Creative design</span>
               </h3>
               <p>
-                <span data-l="de">Von der ersten Skizze bis zum Feinschliff: Interfaces mit
-                  eigener Handschrift, die im Kopf bleiben.</span>
-                <span data-l="en">From the first sketch to the final polish: interfaces with
-                  their own signature that stick in the head.</span>
+                <span data-l="de">
+                  Von der ersten Skizze bis zum Feinschliff: Interfaces mit
+                  eigener Handschrift, die im Kopf bleiben.
+                </span>
+                <span data-l="en">
+                  From the first sketch to the final polish: interfaces with
+                  their own signature that stick in the head.
+                </span>
               </p>
             </div>
             <div class="svc-row">
               <span class="svc-num">04</span>
               <h3>
-                <span data-l="de">Responsives Design</span><span data-l="en">Responsive design</span>
+                <span data-l="de">Responsives Design</span>
+                <span data-l="en">Responsive design</span>
               </h3>
               <p>
-                <span data-l="de">Vom Smartphone bis zum Studio-Monitor: Jede Ansicht sitzt.
-                  Getestet auf echten Geräten, nicht auf Folien.</span>
-                <span data-l="en">From smartphone to studio monitor: every view fits. Tested on
-                  real devices, not on slide decks.</span>
+                <span data-l="de">
+                  Vom Smartphone bis zum Studio-Monitor: Jede Ansicht sitzt.
+                  Getestet auf echten Geräten, nicht auf Folien.
+                </span>
+                <span data-l="en">
+                  From smartphone to studio monitor: every view fits. Tested on
+                  real devices, not on slide decks.
+                </span>
               </p>
             </div>
             <div class="svc-row">
               <span class="svc-num">05</span>
               <h3>
-                <span data-l="de">Website-Konvertierung</span><span data-l="en">Website conversion</span>
+                <span data-l="de">Website-Konvertierung</span>
+                <span data-l="en">Website conversion</span>
               </h3>
               <p>
-                <span data-l="de">Altlasten? Ich überführe bestehende Seiten in moderne,
-                  schnelle Standards — Inhalte bleiben, Ballast geht.</span>
-                <span data-l="en">Legacy baggage? I move existing sites onto modern, fast
-                  standards — content stays, ballast goes.</span>
+                <span data-l="de">
+                  Altlasten? Ich überführe bestehende Seiten in moderne,
+                  schnelle Standards — Inhalte bleiben, Ballast geht.
+                </span>
+                <span data-l="en">
+                  Legacy baggage? I move existing sites onto modern, fast
+                  standards — content stays, ballast goes.
+                </span>
               </p>
             </div>
             <div class="svc-row">
               <span class="svc-num">06</span>
               <h3>
-                <span data-l="de">Web-Editoren</span><span data-l="en">Web editors</span>
+                <span data-l="de">Web-Editoren</span>
+                <span data-l="en">Web editors</span>
               </h3>
               <p>
-                <span data-l="de">WordPress, Wix &amp; Co.: Einrichtung, Customizing und
-                  Schulung — damit du danach selbst sicher arbeitest.</span>
-                <span data-l="en">WordPress, Wix &amp; co: setup, customising and training — so
-                  you can work confidently on your own afterwards.</span>
+                <span data-l="de">
+                  WordPress, Wix &amp; Co.: Einrichtung, Customizing und
+                  Schulung — damit du danach selbst sicher arbeitest.
+                </span>
+                <span data-l="en">
+                  WordPress, Wix &amp; co: setup, customising and training — so
+                  you can work confidently on your own afterwards.
+                </span>
               </p>
             </div>
           </div>
@@ -317,18 +415,30 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">
-                <b>02</b> <span data-l="de">Arbeit &amp; Kundschaft</span><span data-l="en">Work &amp; clients</span>
+                <b>02</b>
+                <span data-l="de">Arbeit &amp; Kundschaft</span>
+                <span data-l="en">Work &amp; clients</span>
               </p>
               <h2 class="h2">
-                <span class="line"><span data-l="de">Ausgewählte</span><span data-l="en">Selected</span></span>
-                <span class="line"><span data-l="de">Projekte.</span><span data-l="en">projects.</span></span>
+                <span class="line">
+                  <span data-l="de">Ausgewählte</span>
+                  <span data-l="en">Selected</span>
+                </span>
+                <span class="line">
+                  <span data-l="de">Projekte.</span>
+                  <span data-l="en">projects.</span>
+                </span>
               </h2>
             </div>
             <p class="note">
-              <span data-l="de">Drei Projekte, drei Welten: Gaming-Community, Fotografie und
-                eine gerettete Musikschule. Alle live erreichbar.</span>
-              <span data-l="en">Three projects, three worlds: a gaming community, photography,
-                and a rescued music school. All live online.</span>
+              <span data-l="de">
+                Drei Projekte, drei Welten: Gaming-Community, Fotografie und
+                eine gerettete Musikschule. Alle live erreichbar.
+              </span>
+              <span data-l="en">
+                Three projects, three worlds: a gaming community, photography,
+                and a rescued music school. All live online.
+              </span>
             </p>
           </div>
 
@@ -351,17 +461,25 @@
               </a>
               <div class="work-info">
                 <p class="meta">
-                  <span class="work-idx">01</span> —
-                  <span data-l="de">Gaming-Community</span><span data-l="en">Gaming community</span>
+                  <span class="work-idx">01</span>
+                  —
+                  <span data-l="de">Gaming-Community</span>
+                  <span data-l="en">Gaming community</span>
                 </p>
                 <h3>
-                  <a href="https://unitedpro.ch" target="_blank" rel="noopener">unitedpro.ch</a>
+                  <a href="https://unitedpro.ch" target="_blank" rel="noopener">
+                    unitedpro.ch
+                  </a>
                 </h3>
                 <p>
-                  <span data-l="de">Gaming-Community-Website, entwickelt mit HTML, CSS und
-                    jQuery. Fokus auf Team, News und Discord-Integration.</span>
-                  <span data-l="en">Gaming community website built with HTML, CSS and jQuery.
-                    Focused on team, news and Discord integration.</span>
+                  <span data-l="de">
+                    Gaming-Community-Website, entwickelt mit HTML, CSS und
+                    jQuery. Fokus auf Team, News und Discord-Integration.
+                  </span>
+                  <span data-l="en">
+                    Gaming community website built with HTML, CSS and jQuery.
+                    Focused on team, news and Discord integration.
+                  </span>
                 </p>
                 <ul class="tags">
                   <li>HTML</li>
@@ -389,21 +507,29 @@
               </a>
               <div class="work-info">
                 <p class="meta">
-                  <span class="work-idx">02</span> —
-                  <span data-l="de">Portfolio &amp; Fotografie</span><span data-l="en">Portfolio &amp; photography</span>
+                  <span class="work-idx">02</span>
+                  —
+                  <span data-l="de">Portfolio &amp; Fotografie</span>
+                  <span data-l="en">Portfolio &amp; photography</span>
                 </p>
                 <h3>
                   <a
                     href="https://martinschmidt.ch"
                     target="_blank"
                     rel="noopener"
-                    >martinschmidt.ch</a>
+                  >
+                    martinschmidt.ch
+                  </a>
                 </h3>
                 <p>
-                  <span data-l="de">Meine persönliche Website — modern, minimalistisch und
-                    individuell. Realisiert mit HTML, CSS und JavaScript.</span>
-                  <span data-l="en">My personal website — modern, minimal and individual. Built
-                    with HTML, CSS and JavaScript.</span>
+                  <span data-l="de">
+                    Meine persönliche Website — modern, minimalistisch und
+                    individuell. Realisiert mit HTML, CSS und JavaScript.
+                  </span>
+                  <span data-l="en">
+                    My personal website — modern, minimal and individual. Built
+                    with HTML, CSS and JavaScript.
+                  </span>
                 </p>
                 <ul class="tags">
                   <li>HTML</li>
@@ -431,23 +557,31 @@
               </a>
               <div class="work-info">
                 <p class="meta">
-                  <span class="work-idx">03</span> —
-                  <span data-l="de">Musikschule · Rettung</span><span data-l="en">Music school · rescue</span>
+                  <span class="work-idx">03</span>
+                  —
+                  <span data-l="de">Musikschule · Rettung</span>
+                  <span data-l="en">Music school · rescue</span>
                 </p>
                 <h3>
                   <a
                     href="https://musikschule-kurtschmid.ch"
                     target="_blank"
                     rel="noopener"
-                    >Kurt Schmid</a>
+                  >
+                    Kurt Schmid
+                  </a>
                 </h3>
                 <p>
-                  <span data-l="de">Rettung und Verbesserung einer Musikschul-Website nach
+                  <span data-l="de">
+                    Rettung und Verbesserung einer Musikschul-Website nach
                     Datenverlust beim Hoster. Umsetzung mit generischem
-                    Website-Builder.</span>
-                  <span data-l="en">Rescue and improvement of a music school website after data
+                    Website-Builder.
+                  </span>
+                  <span data-l="en">
+                    Rescue and improvement of a music school website after data
                     loss at the hoster. Delivered with a generic website
-                    builder.</span>
+                    builder.
+                  </span>
                 </p>
                 <ul class="tags">
                   <li>Website-Builder</li>
@@ -463,72 +597,103 @@
       <section class="section" id="profil">
         <div class="wrap">
           <p class="eyebrow">
-            <b>03</b> <span data-l="de">Profil</span><span data-l="en">About</span>
+            <b>03</b>
+            <span data-l="de">Profil</span>
+            <span data-l="en">About</span>
           </p>
           <div class="profile">
             <div class="profile-text">
               <h2 class="h2">
-                <span class="line"><span data-l="de">Hinter</span><span data-l="en">Behind</span></span>
-                <span class="line"><span data-l="de">SchmidtBit</span><span data-l="en">SchmidtBit</span></span>
-                <span class="line"><span data-l="de">steckt Martin.</span><span data-l="en">is Martin.</span></span>
+                <span class="line">
+                  <span data-l="de">Hinter</span>
+                  <span data-l="en">Behind</span>
+                </span>
+                <span class="line">
+                  <span data-l="de">SchmidtBit</span>
+                  <span data-l="en">SchmidtBit</span>
+                </span>
+                <span class="line">
+                  <span data-l="de">steckt Martin.</span>
+                  <span data-l="en">is Martin.</span>
+                </span>
               </h2>
               <p class="lead" style="margin-top: 1.5rem">
-                <span data-l="de">Webentwickler aus Thun. Ich verwandle Ideen in Code und
-                  Design — Websites, die nicht nur gut aussehen, sondern sich
-                  auch gut anfühlen.</span>
-                <span data-l="en">A web developer from Thun. I turn ideas into code and design
-                  — websites that don't just look good, they feel good.</span>
+                <span data-l="de">
+                  Webentwickler aus Thun. Ich verwandle Ideen in Code und Design
+                  — Websites, die nicht nur gut aussehen, sondern sich auch gut
+                  anfühlen.
+                </span>
+                <span data-l="en">
+                  A web developer from Thun. I turn ideas into code and design —
+                  websites that don't just look good, they feel good.
+                </span>
               </p>
               <p>
-                <span data-l="de">Mein Werkzeug: HTML, CSS, JavaScript und jQuery — plus ein
+                <span data-l="de">
+                  Mein Werkzeug: HTML, CSS, JavaScript und jQuery — plus ein
                   gutes Auge für Details. Ich arbeite direkt mit dir, ohne
-                  Agenturapparat: kurze Wege, klare Ansagen, fertige
-                  Ergebnisse.</span>
-                <span data-l="en">My tools: HTML, CSS, JavaScript and jQuery — plus an eye for
+                  Agenturapparat: kurze Wege, klare Ansagen, fertige Ergebnisse.
+                </span>
+                <span data-l="en">
+                  My tools: HTML, CSS, JavaScript and jQuery — plus an eye for
                   detail. I work with you directly, no agency machinery: short
-                  paths, clear words, finished results.</span>
+                  paths, clear words, finished results.
+                </span>
               </p>
               <p>
-                <span data-l="de">Wenn ich nicht programmiere, erkunde ich neue
-                  Webtechnologien, experimentiere mit Layouts oder bin draussen
-                  in den Bergen unterwegs.</span>
-                <span data-l="en">When I'm not coding, I'm exploring new web technologies,
-                  experimenting with layouts, or out in the Swiss
-                  mountains.</span>
+                <span data-l="de">
+                  Wenn ich nicht programmiere, erkunde ich neue Webtechnologien,
+                  experimentiere mit Layouts oder bin draussen in den Bergen
+                  unterwegs.
+                </span>
+                <span data-l="en">
+                  When I'm not coding, I'm exploring new web technologies,
+                  experimenting with layouts, or out in the Swiss mountains.
+                </span>
               </p>
               <dl class="facts">
                 <dt>
-                  <span data-l="de">Standort</span><span data-l="en">Location</span>
+                  <span data-l="de">Standort</span>
+                  <span data-l="en">Location</span>
                 </dt>
                 <dd>
-                  Thun, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span>
+                  Thun,
+                  <span data-l="de">Schweiz</span>
+                  <span data-l="en">Switzerland</span>
                 </dd>
                 <dt>
-                  <span data-l="de">Fokus</span><span data-l="en">Focus</span>
+                  <span data-l="de">Fokus</span>
+                  <span data-l="en">Focus</span>
                 </dt>
                 <dd>
-                  <span data-l="de">Web-Entwicklung &amp; -Rettung</span><span data-l="en">Web development &amp; rescue</span>
+                  <span data-l="de">Web-Entwicklung &amp; -Rettung</span>
+                  <span data-l="en">Web development &amp; rescue</span>
                 </dd>
                 <dt>
-                  <span data-l="de">Sprachen</span><span data-l="en">Languages</span>
+                  <span data-l="de">Sprachen</span>
+                  <span data-l="en">Languages</span>
                 </dt>
                 <dd>Deutsch / English</dd>
                 <dt>
-                  <span data-l="de">Erreichbar</span><span data-l="en">Available</span>
+                  <span data-l="de">Erreichbar</span>
+                  <span data-l="en">Available</span>
                 </dt>
                 <dd>
-                  <span data-l="de">Mo–Sa, 18–22 Uhr</span><span data-l="en">Mon–Sat, 6–10 pm</span>
+                  <span data-l="de">Mo–Sa, 18–22 Uhr</span>
+                  <span data-l="en">Mon–Sat, 6–10 pm</span>
                 </dd>
               </dl>
             </div>
 
             <div class="stack" data-meters>
               <h3>
-                <span data-l="de">Werkzeugkasten</span><span data-l="en">Toolbox</span>
+                <span data-l="de">Werkzeugkasten</span>
+                <span data-l="en">Toolbox</span>
               </h3>
               <div class="meter">
                 <div class="meter-top">
-                  <b>HTML</b><span data-count="95">95%</span>
+                  <b>HTML</b>
+                  <span data-count="95">95%</span>
                 </div>
                 <div class="meter-track">
                   <div class="meter-fill" style="--v: 0.95"></div>
@@ -536,7 +701,8 @@
               </div>
               <div class="meter">
                 <div class="meter-top">
-                  <b>CSS</b><span data-count="95">95%</span>
+                  <b>CSS</b>
+                  <span data-count="95">95%</span>
                 </div>
                 <div class="meter-track">
                   <div class="meter-fill" style="--v: 0.95"></div>
@@ -544,9 +710,11 @@
               </div>
               <div class="meter">
                 <div class="meter-top">
-                  <b
-                    ><span data-l="de">Web-Editoren</span><span data-l="en">Web editors</span></b
-                  ><span data-count="80">80%</span>
+                  <b>
+                    <span data-l="de">Web-Editoren</span>
+                    <span data-l="en">Web editors</span>
+                  </b>
+                  <span data-count="80">80%</span>
                 </div>
                 <div class="meter-track">
                   <div class="meter-fill" style="--v: 0.8"></div>
@@ -554,7 +722,8 @@
               </div>
               <div class="meter">
                 <div class="meter-top">
-                  <b>JavaScript</b><span data-count="75">75%</span>
+                  <b>JavaScript</b>
+                  <span data-count="75">75%</span>
                 </div>
                 <div class="meter-track">
                   <div class="meter-fill" style="--v: 0.75"></div>
@@ -562,7 +731,8 @@
               </div>
               <div class="meter">
                 <div class="meter-top">
-                  <b>jQuery</b><span data-count="70">70%</span>
+                  <b>jQuery</b>
+                  <span data-count="70">70%</span>
                 </div>
                 <div class="meter-track">
                   <div class="meter-fill" style="--v: 0.7"></div>
@@ -577,36 +747,53 @@
       <section class="reach on-flame" id="kontakt">
         <div class="wrap">
           <p class="eyebrow">
-            <b>04</b> <span data-l="de">Kontakt</span><span data-l="en">Contact</span>
+            <b>04</b>
+            <span data-l="de">Kontakt</span>
+            <span data-l="en">Contact</span>
           </p>
           <h2 class="h2">
-            <span class="line"><span data-l="de">Lass uns</span><span data-l="en">Let's build</span></span>
-            <span class="line"><span data-l="de">bauen.</span><span data-l="en">something.</span></span>
+            <span class="line">
+              <span data-l="de">Lass uns</span>
+              <span data-l="en">Let's build</span>
+            </span>
+            <span class="line">
+              <span data-l="de">bauen.</span>
+              <span data-l="en">something.</span>
+            </span>
           </h2>
-          <a class="mail" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a>
+          <a class="mail" href="mailto:martinschmidt1107@gmail.com">
+            martinschmidt1107@gmail.com
+          </a>
           <dl class="reach-list">
             <div>
               <dt>
-                <span data-l="de">Standort</span><span data-l="en">Location</span>
+                <span data-l="de">Standort</span>
+                <span data-l="en">Location</span>
               </dt>
               <dd>
-                Thun, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span>
+                Thun,
+                <span data-l="de">Schweiz</span>
+                <span data-l="en">Switzerland</span>
               </dd>
             </div>
             <div>
               <dt>
-                <span data-l="de">Verfügbarkeit</span><span data-l="en">Availability</span>
+                <span data-l="de">Verfügbarkeit</span>
+                <span data-l="en">Availability</span>
               </dt>
               <dd>
-                <span data-l="de">Mo–Sa, 18–22 Uhr</span><span data-l="en">Mon–Sat, 6–10 pm</span>
+                <span data-l="de">Mo–Sa, 18–22 Uhr</span>
+                <span data-l="en">Mon–Sat, 6–10 pm</span>
               </dd>
             </div>
             <div>
               <dt>
-                <span data-l="de">Preise</span><span data-l="en">Pricing</span>
+                <span data-l="de">Preise</span>
+                <span data-l="en">Pricing</span>
               </dt>
               <dd>
-                <span data-l="de">Individuell — Offerte gratis</span><span data-l="en">Individual — free quote</span>
+                <span data-l="de">Individuell — Offerte gratis</span>
+                <span data-l="en">Individual — free quote</span>
               </dd>
             </div>
           </dl>
@@ -617,16 +804,17 @@
         <div class="wrap">
           <form class="form" id="contact-form" novalidate>
             <p class="hp" aria-hidden="true">
-              <label
-                >Don't fill this out if you're human:
-                <input name="bot-field" tabindex="-1" autocomplete="off"
-              /></label>
+              <label>
+                Don't fill this out if you're human:
+                <input name="bot-field" tabindex="-1" autocomplete="off" />
+              </label>
             </p>
             <div class="row">
               <div>
-                <label for="name"
-                  ><span data-l="de">Dein Name</span><span data-l="en">Your name</span></label
-                >
+                <label for="name">
+                  <span data-l="de">Dein Name</span>
+                  <span data-l="en">Your name</span>
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -647,33 +835,44 @@
               </div>
             </div>
             <div>
-              <label for="subject"
-                ><span data-l="de">Betreff</span><span data-l="en">Subject</span></label
-              >
+              <label for="subject">
+                <span data-l="de">Betreff</span>
+                <span data-l="en">Subject</span>
+              </label>
               <input type="text" id="subject" name="subject" required />
             </div>
             <div>
-              <label for="message"
-                ><span data-l="de">Deine Nachricht</span><span data-l="en">Your message</span></label
-              >
+              <label for="message">
+                <span data-l="de">Deine Nachricht</span>
+                <span data-l="en">Your message</span>
+              </label>
               <textarea id="message" name="message" required></textarea>
             </div>
             <button class="btn" type="submit">
-              <span data-l="de">Nachricht senden</span><span data-l="en">Send message</span>
+              <span data-l="de">Nachricht senden</span>
+              <span data-l="en">Send message</span>
               <span class="ar" aria-hidden="true">→</span>
             </button>
             <p class="form-note">
-              <span data-l="de">Das Formular öffnet dein eigenes E-Mail-Programm mit allen
-                Angaben — kein Server, kein Tracking.</span>
-              <span data-l="en">The form opens your own mail app with everything filled in — no
-                server, no tracking.</span>
+              <span data-l="de">
+                Das Formular öffnet dein eigenes E-Mail-Programm mit allen
+                Angaben — kein Server, kein Tracking.
+              </span>
+              <span data-l="en">
+                The form opens your own mail app with everything filled in — no
+                server, no tracking.
+              </span>
             </p>
             <noscript>
               <p class="form-note">
-                <span data-l="de">JavaScript ist deaktiviert — schreib mir bitte direkt an
-                  martinschmidt1107@gmail.com.</span>
-                <span data-l="en">JavaScript is disabled — please write me directly at
-                  martinschmidt1107@gmail.com.</span>
+                <span data-l="de">
+                  JavaScript ist deaktiviert — schreib mir bitte direkt an
+                  martinschmidt1107@gmail.com.
+                </span>
+                <span data-l="en">
+                  JavaScript is disabled — please write me directly at
+                  martinschmidt1107@gmail.com.
+                </span>
               </p>
             </noscript>
           </form>
@@ -684,44 +883,66 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-foot">
       <div class="wrap">
+        <!-- prettier-ignore -->
         <p class="foot-mark" aria-hidden="true">SCHMIDT<em>BIT</em></p>
         <div class="foot-cols">
           <div>
             <h4>
-              <span data-l="de">Navigation</span><span data-l="en">Navigation</span>
+              <span data-l="de">Navigation</span>
+              <span data-l="en">Navigation</span>
             </h4>
             <ul>
               <li>
-                <a href="#leistungen"><span data-l="de">Leistungen</span><span data-l="en">Services</span></a>
+                <a href="#leistungen">
+                  <span data-l="de">Leistungen</span>
+                  <span data-l="en">Services</span>
+                </a>
               </li>
               <li>
-                <a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a>
+                <a href="#arbeit">
+                  <span data-l="de">Arbeit</span>
+                  <span data-l="en">Work</span>
+                </a>
               </li>
               <li>
-                <a href="#profil"><span data-l="de">Profil</span><span data-l="en">About</span></a>
+                <a href="#profil">
+                  <span data-l="de">Profil</span>
+                  <span data-l="en">About</span>
+                </a>
               </li>
               <li>
-                <a href="#kontakt"><span data-l="de">Kontakt</span><span data-l="en">Contact</span></a>
+                <a href="#kontakt">
+                  <span data-l="de">Kontakt</span>
+                  <span data-l="en">Contact</span>
+                </a>
               </li>
             </ul>
           </div>
           <div>
             <h4>
-              <span data-l="de">Rechtliches</span><span data-l="en">Legal</span>
+              <span data-l="de">Rechtliches</span>
+              <span data-l="en">Legal</span>
             </h4>
             <ul>
               <li><a href="impressum.html">Impressum</a></li>
               <li>
-                <a href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a>
+                <a href="datenschutz.html">
+                  <span data-l="de">Datenschutz</span>
+                  <span data-l="en">Privacy</span>
+                </a>
               </li>
               <li>
-                <a href="nutzungsbedingungen.html"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms of use</span></a>
+                <a href="nutzungsbedingungen.html">
+                  <span data-l="de">Nutzungsbedingungen</span>
+                  <span data-l="en">Terms of use</span>
+                </a>
               </li>
             </ul>
           </div>
           <div>
             <h4>
-              <span data-l="de">Anderswo</span><span data-l="en">Elsewhere</span>
+              <span data-l="de">Anderswo</span>
+              <span data-l="en">Elsewhere</span>
             </h4>
             <ul>
               <li><a href="it-fotd.html">IT Fact of the Day</a></li>
@@ -730,7 +951,9 @@
                   href="https://github.com/TRGamer-tech"
                   target="_blank"
                   rel="noopener"
-                  >GitHub</a>
+                >
+                  GitHub
+                </a>
               </li>
               <li><a href="mailto:martinschmidt1107@gmail.com">E-Mail</a></li>
             </ul>
@@ -738,11 +961,17 @@
         </div>
         <div class="foot-base">
           <p>
-            &copy; <span id="year">2026</span> SchmidtBit —
-            <span data-l="de">handgemacht in Thun.</span><span data-l="en">handmade in Thun.</span>
+            &copy;
+            <span id="year">2026</span>
+            SchmidtBit —
+            <span data-l="de">handgemacht in Thun.</span>
+            <span data-l="en">handmade in Thun.</span>
           </p>
           <p>
-            <span data-l="de">Kein Tracking. Keine Cookies. Kein Baukasten.</span><span data-l="en">No tracking. No cookies. No site builder.</span>
+            <span data-l="de">
+              Kein Tracking. Keine Cookies. Kein Baukasten.
+            </span>
+            <span data-l="en">No tracking. No cookies. No site builder.</span>
           </p>
         </div>
       </div>

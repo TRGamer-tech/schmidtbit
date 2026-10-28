@@ -1,10 +1,9 @@
 ---
 name: "\U0001F4C3 Dokumentationsanfrage"
 about: Schlage Ergänzungen oder Korrekturen zu unserem Dokumentationszentrum vor!
-title: '[Dokumentation]: (Beispiel) Richtig dokumentieren '
+title: "[Dokumentation]: (Beispiel) Richtig dokumentieren "
 labels: Dokumentation
-assignees: ''
-
+assignees: ""
 ---
 
 ## Dokumentationsanfrage
