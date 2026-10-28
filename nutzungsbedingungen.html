@@ -10,10 +10,8 @@
     (function () {
       var d = document.documentElement, t, l;
       try {
-        t = localStorage.getItem('sb-theme');
-        if (t !== 'light' && t !== 'dark') {
-          t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        }
+        localStorage.removeItem('sb-theme');
+        t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       } catch (e) { t = 'dark'; }
       d.setAttribute('data-theme', t);
       try { l = localStorage.getItem('language'); } catch (e) { l = null; }
@@ -32,7 +30,7 @@
   <a class="skip" href="#main"><span data-l="de">Zum Inhalt springen</span><span data-l="en">Skip to content</span></a>
 
   <header class="site-head is-stuck" id="site-head">
-    <a class="brand" href="index.html" aria-label="SchmidtBit — Startseite">SCHMIDT<em>BIT</em><sup>.CH</sup></a>
+    <a class="brand" href="index.html" aria-label="SchmidtBit — Startseite"><img class="brand-logo" src="assets/img/favicon.png" alt="" width="32" height="32">SCHMIDT<em>BIT</em><sup>.CH</sup></a>
     <div class="head-tools">
       <a class="back-link" href="index.html">← <span data-l="de">Startseite</span><span data-l="en">Home</span></a>
       <button class="lang" type="button" aria-label="Sprache wechseln / Switch language">
@@ -61,8 +59,8 @@
       </section>
       <section>
         <h2><span data-l="de">2. Anbieter</span><span data-l="en">2. Provider</span></h2>
-        <p data-l="de">SchmidtBit, Martin Schmidt, Bern, Schweiz, E-Mail: <a class="link-u" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
-        <p data-l="en">SchmidtBit, Martin Schmidt, Bern, Switzerland, email: <a class="link-u" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+        <p data-l="de">SchmidtBit, Martin Schmidt, Thun, Schweiz, E-Mail: <a class="link-u" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+        <p data-l="en">SchmidtBit, Martin Schmidt, Thun, Switzerland, email: <a class="link-u" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
       </section>
       <section>
         <h2><span data-l="de">3. Leistungen und Verfügbarkeit</span><span data-l="en">3. Services and availability</span></h2>
@@ -96,8 +94,8 @@
       </section>
       <section>
         <h2><span data-l="de">9. Anwendbares Recht und Gerichtsstand</span><span data-l="en">9. Governing law and jurisdiction</span></h2>
-        <p data-l="de">Es gilt schweizerisches Recht. Gerichtsstand ist Bern, soweit nicht zwingende gesetzliche Bestimmungen etwas anderes vorsehen.</p>
-        <p data-l="en">Swiss law applies. The place of jurisdiction is Bern, unless mandatory statutory provisions provide otherwise.</p>
+        <p data-l="de">Es gilt schweizerisches Recht. Gerichtsstand ist Thun, soweit nicht zwingende gesetzliche Bestimmungen etwas anderes vorsehen.</p>
+        <p data-l="en">Swiss law applies. The place of jurisdiction is Thun, unless mandatory statutory provisions provide otherwise.</p>
       </section>
     </div>
   </main>
@@ -105,7 +103,7 @@
   <footer class="site-foot">
     <div class="wrap">
       <div class="foot-base" style="margin-top:0">
-        <p>&copy; <span id="year">2026</span> SchmidtBit — <span data-l="de">handgemacht in Bern.</span><span data-l="en">handmade in Bern.</span></p>
+        <p>&copy; <span id="year">2026</span> SchmidtBit — <span data-l="de">handgemacht in Thun.</span><span data-l="en">handmade in Thun.</span></p>
         <p><a class="link-u" href="impressum.html">Impressum</a> · <a class="link-u" href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a> · <a class="link-u" href="nutzungsbedingungen.html"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms of use</span></a></p>
       </div>
     </div>

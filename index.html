@@ -6,7 +6,7 @@
     <title>SchmidtBit — Wo Webseiten ernst genommen werden</title>
     <meta
       name="description"
-      content="SchmidtBit aus Bern: individuelle Websites, Reparaturen, kreatives Design und Website-Rettungen. Handgemacht, schnell, ohne Baukasten."
+      content="SchmidtBit aus Thun: individuelle Websites, Reparaturen, kreatives Design und Website-Rettungen. Handgemacht, schnell, ohne Baukasten."
     />
     <meta
       property="og:title"
@@ -14,7 +14,7 @@
     />
     <meta
       property="og:description"
-      content="Individuelle Websites, Reparaturen und Website-Rettungen aus Bern. Handgemacht, schnell, ohne Baukasten."
+      content="Individuelle Websites, Reparaturen und Website-Rettungen aus Thun. Handgemacht, schnell, ohne Baukasten."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/img/favicon.png" />
@@ -25,14 +25,12 @@
           t,
           l;
         try {
-          t = localStorage.getItem("sb-theme");
-          if (t !== "light" && t !== "dark") {
-            t =
+          localStorage.removeItem("sb-theme");
+        t =
               window.matchMedia &&
               matchMedia("(prefers-color-scheme: light)").matches
                 ? "light"
                 : "dark";
-          }
         } catch (e) {
           t = "dark";
         }
@@ -76,14 +74,14 @@
 
     <!-- Intro -->
     <div id="intro" aria-hidden="true">
-      <div class="intro-mark">SCHMIDT<em>BIT</em></div>
+      <div class="intro-mark"><img class="intro-logo" src="assets/img/favicon.png" alt="" width="96" height="96" /><span>SCHMIDT<em>BIT</em></span></div>
       <div class="intro-count" id="intro-count">000</div>
       <div class="intro-bar"></div>
     </div>
 
     <!-- Header -->
     <header class="site-head" id="site-head">
-      <a class="brand" href="#top" aria-label="SchmidtBit — Startseite">SCHMIDT<em>BIT</em><sup>.CH</sup></a>
+      <a class="brand" href="#top" aria-label="SchmidtBit — Startseite"><img class="brand-logo" src="assets/img/favicon.png" alt="" width="32" height="32" />SCHMIDT<em>BIT</em><sup>.CH</sup></a>
       <nav class="site-nav" aria-label="Hauptnavigation">
         <a href="#leistungen"><span data-l="de">Leistungen</span><span data-l="en">Services</span></a>
         <a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a>
@@ -132,7 +130,7 @@
       <a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a>
       <a href="#profil"><span data-l="de">Profil</span><span data-l="en">About</span></a>
       <a href="#kontakt"><span data-l="de">Kontakt</span><span data-l="en">Contact</span></a>
-      <p class="meta mm-foot">Bern, CH — <span id="mm-clock">--:--:--</span></p>
+      <p class="meta mm-foot">Thun, CH — <span id="mm-clock">--:--:--</span></p>
     </nav>
 
     <main id="main">
@@ -475,10 +473,10 @@
                 <span class="line"><span data-l="de">steckt Martin.</span><span data-l="en">is Martin.</span></span>
               </h2>
               <p class="lead" style="margin-top: 1.5rem">
-                <span data-l="de">Webentwickler aus Bern. Ich verwandle Ideen in Code und
+                <span data-l="de">Webentwickler aus Thun. Ich verwandle Ideen in Code und
                   Design — Websites, die nicht nur gut aussehen, sondern sich
                   auch gut anfühlen.</span>
-                <span data-l="en">A web developer from Bern. I turn ideas into code and design
+                <span data-l="en">A web developer from Thun. I turn ideas into code and design
                   — websites that don't just look good, they feel good.</span>
               </p>
               <p>
@@ -503,7 +501,7 @@
                   <span data-l="de">Standort</span><span data-l="en">Location</span>
                 </dt>
                 <dd>
-                  Bern, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span>
+                  Thun, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span>
                 </dd>
                 <dt>
                   <span data-l="de">Fokus</span><span data-l="en">Focus</span>
@@ -592,7 +590,7 @@
                 <span data-l="de">Standort</span><span data-l="en">Location</span>
               </dt>
               <dd>
-                Bern, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span>
+                Thun, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span>
               </dd>
             </div>
             <div>
@@ -729,7 +727,7 @@
               <li><a href="it-fotd.html">IT Fact of the Day</a></li>
               <li>
                 <a
-                  href="https://github.com/TRGamer-tech/schmidtbit"
+                  href="https://github.com/TRGamer-tech"
                   target="_blank"
                   rel="noopener"
                   >GitHub</a>
@@ -741,7 +739,7 @@
         <div class="foot-base">
           <p>
             &copy; <span id="year">2026</span> SchmidtBit —
-            <span data-l="de">handgemacht in Bern.</span><span data-l="en">handmade in Bern.</span>
+            <span data-l="de">handgemacht in Thun.</span><span data-l="en">handmade in Thun.</span>
           </p>
           <p>
             <span data-l="de">Kein Tracking. Keine Cookies. Kein Baukasten.</span><span data-l="en">No tracking. No cookies. No site builder.</span>

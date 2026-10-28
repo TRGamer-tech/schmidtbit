@@ -56,8 +56,16 @@
     themeBtn.addEventListener("click", function () {
       var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
       document.documentElement.setAttribute("data-theme", next);
-      try { localStorage.setItem("sb-theme", next); } catch (e) { /* privat */ }
     });
+  }
+  // Systemwechsel (Hell/Dunkel) sofort übernehmen
+  if (window.matchMedia) {
+    var mq = matchMedia("(prefers-color-scheme: light)");
+    var follow = function (e) {
+      document.documentElement.setAttribute("data-theme", e.matches ? "light" : "dark");
+    };
+    if (mq.addEventListener) mq.addEventListener("change", follow);
+    else if (mq.addListener) mq.addListener(follow);
   }
 
   /* ----------------------------------------------------------------------
