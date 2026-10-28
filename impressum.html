@@ -1,75 +1,94 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - SchmidtBit</title>
-    <meta name="robots" content="index, follow">
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'media' };</script>
-</head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-    <nav class="bg-black/90 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="/" class="text-orange-500 font-bold text-2xl">Schmidt<span class="text-white">Bit</span></a>
-            <div class="flex items-center space-x-4 text-sm">
-                <a href="/" class="hover:text-orange-500">&larr; <span class="de">Startseite</span><span class="en hidden">Home</span></a>
-                <button id="language-toggle" class="hover:text-orange-500 px-2 py-1 rounded-md font-medium">
-                    <span class="de">DE</span>
-                    <span class="en hidden">EN</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-8 leading-relaxed">
-        <h1 class="text-4xl font-bold text-orange-500"><span class="de">Impressum</span><span class="en hidden">Legal Notice</span></h1>
-        <p class="text-sm text-gray-500"><span class="de">Stand: Oktober 2026</span><span class="en hidden">Last updated: October 2026</span></p>
-        <section>
-            <h2 class="text-2xl font-semibold mb-3"><span class="de">Anbieter</span><span class="en hidden">Provider</span></h2>
-            <p class="mb-3 de">SchmidtBit, Martin Schmidt, Bern, Schweiz, E-Mail: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
-            <p class="mb-3 en hidden">SchmidtBit, Martin Schmidt, Bern, Switzerland, email: <a class="text-orange-500 hover:underline" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
-        </section>
-        <section>
-            <h2 class="text-2xl font-semibold mb-3"><span class="de">Haftung für Inhalte</span><span class="en hidden">Liability for content</span></h2>
-            <p class="mb-3 de">Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität wird jedoch keine Gewähr übernommen.</p>
-            <p class="mb-3 en hidden">The content of this website was created with great care. However, no warranty is given for accuracy, completeness or timeliness.</p>
-        </section>
-        <section>
-            <h2 class="text-2xl font-semibold mb-3"><span class="de">Haftung für Links</span><span class="en hidden">Liability for links</span></h2>
-            <p class="mb-3 de">Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Verantwortlich ist stets der jeweilige Betreiber.</p>
-            <p class="mb-3 en hidden">This website contains links to external third-party websites whose content I cannot influence. The respective operator is always responsible.</p>
-        </section>
-        <section>
-            <h2 class="text-2xl font-semibold mb-3"><span class="de">Urheberrecht</span><span class="en hidden">Copyright</span></h2>
-            <p class="mb-3 de">Die Inhalte dieser Website unterliegen dem Urheberrecht. Details findest du in den <a class="text-orange-500 hover:underline" href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>.</p>
-            <p class="mb-3 en hidden">The content of this website is protected by copyright. See the <a class="text-orange-500 hover:underline" href="/nutzungsbedingungen.html">terms of use</a> for details.</p>
-        </section>
-        <section>
-            <h2 class="text-2xl font-semibold mb-3"><span class="de">Datenschutz</span><span class="en hidden">Privacy</span></h2>
-            <p class="mb-3 de">Siehe <a class="text-orange-500 hover:underline" href="/datenschutz.html">Datenschutzerklärung</a>.</p>
-            <p class="mb-3 en hidden">See the <a class="text-orange-500 hover:underline" href="/datenschutz.html">privacy statement</a>.</p>
-        </section>
-    </main>
-    <footer class="bg-black text-gray-400 py-8 text-sm">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row gap-4 justify-between items-center">
-            <span><span class="de">&copy; 2025 SchmidtBit. Alle Rechte vorbehalten.</span><span class="en hidden">&copy; 2025 SchmidtBit. All rights reserved.</span></span>
-            <div class="space-x-4">
-                <a href="/impressum.html" class="hover:text-orange-500">Impressum</a>
-                <a href="/datenschutz.html" class="hover:text-orange-500"><span class="de">Datenschutz</span><span class="en hidden">Privacy</span></a>
-                <a href="/nutzungsbedingungen.html" class="hover:text-orange-500"><span class="de">Nutzungsbedingungen</span><span class="en hidden">Terms of Use</span></a>
-            </div>
-        </div>
-    </footer>
-    <script>
-        function toggleLanguage() {
-            document.querySelectorAll('.en, .de').forEach(function (el) { el.classList.toggle('hidden'); });
-            var en = !document.querySelector('.en').classList.contains('hidden');
-            document.documentElement.lang = en ? 'en' : 'de';
-            try { localStorage.setItem('language', en ? 'en' : 'de'); } catch (e) {}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — SchmidtBit</title>
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <script>
+    (function () {
+      var d = document.documentElement, t, l;
+      try {
+        t = localStorage.getItem('sb-theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         }
-        try { if (localStorage.getItem('language') === 'en') toggleLanguage(); } catch (e) {}
-        document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
-    </script>
+      } catch (e) { t = 'dark'; }
+      d.setAttribute('data-theme', t);
+      try { l = localStorage.getItem('language'); } catch (e) { l = null; }
+      if (l !== 'en' && l !== 'de') { l = ((navigator.language || 'de').slice(0, 2) === 'en') ? 'en' : 'de'; }
+      d.lang = l;
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/vendor/gsap.min.js"></script>
+  <script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/vendor/ScrollToPlugin.min.js"></script>
+  <script defer src="assets/js/vendor/ScrambleTextPlugin.min.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="de">Zum Inhalt springen</span><span data-l="en">Skip to content</span></a>
+
+  <header class="site-head is-stuck" id="site-head">
+    <a class="brand" href="index.html" aria-label="SchmidtBit — Startseite">SCHMIDT<em>BIT</em><sup>.CH</sup></a>
+    <div class="head-tools">
+      <a class="back-link" href="index.html">← <span data-l="de">Startseite</span><span data-l="en">Home</span></a>
+      <button class="lang" type="button" aria-label="Sprache wechseln / Switch language">
+        <span data-setlang="de" aria-pressed="true">DE</span><span data-setlang="en" aria-pressed="false">EN</span>
+      </button>
+      <button class="theme-toggle" type="button" aria-label="Farbschema wechseln / Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-head wrap">
+      <h1>
+        <span class="line"><span data-l="de">Impressum</span><span data-l="en">Legal notice</span></span>
+      </h1>
+      <p class="lead meta"><span data-l="de">Stand: Oktober 2026</span><span data-l="en">Last updated: October 2026</span></p>
+    </div>
+
+    <div class="prose wrap">
+      <section>
+        <h2><span data-l="de">Anbieter</span><span data-l="en">Provider</span></h2>
+        <p data-l="de">SchmidtBit, Martin Schmidt, Bern, Schweiz. E-Mail: <a class="link-u" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+        <p data-l="en">SchmidtBit, Martin Schmidt, Bern, Switzerland. Email: <a class="link-u" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a></p>
+      </section>
+      <section>
+        <h2><span data-l="de">Haftung für Inhalte</span><span data-l="en">Liability for content</span></h2>
+        <p data-l="de">Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität wird jedoch keine Gewähr übernommen.</p>
+        <p data-l="en">The content of this website was created with great care. However, no warranty is given for accuracy, completeness or timeliness.</p>
+      </section>
+      <section>
+        <h2><span data-l="de">Haftung für Links</span><span data-l="en">Liability for links</span></h2>
+        <p data-l="de">Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Verantwortlich ist stets der jeweilige Betreiber.</p>
+        <p data-l="en">This website contains links to external third-party websites whose content I cannot influence. The respective operator is always responsible.</p>
+      </section>
+      <section>
+        <h2><span data-l="de">Urheberrecht</span><span data-l="en">Copyright</span></h2>
+        <p data-l="de">Die Inhalte dieser Website unterliegen dem Urheberrecht. Details findest du in den <a class="link-u" href="nutzungsbedingungen.html">Nutzungsbedingungen</a>.</p>
+        <p data-l="en">The content of this website is protected by copyright. See the <a class="link-u" href="nutzungsbedingungen.html">terms of use</a> for details.</p>
+      </section>
+      <section>
+        <h2><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></h2>
+        <p data-l="de">Siehe <a class="link-u" href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        <p data-l="en">See the <a class="link-u" href="datenschutz.html">privacy statement</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-base" style="margin-top:0">
+        <p>&copy; <span id="year">2026</span> SchmidtBit — <span data-l="de">handgemacht in Bern.</span><span data-l="en">handmade in Bern.</span></p>
+        <p><a class="link-u" href="impressum.html">Impressum</a> · <a class="link-u" href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a> · <a class="link-u" href="nutzungsbedingungen.html"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms of use</span></a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

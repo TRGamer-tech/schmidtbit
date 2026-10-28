@@ -1,534 +1,434 @@
 <!DOCTYPE html>
-<html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SchmidtBit - Web Development</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="assets/css/custom.css">
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchmidtBit — Wo Webseiten ernst genommen werden</title>
+  <meta name="description" content="SchmidtBit aus Bern: individuelle Websites, Reparaturen, kreatives Design und Website-Rettungen. Handgemacht, schnell, ohne Baukasten.">
+  <meta property="og:title" content="SchmidtBit — Wo Webseiten ernst genommen werden">
+  <meta property="og:description" content="Individuelle Websites, Reparaturen und Website-Rettungen aus Bern. Handgemacht, schnell, ohne Baukasten.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <script>
+    (function () {
+      var d = document.documentElement, t, l;
+      try {
+        t = localStorage.getItem('sb-theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+      } catch (e) { t = 'dark'; }
+      d.setAttribute('data-theme', t);
+      try { l = localStorage.getItem('language'); } catch (e) { l = null; }
+      if (l !== 'en' && l !== 'de') {
+        l = ((navigator.language || 'de').slice(0, 2) === 'en') ? 'en' : 'de';
+      }
+      d.lang = l;
+    })();
+  </script>
+  <link rel="preload" href="assets/fonts/anybody-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/vendor/gsap.min.js"></script>
+  <script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/vendor/ScrollToPlugin.min.js"></script>
+  <script defer src="assets/js/vendor/ScrambleTextPlugin.min.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">
+    <span data-l="de">Zum Inhalt springen</span><span data-l="en">Skip to content</span>
+  </a>
 
-    </head>
-    <body>
-        <div id="preloader">
-            <div class="preloader-bar"></div>
-            <div class="preloader-logo">
-                <i class="fas fa-code"></i>
-            </div>
+  <!-- Intro -->
+  <div id="intro" aria-hidden="true">
+    <div class="intro-mark">SCHMIDT<em>BIT</em></div>
+    <div class="intro-count" id="intro-count">000</div>
+    <div class="intro-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-head" id="site-head">
+    <a class="brand" href="#top" aria-label="SchmidtBit — Startseite">SCHMIDT<em>BIT</em><sup>.CH</sup></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a href="#leistungen"><span data-l="de">Leistungen</span><span data-l="en">Services</span></a>
+      <a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a>
+      <a href="#profil"><span data-l="de">Profil</span><span data-l="en">About</span></a>
+      <a href="#kontakt"><span data-l="de">Kontakt</span><span data-l="en">Contact</span></a>
+    </nav>
+    <div class="head-tools">
+      <button class="lang" type="button" aria-label="Sprache wechseln / Switch language">
+        <span data-setlang="de" aria-pressed="true">DE</span><span data-setlang="en" aria-pressed="false">EN</span>
+      </button>
+      <button class="theme-toggle" type="button" aria-label="Farbschema wechseln / Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü öffnen / Open menu"><i></i></button>
+    </div>
+  </header>
+
+  <!-- Mobiles Menü -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
+    <a href="#leistungen"><span data-l="de">Leistungen</span><span data-l="en">Services</span></a>
+    <a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a>
+    <a href="#profil"><span data-l="de">Profil</span><span data-l="en">About</span></a>
+    <a href="#kontakt"><span data-l="de">Kontakt</span><span data-l="en">Contact</span></a>
+    <p class="meta mm-foot">Bern, CH — <span id="mm-clock">--:--:--</span></p>
+  </nav>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <div class="vf" aria-hidden="true">
+        <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
+        <div class="readout">
+          <span id="vf-status" data-de="Status: Verfügbar für Projekte" data-en="Status: open for projects">Status: Verfügbar für Projekte</span>
+          <span>46°57′N 7°26′E — Bern, CH</span>
+          <span>Local <span id="vf-clock">--:--:--</span></span>
         </div>
-        <!-- Navigation -->
-        <nav class="fixed w-full bg-black/80 backdrop-blur-md z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <span class="text-orange-500 font-bold text-2xl">Schmidt<span class="text-white">Bit</span></span>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex"
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <a href="#home" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Home</a>
-                            <a href="#home" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Home</a>
-                            <a href="#services" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Dienste</a>
-                            <a href="#services" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Services</a>
-                            <a href="#portfolio" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Portfolio</a>
-                            <a href="#portfolio" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Portfolio</a>
-                            <a href="#about" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Über mich</a>
-                            <a href="#about" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">About me</a>
-                            <a href="#contact" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium de">Kontakt</a>
-                            <a href="#contact" class="nav-link text-white hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium en hidden">Contact</a>
-                            <div class="flex items-center space-x-2 ml-4">
-                                <button id="language-toggle" class="text-white hover:text-orange-500 px-2 py-1 rounded-md text-sm font-medium">
-                                    <span class="de">DE</span>
-                                    <span class="en hidden">EN</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="text-white hover:text-orange-500 focus:outline-none">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+      </div>
+
+      <div class="wrap hero-grid">
+        <h1>
+          <span class="line"><span data-l="de">Webseiten</span><span data-l="en">Websites</span></span>
+          <span class="line"><span data-l="de">ernst</span><span data-l="en">taken</span></span>
+          <span class="line"><span class="accent"><span data-l="de">genommen.</span><span data-l="en">seriously.</span></span></span>
+        </h1>
+        <div class="hero-side">
+          <p class="lead">
+            <span data-l="de">Ich bin Martin. Ich baue, rette und verfeinere Websites für Menschen, Vereine und Communities in der Schweiz — handgeschrieben statt Baukasten.</span>
+            <span data-l="en">I'm Martin. I build, rescue and refine websites for people, clubs and communities across Switzerland — handwritten, never off-the-shelf.</span>
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#kontakt">
+              <span data-l="de">Projekt anfragen</span><span data-l="en">Start a project</span>
+              <span class="ar" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost" href="#arbeit">
+              <span data-l="de">Arbeiten ansehen</span><span data-l="en">See the work</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>HTML <b>✦</b> CSS <b>✦</b> JavaScript <b>✦</b> GSAP <b>✦</b> WordPress <b>✦</b> Wix <b>✦</b> <span data-l="de">Website-Rettung</span><span data-l="en">Website rescue</span> <b>✦</b> <span data-l="de">Responsives Design</span><span data-l="en">Responsive design</span> <b>✦</b></span>
+          <span>HTML <b>✦</b> CSS <b>✦</b> JavaScript <b>✦</b> GSAP <b>✦</b> WordPress <b>✦</b> Wix <b>✦</b> <span data-l="de">Website-Rettung</span><span data-l="en">Website rescue</span> <b>✦</b> <span data-l="de">Responsives Design</span><span data-l="en">Responsive design</span> <b>✦</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEISTUNGEN ===================== -->
+    <section class="section" id="leistungen">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><b>01</b> <span data-l="de">Leistungen</span><span data-l="en">Services</span></p>
+            <h2 class="h2">
+              <span class="line"><span data-l="de">Was ich</span><span data-l="en">What I</span></span>
+              <span class="line"><span data-l="de">für dich tue.</span><span data-l="en">do for you.</span></span>
+            </h2>
+          </div>
+          <p class="note">
+            <span data-l="de">Kein Template-Zirkus. Jede Lösung entsteht aus dem Problem heraus — nicht aus dem, was der Baukasten gerade hergibt.</span>
+            <span data-l="en">No template circus. Every solution grows out of the problem — not out of whatever a site builder happens to offer.</span>
+          </p>
+        </div>
+
+        <div class="svc" data-stagger>
+          <div class="svc-row">
+            <span class="svc-num">01</span>
+            <h3><span data-l="de">Website-Reparaturen</span><span data-l="en">Website fixes</span></h3>
+            <p>
+              <span data-l="de">Kaputte Layouts, fehlerhafte Skripte, tote Links: Ich diagnostiziere gründlich und repariere nachhaltig — auch an Code, den ich nicht selbst geschrieben habe.</span>
+              <span data-l="en">Broken layouts, faulty scripts, dead links: I diagnose thoroughly and fix things properly — including code I didn't write myself.</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <span class="svc-num">02</span>
+            <h3><span data-l="de">Individuelle Websites</span><span data-l="en">Custom websites</span></h3>
+            <p>
+              <span data-l="de">Massgeschneidert statt von der Stange: Struktur, Design und Code entstehen für dich — nicht für alle.</span>
+              <span data-l="en">Tailored instead of off-the-rack: structure, design and code are made for you — not for everyone.</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <span class="svc-num">03</span>
+            <h3><span data-l="de">Kreatives Design</span><span data-l="en">Creative design</span></h3>
+            <p>
+              <span data-l="de">Von der ersten Skizze bis zum Feinschliff: Interfaces mit eigener Handschrift, die im Kopf bleiben.</span>
+              <span data-l="en">From the first sketch to the final polish: interfaces with their own signature that stick in the head.</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <span class="svc-num">04</span>
+            <h3><span data-l="de">Responsives Design</span><span data-l="en">Responsive design</span></h3>
+            <p>
+              <span data-l="de">Vom Smartphone bis zum Studio-Monitor: Jede Ansicht sitzt. Getestet auf echten Geräten, nicht auf Folien.</span>
+              <span data-l="en">From smartphone to studio monitor: every view fits. Tested on real devices, not on slide decks.</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <span class="svc-num">05</span>
+            <h3><span data-l="de">Website-Konvertierung</span><span data-l="en">Website conversion</span></h3>
+            <p>
+              <span data-l="de">Altlasten? Ich überführe bestehende Seiten in moderne, schnelle Standards — Inhalte bleiben, Ballast geht.</span>
+              <span data-l="en">Legacy baggage? I move existing sites onto modern, fast standards — content stays, ballast goes.</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <span class="svc-num">06</span>
+            <h3><span data-l="de">Web-Editoren</span><span data-l="en">Web editors</span></h3>
+            <p>
+              <span data-l="de">WordPress, Wix &amp; Co.: Einrichtung, Customizing und Schulung — damit du danach selbst sicher arbeitest.</span>
+              <span data-l="en">WordPress, Wix &amp; co: setup, customising and training — so you can work confidently on your own afterwards.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ARBEIT ===================== -->
+    <section class="section section--alt" id="arbeit">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><b>02</b> <span data-l="de">Arbeit &amp; Kundschaft</span><span data-l="en">Work &amp; clients</span></p>
+            <h2 class="h2">
+              <span class="line"><span data-l="de">Ausgewählte</span><span data-l="en">Selected</span></span>
+              <span class="line"><span data-l="de">Projekte.</span><span data-l="en">projects.</span></span>
+            </h2>
+          </div>
+          <p class="note">
+            <span data-l="de">Drei Projekte, drei Welten: Gaming-Community, Fotografie und eine gerettete Musikschule. Alle live erreichbar.</span>
+            <span data-l="en">Three projects, three worlds: a gaming community, photography, and a rescued music school. All live online.</span>
+          </p>
+        </div>
+
+        <div class="work">
+          <article class="work-item">
+            <a class="work-media" href="https://unitedpro.ch" target="_blank" rel="noopener">
+              <img src="assets/img/work-unitedpro.webp" alt="Vorschau der Startseite von unitedpro.ch" width="1600" height="868" loading="lazy">
+              <span class="work-live">LIVE</span>
+            </a>
+            <div class="work-info">
+              <p class="meta"><span class="work-idx">01</span> — <span data-l="de">Gaming-Community</span><span data-l="en">Gaming community</span></p>
+              <h3><a href="https://unitedpro.ch" target="_blank" rel="noopener">unitedpro.ch</a></h3>
+              <p>
+                <span data-l="de">Gaming-Community-Website, entwickelt mit HTML, CSS und jQuery. Fokus auf Team, News und Discord-Integration.</span>
+                <span data-l="en">Gaming community website built with HTML, CSS and jQuery. Focused on team, news and Discord integration.</span>
+              </p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>jQuery</li></ul>
             </div>
-            
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="hidden md:hidden bg-black/95 dark:bg-slate-900/95">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#home" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Home</a>
-                    <a href="#home" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Home</a>
-                    <a href="#services" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Dienste</a>
-                    <a href="#services" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Services</a>
-                    <a href="#portfolio" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Portfolio</a>
-                    <a href="#portfolio" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Portfolio</a>
-                    <a href="#about" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Über mich</a>
-                    <a href="#about" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">About me</a>
-                    <a href="#contact" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium de">Kontakt</a>
-                    <a href="#contact" class="nav-link block text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium en hidden">Contact</a>
-                    <div class="flex items-center justify-center space-x-4 pt-2">
-                        <button id="mobile-language-toggle" class="text-white hover:text-orange-500 px-3 py-2 rounded-md text-base font-medium">
-                            <span class="de">DE</span>
-                            <span class="en hidden">EN</span>
-                        </button>
-                    </div>
-                </div>
+          </article>
+
+          <article class="work-item">
+            <a class="work-media" href="https://martinschmidt.ch" target="_blank" rel="noopener">
+              <img src="assets/img/work-martinschmidt.webp" alt="Vorschau der Galerie von martinschmidt.ch" width="1600" height="868" loading="lazy">
+              <span class="work-live">LIVE</span>
+            </a>
+            <div class="work-info">
+              <p class="meta"><span class="work-idx">02</span> — <span data-l="de">Portfolio &amp; Fotografie</span><span data-l="en">Portfolio &amp; photography</span></p>
+              <h3><a href="https://martinschmidt.ch" target="_blank" rel="noopener">martinschmidt.ch</a></h3>
+              <p>
+                <span data-l="de">Meine persönliche Website — modern, minimalistisch und individuell. Realisiert mit HTML, CSS und JavaScript.</span>
+                <span data-l="en">My personal website — modern, minimal and individual. Built with HTML, CSS and JavaScript.</span>
+              </p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
             </div>
-        </nav>
+          </article>
 
-        <!-- Hero Section -->
-        <section id="home" class="pt-32 md:pt-40 md:pb-24 bg-gradient-to-b from-black to-slate-900 text-white shadow-2xl">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="md:flex md:items-center md:justify-between">
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                            <span class="en hidden">Crafting digital experiences</span>
-                            <span class="de">Digitale Erlebnisse gestalten</span>
-                            <span class="gradient-text en hidden">that stand out</span>
-                            <span class="gradient-text de">die herausstechen</span>
-                        </h1>
-                        <div class="flex space-x-4">
-                            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                                <span class="en hidden">Get in touch</span>
-                                <span class="de">Kontakt aufnehmen</span>
-                            </a>
-                            <a href="#portfolio" class="border border-orange-500 text-orange-500 hover:bg-orange-500/10 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                                <span class="en hidden">View work</span>
-                                <span class="de">Projekte ansehen</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 flex justify-center">
-                        <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                            <div class="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-xl"></div>
-                            <div class="relative w-full h-full flex items-center justify-center">
-                                <div class="w-3/4 h-3/4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center floating">
-                                    <div class="w-5/6 h-5/6 bg-black rounded-full flex items-center justify-center">
-                                        <a href="#services"><i class="fas fa-code text-orange-500 text-5xl md:text-6xl lg:text-7xl"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <article class="work-item">
+            <a class="work-media" href="https://musikschule-kurtschmid.ch" target="_blank" rel="noopener">
+              <img src="assets/img/work-kurtschmid.webp" alt="Vorschau der Website der Musikschule Kurt Schmid" width="1600" height="733" loading="lazy">
+              <span class="work-live">LIVE</span>
+            </a>
+            <div class="work-info">
+              <p class="meta"><span class="work-idx">03</span> — <span data-l="de">Musikschule · Rettung</span><span data-l="en">Music school · rescue</span></p>
+              <h3><a href="https://musikschule-kurtschmid.ch" target="_blank" rel="noopener">Kurt Schmid</a></h3>
+              <p>
+                <span data-l="de">Rettung und Verbesserung einer Musikschul-Website nach Datenverlust beim Hoster. Umsetzung mit generischem Website-Builder.</span>
+                <span data-l="en">Rescue and improvement of a music school website after data loss at the hoster. Delivered with a generic website builder.</span>
+              </p>
+              <ul class="tags"><li>Website-Builder</li><li>Support</li></ul>
             </div>
-        </section>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 pb-32 bg-white dark:bg-slate-900 shadow-2xl">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 en hidden">What I can do for you</h2>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 de">Was ich für dich tun kann</h2>
-                    <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
-                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-tools text-orange-500 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 en hidden">Website Fixes</h3>
-                        <h3 class="text-xl font-bold mb-4 de">Website Reparaturen</h3>
-                        <p class="text-black dark:text-gray-200 en hidden">
-                            Got a website that's not working properly? I can help diagnose and fix any issues.
-                        </p>
-                        <p class="text-black dark:text-gray-200 de">
-                            Hast du eine Website, die nicht richtig funktioniert? Ich kann helfen, Probleme zu diagnostizieren und zu beheben.
-                        </p>
-                    </div>
+    <!-- ===================== PROFIL ===================== -->
+    <section class="section" id="profil">
+      <div class="wrap">
+        <p class="eyebrow"><b>03</b> <span data-l="de">Profil</span><span data-l="en">About</span></p>
+        <div class="profile">
+          <div class="profile-text">
+            <h2 class="h2">
+              <span class="line"><span data-l="de">Hinter</span><span data-l="en">Behind</span></span>
+              <span class="line"><span data-l="de">SchmidtBit</span><span data-l="en">SchmidtBit</span></span>
+              <span class="line"><span data-l="de">steckt Martin.</span><span data-l="en">is Martin.</span></span>
+            </h2>
+            <p class="lead" style="margin-top:1.5rem">
+              <span data-l="de">Webentwickler aus Bern. Ich verwandle Ideen in Code und Design — Websites, die nicht nur gut aussehen, sondern sich auch gut anfühlen.</span>
+              <span data-l="en">A web developer from Bern. I turn ideas into code and design — websites that don't just look good, they feel good.</span>
+            </p>
+            <p>
+              <span data-l="de">Mein Werkzeug: HTML, CSS, JavaScript und jQuery — plus ein gutes Auge für Details. Ich arbeite direkt mit dir, ohne Agenturapparat: kurze Wege, klare Ansagen, fertige Ergebnisse.</span>
+              <span data-l="en">My tools: HTML, CSS, JavaScript and jQuery — plus an eye for detail. I work with you directly, no agency machinery: short paths, clear words, finished results.</span>
+            </p>
+            <p>
+              <span data-l="de">Wenn ich nicht programmiere, erkunde ich neue Webtechnologien, experimentiere mit Layouts oder bin draussen in den Bergen unterwegs.</span>
+              <span data-l="en">When I'm not coding, I'm exploring new web technologies, experimenting with layouts, or out in the Swiss mountains.</span>
+            </p>
+            <dl class="facts">
+              <dt><span data-l="de">Standort</span><span data-l="en">Location</span></dt>
+              <dd>Bern, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span></dd>
+              <dt><span data-l="de">Fokus</span><span data-l="en">Focus</span></dt>
+              <dd><span data-l="de">Web-Entwicklung &amp; -Rettung</span><span data-l="en">Web development &amp; rescue</span></dd>
+              <dt><span data-l="de">Sprachen</span><span data-l="en">Languages</span></dt>
+              <dd>Deutsch / English</dd>
+              <dt><span data-l="de">Erreichbar</span><span data-l="en">Available</span></dt>
+              <dd><span data-l="de">Mo–Sa, 18–22 Uhr</span><span data-l="en">Mon–Sat, 6–10 pm</span></dd>
+            </dl>
+          </div>
 
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
-                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-laptop-code text-orange-500 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 en hidden">Custom Websites</h3>
-                        <h3 class="text-xl font-bold mb-4 de">Individuelle Websites</h3>
-                        <p class="text-black dark:text-gray-200 mb-4 en hidden">
-                            Need a website that perfectly fits your needs? I'll create a custom solution tailored just for you.
-                        </p>
-                        <p class="text-black dark:text-gray-200 de">
-                            Brauchst du eine Website, die perfekt zu dir passt? Ich erstelle eine massgeschneiderte Lösung nur für dich.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
-                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-paint-brush text-orange-500 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 en hidden">Creative Design</h3>
-                        <h3 class="text-xl font-bold mb-4 de">Kreatives Design</h3>
-                        <p class="text-black dark:text-gray-200 en hidden">
-                            Want something unique? I love creating visually stunning and creative web experiences.
-                        </p>
-                        <p class="text-black dark:text-gray-200 de">
-                            Willst du etwas Einzigartiges? Ich liebe es, visuell beeindruckende und kreative Web-Erlebnisse zu schaffen.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
-                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-mobile-alt text-orange-500 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 en hidden">Responsive Design</h3>
-                        <h3 class="text-xl font-bold mb-4 de">Responsives Design</h3>
-                        <p class="text-black dark:text-gray-200 en hidden">
-                            Your website will look great on any device, from smartphones to large desktop screens.
-                        </p>
-                        <p class="text-black dark:text-gray-200 de">
-                            Deine Website wird auf jedem Gerät gut aussehen, vom Smartphone bis zum grossen Desktop-Bildschirm.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
-                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-sync-alt text-orange-500 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 en hidden">Website Conversion</h3>
-                        <h3 class="text-xl font-bold mb-4 de">Website Konvertierung</h3>
-                        <p class="text-black dark:text-gray-200 en hidden">
-                            Need to update an old website? I can convert it to modern standards while keeping your content.
-                        </p>
-                        <p class="text-black dark:text-gray-200 de">
-                            Muss eine alte Website aktualisiert werden? Ich kann sie auf moderne Standards umstellen und dabei deine Inhalte behalten.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-slate-700">
-                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-cogs text-orange-500 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 en hidden">Web Editors</h3>
-                        <h3 class="text-xl font-bold mb-4 de">Web Editoren</h3>
-                        <p class="text-black dark:text-gray-200 en hidden">
-                            Need help with WordPress, Wix, or other editors? I can assist with setup, customization, and more.
-                        </p>
-                        <p class="text-black dark:text-gray-200 de">
-                            Brauchst du Hilfe mit WordPress, Wix oder anderen Editoren? Ich kann bei Einrichtung, Anpassung und mehr helfen.
-                        </p>
-                    </div>
-                </div>
+          <div class="stack" data-meters>
+            <h3><span data-l="de">Werkzeugkasten</span><span data-l="en">Toolbox</span></h3>
+            <div class="meter">
+              <div class="meter-top"><b>HTML</b><span data-count="95">95%</span></div>
+              <div class="meter-track"><div class="meter-fill" style="--v:.95"></div></div>
             </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="py-20 pb-64 bg-gray-100 dark:bg-slate-800 shadow-2xl">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 en hidden">My Recent Work</h2>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 de">Meine aktuellen Projekte</h2>
-                    <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1: UnitedPro -->
-                    <a href="https://unitedpro.ch" target="_blank" rel="noopener" class="project-card bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 block">
-                        <div class="relative h-48 overflow-hidden flex items-center justify-center bg-black">
-                            <img src="assets/img/unitedpro-preview.png" alt="unitedpro.ch Vorschau" class="object-cover w-full h-full" />
-                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
-                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
-                                    <i class="fas fa-arrow-up-right-from-square"></i>
-                                    <span class="extern-label-mobile">Extern</span>
-                                </span>
-                            </span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">unitedpro.ch</h3>
-                            <p class="text-black dark:text-gray-200 mb-4">Gaming-Community-Website, entwickelt mit HTML, CSS und jQuery. Fokus auf Team, News und Discord-Integration.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">HTML</span>
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">CSS</span>
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">jQuery</span>
-                            </div>
-                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
-                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
-                                    <i class="fas fa-arrow-up-right-from-square"></i>
-                                    <span class="extern-label-mobile">Extern</span>
-                                </span>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- Project 2: Martin Schmidt -->
-                    <a href="https://martinschmidt.ch" target="_blank" rel="noopener" class="project-card bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 block">
-                        <div class="relative h-48 overflow-hidden flex items-center justify-center bg-black">
-                            <img src="assets/img/martinschmidt-preview.png" alt="martinschmidt.ch Vorschau" class="object-cover w-full h-full" />
-                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
-                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
-                                    <i class="fas fa-arrow-up-right-from-square"></i>
-                                    <span class="extern-label-mobile">Extern</span>
-                                </span>
-                            </span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">martinschmidt.ch</h3>
-                            <p class="text-black dark:text-gray-200 mb-4">Meine persönliche Website – modern, minimalistisch und individuell. Realisiert mit HTML, CSS und JavaScript.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">HTML</span>
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">CSS</span>
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">JavaScript</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Project 3: Kurt Schmid -->
-                    <a href="https://musikschule-kurtschmid.ch" target="_blank" rel="noopener" class="project-card bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 block">
-                        <div class="relative h-48 overflow-hidden flex items-center justify-center bg-black">
-                            <img src="assets/img/kurtschmid-preview.png" alt="Kurt Schmid Vorschau" class="object-cover w-full h-full" />
-                            <span class="project-link-indicator always-visible" aria-label="Externer Link">
-                                <span class="project-link-label" style="display:flex;align-items:center;gap:0.3em;font-size:1em;font-weight:bold;letter-spacing:0.01em;">
-                                    <i class="fas fa-arrow-up-right-from-square"></i>
-                                    <span class="extern-label-mobile">Extern</span>
-                                </span>
-                            </span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Kurt Schmid</h3>
-                            <p class="text-black dark:text-gray-200 mb-4">Rettung und Verbesserung einer Musikschul-Website nach Datenverlust beim Hoster. Umsetzung mit generischem Website-Builder.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">Website-Builder</span>
-                                <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs px-3 py-1 rounded-full">Support</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="text-center mt-12">
-                    <p class="text-black dark:text-gray-200 mb-6 en hidden">
-                        Want to see more? Get in touch to discuss your project!
-                    </p>
-                    <p class="text-black dark:text-gray-200 mb-6 de">
-                        Möchtest du mehr sehen? Melde dich, um dein Projekt zu besprechen!
-                    </p>
-                    <a href="#contact" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                        <span class="en hidden">Contact Me</span>
-                        <span class="de">Kontakt</span>
-                    </a>
-                </div>
+            <div class="meter">
+              <div class="meter-top"><b>CSS</b><span data-count="95">95%</span></div>
+              <div class="meter-track"><div class="meter-fill" style="--v:.95"></div></div>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20 pb-32 bg-white dark:bg-slate-900 shadow-2xl">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="md:flex md:items-center md:space-x-12">
-                    <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
-                        <div class="relative w-64 h-64 rounded-full overflow-hidden border-4 border-orange-500 shadow-lg">
-                            <div class="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                                <i class="fas fa-user-tie text-white text-7xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-2/3">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6 en hidden">About Me</h2>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6 de">Über mich</h2>
-                        
-                        <p class="text-black dark:text-gray-200 mb-6 en hidden">
-                            Hey there! I'm Martin, a passionate web developer based in Bern, Switzerland. I love turning ideas into reality through code and design. With expertise in HTML, CSS, JavaScript, and jQuery, I create websites that not only look great but also provide an excellent user experience.
-                        </p>
-                        <p class="text-black dark:text-gray-200 mb-6 de">
-                            Hey, ich bin Martin, ein leidenschaftlicher Webentwickler aus Bern, Schweiz. Ich liebe es, Ideen durch Code und Design Wirklichkeit werden zu lassen. Mit meinem Fachwissen in HTML, CSS, JavaScript und jQuery erstelle ich Websites, die nicht nur gut aussehen, sondern auch ein hervorragendes Nutzererlebnis bieten.
-                        </p>
-                        
-                        <p class="text-black dark:text-gray-200 mb-6 en hidden">
-                            When I'm not coding, you can find me exploring new web technologies, experimenting with creative designs, or enjoying the beautiful Swiss outdoors.
-                        </p>
-                        <p class="text-black dark:text-gray-200 mb-6 de">
-                            Wenn ich nicht programmiere, kannst du mich dabei finden, wie ich neue Webtechnologien erkunde, mit kreativen Designs experimentiere oder die schöne Schweizer Natur geniesse.
-                        </p>
-                        
-                        <div class="mb-8">
-                            <h3 class="text-xl font-bold mb-4 en hidden">My Skills</h3>
-                            <h3 class="text-xl font-bold mb-4 de">Meine Fähigkeiten</h3>
-                            
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="font-medium text-black dark:text-gray-300">HTML</span>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
-                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="95%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="font-medium text-black dark:text-gray-300">CSS</span>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">95%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
-                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="95%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="font-medium text-black dark:text-gray-300">Web Editors</span>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">80%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
-                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="80%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="font-medium text-black dark:text-gray-300">JavaScript</span>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">75%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
-                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="75%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="font-medium text-black dark:text-gray-300">jQuery</span>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">70%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
-                                        <div class="skill-bar bg-orange-500 h-2.5 rounded-full" style="width: 0%" data-width="70%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="meter">
+              <div class="meter-top"><b><span data-l="de">Web-Editoren</span><span data-l="en">Web editors</span></b><span data-count="80">80%</span></div>
+              <div class="meter-track"><div class="meter-fill" style="--v:.80"></div></div>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-100 dark:bg-slate-800 shadow-2xl">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 en hidden">Let's Work Together</h2>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 de">Lass uns zusammenarbeiten</h2>
-                    <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
-                </div>
-                
-                <div class="bg-white dark:bg-slate-700 rounded-xl shadow-lg overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2 bg-gradient-to-br from-orange-500 to-orange-600 p-8 md:p-12 text-white">
-                            <h3 class="text-2xl font-bold mb-6 en hidden">Get in touch</h3>
-                            <h3 class="text-2xl font-bold mb-6 de">Kontakt</h3>
-                            
-                            <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-map-marker-alt text-orange-200 text-xl"></i>
-                                    </div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold en hidden">Location</h4>
-                                        <h4 class="font-bold de">Standort</h4>
-                                        <p class="text-orange-100">Bern, Switzerland</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-envelope text-orange-200 text-xl"></i>
-                                    </div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold">Email</h4>
-                                        <p class="text-orange-100">martinschmidt1107@gmail.com</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-clock text-orange-200 text-xl"></i>
-                                    </div>
-                                    <div class="ml-4">
-                                        <h4 class="font-bold en hidden">Availability</h4>
-                                        <h4 class="font-bold de">Verfügbarkeit</h4>
-                                        <p class="text-orange-100 en hidden">Monday - Saturday: 6pm - 10pm</p>
-                                        <p class="text-orange-100 de">Montag - Samstag: 18 - 22 Uhr</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-12">
-                                <h4 class="font-bold mb-4 en hidden">Pricing</h4>
-                                <h4 class="font-bold mb-4 de">Preise</h4>
-                                <p class="text-orange-100 en hidden">
-                                    All projects are priced individually based on your specific requirements. Contact me for a free quote!
-                                </p>
-                                <p class="text-orange-100 de">
-                                    Alle Projekte werden individuell nach deinen spezifischen Anforderungen berechnet. Kontaktiere mich für ein kostenloses Angebot!
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="md:w-1/2 p-8 md:p-12">
-                            <form id="contact-form" class="space-y-6">
-                                  <p class="hidden">
-                                    <label>
-                                      Don’t fill this out if you’re human: <input name="bot-field" />
-                                    </label>
-                                  </p>
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 en hidden">Your Name</label>
-                                    <label for="name" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 de">Dein Name</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-black dark:text-gray-300 mb-1">Email</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required>
-                                </div>
-                                <div>
-                                    <label for="subject" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 en hidden">Subject</label>
-                                    <label for="subject" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 de">Betreff</label>
-                                    <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required>
-                                </div>
-                                <div>
-                                    <label for="message" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 en hidden">Your Message</label>
-                                    <label for="message" class="block text-sm font-medium text-black dark:text-gray-300 mb-1 de">Deine Nachricht</label>
-                                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-800 dark:text-white" required></textarea>
-                                </div>
-                                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                                    <span class="en hidden">Send Message</span>
-                                    <span class="de">Nachricht senden</span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <div class="meter">
+              <div class="meter-top"><b>JavaScript</b><span data-count="75">75%</span></div>
+              <div class="meter-track"><div class="meter-fill" style="--v:.75"></div></div>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="bg-black text-white py-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="md:flex md:items-center md:justify-between">
-                    <div class="flex justify-center md:order-2 space-x-6">
-                        <a href="impressum.html" class="text-white hover:text-orange-500 px-2 py-1 rounded-md text-sm font-medium">Impressum</a>
-                        <a href="datenschutz.html" class="text-white hover:text-orange-500 px-2 py-1 rounded-md text-sm font-medium">
-                            <span class="de">Datenschutz</span>
-                            <span class="en hidden">Privacy</span>
-                        </a>
-                        <a href="nutzungsbedingungen.html" class="text-white hover:text-orange-500 px-2 py-1 rounded-md text-sm font-medium">
-                            <span class="de">Nutzungsbedingungen</span>
-                            <span class="en hidden">Terms of Use</span>
-                        </a>
-                        <button id="footer-language-toggle" class="text-white hover:text-orange-500 px-2 py-1 rounded-md text-sm font-medium">
-                            <span class="de">DE</span>
-                            <span class="en hidden">EN</span>
-                        </button>
-                    </div>
-                    <div class="mt-8 md:mt-0 md:order-1">
-                        <div class="text-center md:text-left">
-                            <span class="text-orange-500 font-bold text-xl">Schmidt<span class="text-white">Bit</span></span>
-                            <p class="mt-2 text-sm text-gray-400 en hidden">
-                                &copy; 2025 SchmidtBit. All rights reserved.
-                            </p>
-                            <p class="mt-2 text-sm text-gray-400 de">
-                                &copy; 2025 SchmidtBit. Alle Rechte vorbehalten.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="meter">
+              <div class="meter-top"><b>jQuery</b><span data-count="70">70%</span></div>
+              <div class="meter-track"><div class="meter-fill" style="--v:.70"></div></div>
             </div>
-        </footer>
-        <script src="assets/js/custom.js"></script>
-    </body>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== KONTAKT ===================== -->
+    <section class="reach on-flame" id="kontakt">
+      <div class="wrap">
+        <p class="eyebrow"><b>04</b> <span data-l="de">Kontakt</span><span data-l="en">Contact</span></p>
+        <h2 class="h2">
+          <span class="line"><span data-l="de">Lass uns</span><span data-l="en">Let's build</span></span>
+          <span class="line"><span data-l="de">bauen.</span><span data-l="en">something.</span></span>
+        </h2>
+        <a class="mail" href="mailto:martinschmidt1107@gmail.com">martinschmidt1107@gmail.com</a>
+        <dl class="reach-list">
+          <div>
+            <dt><span data-l="de">Standort</span><span data-l="en">Location</span></dt>
+            <dd>Bern, <span data-l="de">Schweiz</span><span data-l="en">Switzerland</span></dd>
+          </div>
+          <div>
+            <dt><span data-l="de">Verfügbarkeit</span><span data-l="en">Availability</span></dt>
+            <dd><span data-l="de">Mo–Sa, 18–22 Uhr</span><span data-l="en">Mon–Sat, 6–10 pm</span></dd>
+          </div>
+          <div>
+            <dt><span data-l="de">Preise</span><span data-l="en">Pricing</span></dt>
+            <dd><span data-l="de">Individuell — Offerte gratis</span><span data-l="en">Individual — free quote</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="form-shell section--alt">
+      <div class="wrap">
+        <form class="form" id="contact-form" novalidate>
+          <p class="hp" aria-hidden="true">
+            <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+          <div class="row">
+            <div>
+              <label for="name"><span data-l="de">Dein Name</span><span data-l="en">Your name</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div>
+            <label for="subject"><span data-l="de">Betreff</span><span data-l="en">Subject</span></label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          <div>
+            <label for="message"><span data-l="de">Deine Nachricht</span><span data-l="en">Your message</span></label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button class="btn" type="submit">
+            <span data-l="de">Nachricht senden</span><span data-l="en">Send message</span>
+            <span class="ar" aria-hidden="true">→</span>
+          </button>
+          <p class="form-note">
+            <span data-l="de">Das Formular öffnet dein eigenes E-Mail-Programm mit allen Angaben — kein Server, kein Tracking.</span>
+            <span data-l="en">The form opens your own mail app with everything filled in — no server, no tracking.</span>
+          </p>
+          <noscript>
+            <p class="form-note">
+              <span data-l="de">JavaScript ist deaktiviert — schreib mir bitte direkt an martinschmidt1107@gmail.com.</span>
+              <span data-l="en">JavaScript is disabled — please write me directly at martinschmidt1107@gmail.com.</span>
+            </p>
+          </noscript>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-foot">
+    <div class="wrap">
+      <p class="foot-mark" aria-hidden="true">SCHMIDT<em>BIT</em></p>
+      <div class="foot-cols">
+        <div>
+          <h4><span data-l="de">Navigation</span><span data-l="en">Navigation</span></h4>
+          <ul>
+            <li><a href="#leistungen"><span data-l="de">Leistungen</span><span data-l="en">Services</span></a></li>
+            <li><a href="#arbeit"><span data-l="de">Arbeit</span><span data-l="en">Work</span></a></li>
+            <li><a href="#profil"><span data-l="de">Profil</span><span data-l="en">About</span></a></li>
+            <li><a href="#kontakt"><span data-l="de">Kontakt</span><span data-l="en">Contact</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span data-l="de">Rechtliches</span><span data-l="en">Legal</span></h4>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a></li>
+            <li><a href="nutzungsbedingungen.html"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms of use</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span data-l="de">Anderswo</span><span data-l="en">Elsewhere</span></h4>
+          <ul>
+            <li><a href="it-fotd.html">IT Fact of the Day</a></li>
+            <li><a href="https://github.com/TRGamer-tech/schmidtbit" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:martinschmidt1107@gmail.com">E-Mail</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-base">
+        <p>&copy; <span id="year">2026</span> SchmidtBit — <span data-l="de">handgemacht in Bern.</span><span data-l="en">handmade in Bern.</span></p>
+        <p><span data-l="de">Kein Tracking. Keine Cookies. Kein Baukasten.</span><span data-l="en">No tracking. No cookies. No site builder.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
 </html>
