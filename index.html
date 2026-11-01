@@ -1,980 +1,204 @@
-<!doctype html>
-<html lang="de" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SchmidtBit — Wo Webseiten ernst genommen werden</title>
-    <meta
-      name="description"
-      content="SchmidtBit aus Thun: individuelle Websites, Reparaturen, kreatives Design und Website-Rettungen. Handgemacht, schnell, ohne Baukasten."
-    />
-    <meta
-      property="og:title"
-      content="SchmidtBit — Wo Webseiten ernst genommen werden"
-    />
-    <meta
-      property="og:description"
-      content="Individuelle Websites, Reparaturen und Website-Rettungen aus Thun. Handgemacht, schnell, ohne Baukasten."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/img/favicon.png" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <script>
-      (function () {
-        var d = document.documentElement,
-          t,
-          l;
-        try {
-          localStorage.removeItem("sb-theme");
-          t =
-            window.matchMedia &&
-            matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
-        } catch (e) {
-          t = "dark";
-        }
-        d.setAttribute("data-theme", t);
-        try {
-          l = localStorage.getItem("language");
-        } catch (e) {
-          l = null;
-        }
-        if (l !== "en" && l !== "de") {
-          l = (navigator.language || "de").slice(0, 2) === "en" ? "en" : "de";
-        }
-        d.lang = l;
-      })();
-    </script>
-    <link
-      rel="preload"
-      href="assets/fonts/anybody-var.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/instrument-sans-var.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="assets/css/style.css?v=20261028" />
-    <script defer src="assets/js/vendor/gsap.min.js"></script>
-    <script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
-    <script defer src="assets/js/vendor/ScrollToPlugin.min.js"></script>
-    <script defer src="assets/js/vendor/ScrambleTextPlugin.min.js"></script>
-    <script defer src="assets/js/main.js?v=20261028"></script>
-  </head>
-  <body>
-    <a class="skip" href="#main">
-      <span data-l="de">Zum Inhalt springen</span>
-      <span data-l="en">Skip to content</span>
-    </a>
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baumpflege Wiedmer · Dario Wiedmer, Baumpflege in Thun und Spiez</title>
+<meta name="description" content="Dario Wiedmer, Baumpflege aus Gwatt (Thun): Kronenpflege, Baumschnitt, Beratung und Gartenpflege in Thun, Spiez und Umgebung. Besichtigung vereinbaren: 077 484 24 60.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.baumpflege-wiedmer.ch/">
+<link rel="alternate" hreflang="de-CH" href="https://www.baumpflege-wiedmer.ch/">
+<meta name="theme-color" content="#1f3320">
+<meta name="author" content="Dario Wiedmer">
+<meta name="geo.region" content="CH-BE">
+<meta name="geo.placename" content="Gwatt (Thun)">
+<meta name="geo.position" content="46.718023;7.626338">
+<meta name="ICBM" content="46.718023, 7.626338">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_CH">
+<meta property="og:site_name" content="Baumpflege Wiedmer">
+<meta property="og:title" content="Baumpflege Wiedmer · Gesunde Bäume in Thun und Spiez">
+<meta property="og:description" content="Dario Wiedmer klettert hoch, damit Ihr Baum gesund bleibt. Kronenpflege, Baumschnitt und Beratung aus Gwatt.">
+<meta property="og:url" content="https://www.baumpflege-wiedmer.ch/">
+<meta property="og:image" content="https://www.baumpflege-wiedmer.ch/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Baumpfleger in der Krone einer alten Linde über dem Thunersee">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Baumpflege Wiedmer · Gesunde Bäume in Thun und Spiez">
+<meta name="twitter:description" content="Kronenpflege, Baumschnitt und Beratung aus Gwatt (Thun).">
+<meta name="twitter:image" content="https://www.baumpflege-wiedmer.ch/assets/img/og-image.jpg">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/img/hero-480.webp 480w, /assets/img/hero-640.webp 640w, /assets/img/hero-800.webp 800w, /assets/img/hero-1200.webp 1200w, /assets/img/hero-1800.webp 1800w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"LocalBusiness",
+   "@id":"https://www.baumpflege-wiedmer.ch/#business",
+   "name":"Baumpflege Wiedmer",
+   "description":"Baumpflege, Kronenpflege, Baumschnitt und Beratung sowie Gartenpflege in Gwatt (Thun), Spiez und Umgebung.",
+   "url":"https://www.baumpflege-wiedmer.ch/",
+   "telephone":"+41774842460",
+   "email":"dario.l.wiedmer@hispeed.ch",
+   "image":["https://www.baumpflege-wiedmer.ch/assets/img/og-image.jpg","https://www.baumpflege-wiedmer.ch/assets/img/hero-1800.webp"],
+   "logo":"https://www.baumpflege-wiedmer.ch/apple-touch-icon.png",
+   "founder":{"@type":"Person","name":"Dario Wiedmer"},
+   "address":{"@type":"PostalAddress","streetAddress":"Bahnweg 8","postalCode":"3645","addressLocality":"Gwatt (Thun)","addressRegion":"BE","addressCountry":"CH"},
+   "geo":{"@type":"GeoCoordinates","latitude":46.718023,"longitude":7.626338},
+   "areaServed":[{"@type":"City","name":"Thun"},{"@type":"City","name":"Spiez"},{"@type":"Place","name":"Gwatt"},{"@type":"AdministrativeArea","name":"Berner Oberland"}],
+   "knowsAbout":["Baumpflege","Kronenpflege","Baumschnitt","Gartenpflege","Gartenunterhalt"],
+   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Leistungen","itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Kronenpflege"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Baumschnitt"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Begutachtung und Beratung"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gartenpflege und Gartenunterhalt"}}]}
+  },
+  {"@type":"WebSite","@id":"https://www.baumpflege-wiedmer.ch/#website","url":"https://www.baumpflege-wiedmer.ch/","name":"Baumpflege Wiedmer","inLanguage":"de-CH","publisher":{"@id":"https://www.baumpflege-wiedmer.ch/#business"}},
+  {
+   "@type":"FAQPage",
+   "mainEntity":[
+    {"@type":"Question","name":"Was kostet eine Baumpflege?","acceptedAnswer":{"@type":"Answer","text":"Das hängt von Baumart, Grösse, Zugänglichkeit und Umfang ab. Nach einer kurzen Begutachtung vor Ort erhalten Sie eine klare Offerte."}},
+    {"@type":"Question","name":"Brauche ich eine Bewilligung, um einen Baum zu schneiden oder zu fällen?","acceptedAnswer":{"@type":"Answer","text":"Bei geschützten Bäumen oder Hecken kann eine Bewilligung der Gemeinde nötig sein. Fragen Sie im Zweifel bei Ihrer Gemeinde nach. Bei der Besichtigung sagen wir Ihnen, worauf Sie achten sollten."}},
+    {"@type":"Question","name":"Wann ist die beste Zeit für einen Baumschnitt?","acceptedAnswer":{"@type":"Answer","text":"Das hängt stark von der Baumart und vom Ziel des Schnitts ab. Am besten schauen wir Ihren Baum gemeinsam an und planen den passenden Zeitpunkt."}}
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<div class="demo" role="note">Unverbindlicher Entwurf von <a href="https://schmidtbit.ch">schmidtbit.ch</a></div>
 
-    <!-- Intro -->
-    <div id="intro" aria-hidden="true">
-      <div class="intro-mark">
-        <img
-          class="intro-logo"
-          src="assets/img/favicon.png"
-          alt=""
-          width="96"
-          height="96"
-        />
-        <!-- prettier-ignore -->
-        <span>SCHMIDT<em>BIT</em></span>
-      </div>
-      <div class="intro-count" id="intro-count">000</div>
-      <div class="intro-bar"></div>
-    </div>
+<header class="top" id="top">
+ <a class="brand" href="/" aria-label="Baumpflege Wiedmer Startseite">
+  <img class="brand-mark" src="/assets/img/ringe-96.webp" width="44" height="44" alt="">
+  <span class="brand-text"><small>Baumpflege</small> <b>Wiedmer</b></span>
+ </a>
+ <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span><span class="sr">Menü öffnen</span></button>
+ <nav id="nav" class="nav" aria-label="Hauptnavigation">
+  <a href="#leistungen">Leistungen</a>
+  <a href="#dario">Über Dario</a>
+  <a href="#gebiet">Gebiet</a>
+  <a href="#ablauf">Ablauf</a>
+  <a href="#kontakt">Kontakt</a>
+  <a class="btn btn-small nav-call" href="tel:+41774842460">077 484 24 60</a>
+ </nav>
+</header>
 
-    <!-- Header -->
-    <header class="site-head" id="site-head">
-      <a class="brand" href="#top" aria-label="SchmidtBit — Startseite">
-        <img
-          class="brand-logo"
-          src="assets/img/favicon.png"
-          alt=""
-          width="32"
-          height="32"
-        />
-        <!-- prettier-ignore -->
-        <span class="wordmark">SCHMIDT<em>BIT</em><sup>.CH</sup></span>
-      </a>
-      <nav class="site-nav" aria-label="Hauptnavigation">
-        <a href="#leistungen">
-          <span data-l="de">Leistungen</span>
-          <span data-l="en">Services</span>
-        </a>
-        <a href="#arbeit">
-          <span data-l="de">Arbeit</span>
-          <span data-l="en">Work</span>
-        </a>
-        <a href="#profil">
-          <span data-l="de">Profil</span>
-          <span data-l="en">About</span>
-        </a>
-        <a href="#kontakt">
-          <span data-l="de">Kontakt</span>
-          <span data-l="en">Contact</span>
-        </a>
-      </nav>
-      <div class="head-tools">
-        <button
-          class="lang"
-          type="button"
-          aria-label="Sprache wechseln / Switch language"
-        >
-          <span data-setlang="de" aria-pressed="true">DE</span>
-          <span data-setlang="en" aria-pressed="false">EN</span>
-        </button>
-        <button
-          class="theme-toggle"
-          type="button"
-          aria-label="Farbschema wechseln / Switch theme"
-        >
-          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
-          </svg>
-          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
-            />
-          </svg>
-        </button>
-        <button
-          class="burger"
-          type="button"
-          id="burger"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label="Menü öffnen / Open menu"
-        >
-          <i></i>
-        </button>
-      </div>
-    </header>
+<main id="inhalt">
+<section class="hero" aria-labelledby="h1">
+ <picture class="hero-img">
+  <img src="/assets/img/hero-1200.webp" srcset="/assets/img/hero-480.webp 480w, /assets/img/hero-640.webp 640w, /assets/img/hero-800.webp 800w, /assets/img/hero-1200.webp 1200w, /assets/img/hero-1800.webp 1800w" sizes="100vw" width="1800" height="1208" alt="Baumpfleger mit Helm und Seil in der Krone einer alten Linde, im Hintergrund der Thunersee und die Berge" fetchpriority="high">
+ </picture>
+ <div class="hero-inner">
+  <p class="eyebrow"><span class="dot"></span>Baumpflege · Gwatt, Thun &amp; Spiez</p>
+  <h1 id="h1">Wir klettern hoch, damit Ihr Baum <em>gesund</em> bleibt.</h1>
+  <p class="lead">Kronenpflege, Baumschnitt und ehrliche Beratung von Dario Wiedmer. Für Bäume, die sicher stehen und Ihren Garten noch lange schöner machen.</p>
+  <div class="cta">
+   <a class="btn btn-sap" href="tel:+41774842460">Jetzt anrufen</a>
+   <a class="btn btn-ghost" href="mailto:dario.l.wiedmer@hispeed.ch?subject=Anfrage%20Baumpflege">Besichtigung anfragen</a>
+  </div>
+ </div>
+ <a class="scroll-cue" href="#leistungen" aria-label="Weiter zu den Leistungen"><span></span></a>
+</section>
 
-    <!-- Mobiles Menü -->
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
-      <a href="#leistungen">
-        <span data-l="de">Leistungen</span>
-        <span data-l="en">Services</span>
-      </a>
-      <a href="#arbeit">
-        <span data-l="de">Arbeit</span>
-        <span data-l="en">Work</span>
-      </a>
-      <a href="#profil">
-        <span data-l="de">Profil</span>
-        <span data-l="en">About</span>
-      </a>
-      <a href="#kontakt">
-        <span data-l="de">Kontakt</span>
-        <span data-l="en">Contact</span>
-      </a>
-      <p class="meta mm-foot">
-        Thun, CH —
-        <span id="mm-clock">--:--:--</span>
-      </p>
-    </nav>
+<section id="leistungen" class="services" aria-labelledby="h-leist">
+ <div class="wrap">
+  <p class="eyebrow dark"><span class="dot"></span>Leistungen</p>
+  <h2 id="h-leist">Was wir für Ihre Bäume tun</h2>
+ </div>
+ <div class="split wrap">
+  <figure class="photo reveal"><img src="/assets/img/saege-800.webp" srcset="/assets/img/saege-480.webp 480w, /assets/img/saege-800.webp 800w, /assets/img/saege-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" width="1200" height="896" loading="lazy" decoding="async" alt="Hände in Arbeitshandschuhen schneiden mit einer Handsäge einen Ast sauber ab"></figure>
+  <div class="split-text">
+   <article class="svc reveal"><span class="num">01</span><h3>Kronenpflege</h3><p>Totholz raus, Licht rein. Eine gepflegte Krone ist stabiler, gesünder und wirft weniger Schatten, wo Sie ihn nicht wollen.</p></article>
+   <article class="svc reveal"><span class="num">02</span><h3>Baumschnitt</h3><p>Fachgerechter Schnitt statt Kahlschlag. Damit der Baum in Form bleibt und nicht Jahre braucht, um sich zu erholen.</p></article>
+  </div>
+ </div>
+ <div class="split wrap flip">
+  <figure class="photo reveal"><img src="/assets/img/leiter-800.webp" srcset="/assets/img/leiter-480.webp 480w, /assets/img/leiter-800.webp 800w, /assets/img/leiter-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" width="1200" height="896" loading="lazy" decoding="async" alt="Holzleiter an einem gepflegten Apfelbaum in einem Garten mit Bauernhaus im Hintergrund"></figure>
+  <div class="split-text">
+   <article class="svc reveal"><span class="num">03</span><h3>Begutachtung &amp; Beratung</h3><p>Ist der Baum noch sicher? Muss er geschnitten werden, oder reicht Geduld? Wir schauen ihn an und sagen es Ihnen ehrlich.</p></article>
+   <article class="svc reveal"><span class="num">04</span><h3>Gartenpflege &amp; Unterhalt</h3><p>Hecken, Sträucher, Obstbäume und der Garten rundherum bekommen auf Wunsch die passende Pflege, übers ganze Jahr.</p></article>
+  </div>
+ </div>
+</section>
 
-    <main id="main">
-      <!-- ===================== HERO ===================== -->
-      <section class="hero" id="top">
-        <div class="wrap hero-grid">
-          <h1>
-            <span class="line">
-              <span data-l="de">Webseiten</span>
-              <span data-l="en">Websites</span>
-            </span>
-            <span class="line">
-              <span data-l="de">ernst</span>
-              <span data-l="en">taken</span>
-            </span>
-            <span class="line">
-              <span class="accent">
-                <span data-l="de">genommen.</span>
-                <span data-l="en">seriously.</span>
-              </span>
-            </span>
-          </h1>
-          <div class="hero-side">
-            <p class="lead">
-              <span data-l="de">
-                Ich bin Martin. Ich baue, rette und verfeinere Websites für
-                Menschen, Vereine und Communities in der Schweiz —
-                handgeschrieben statt Baukasten.
-              </span>
-              <span data-l="en">
-                I'm Martin. I build, rescue and refine websites for people,
-                clubs and communities across Switzerland — handwritten, never
-                off-the-shelf.
-              </span>
-            </p>
-            <div class="hero-actions">
-              <a class="btn" href="#kontakt">
-                <span data-l="de">Projekt anfragen</span>
-                <span data-l="en">Start a project</span>
-                <span class="ar" aria-hidden="true">→</span>
-              </a>
-              <a class="btn btn-ghost" href="#arbeit">
-                <span data-l="de">Arbeiten ansehen</span>
-                <span data-l="en">See the work</span>
-              </a>
-            </div>
-          </div>
-        </div>
+<section id="dario" class="about" aria-labelledby="h-dario">
+ <div class="wrap about-inner reveal">
+  <p class="eyebrow"><span class="dot"></span>Über mich</p>
+  <h2 id="h-dario">Grüessech, ich bin Dario Wiedmer.</h2>
+  <p class="quote">Ein Baum braucht Jahrzehnte, um gross zu werden. Darum pflege ich ihn mit Respekt und Sorgfalt.</p>
+  <p>Von Gwatt aus kümmere ich mich um Bäume und Gärten in Thun, Spiez und Umgebung. Sie haben bei mir einen direkten Ansprechpartner, von der ersten Besichtigung bis der letzte Ast weg ist.</p>
+ </div>
+</section>
 
-        <div class="ticker" aria-hidden="true">
-          <div class="ticker-track">
-            <span>
-              HTML
-              <b>✦</b>
-              CSS
-              <b>✦</b>
-              JavaScript
-              <b>✦</b>
-              CSS
-              <b>✦</b>
-              <span data-l="de">Website-Rettung</span>
-              <span data-l="en">Website rescue</span>
-              <b>✦</b>
-              <span data-l="de">Responsives Design</span>
-              <span data-l="en">Responsive design</span>
-              <b>✦</b>
-            </span>
-            <span>
-              HTML
-              <b>✦</b>
-              CSS
-              <b>✦</b>
-              JavaScript
-              <b>✦</b>
-              CSS
-              <b>✦</b>
-              <span data-l="de">Website-Rettung</span>
-              <span data-l="en">Website rescue</span>
-              <b>✦</b>
-              <span data-l="de">Responsives Design</span>
-              <span data-l="en">Responsive design</span>
-              <b>✦</b>
-            </span>
-          </div>
-        </div>
-      </section>
+<section id="gebiet" class="area" aria-labelledby="h-gebiet">
+ <div class="wrap area-grid">
+  <div class="area-text reveal">
+   <p class="eyebrow dark"><span class="dot"></span>Einsatzgebiet</p>
+   <h2 id="h-gebiet">Von Gwatt aus, Ring für Ring.</h2>
+   <p>Wie die Jahresringe eines Baums wächst unser Einsatzgebiet von Gwatt nach aussen: Thun und Spiez sind gleich um die Ecke, die Dörfer rund um den Thunersee auch. Weiter weg? Fragen Sie einfach.</p>
+   <ul class="places"><li>Gwatt</li><li>Thun</li><li>Spiez</li><li>Rund um den Thunersee</li></ul>
+  </div>
+  <figure class="rings reveal">
+   <img src="/assets/img/ringe-800.webp" srcset="/assets/img/ringe-480.webp 480w, /assets/img/ringe-800.webp 800w, /assets/img/ringe-1200.webp 1200w" sizes="(max-width: 860px) 90vw, 45vw" width="1200" height="1200" loading="lazy" decoding="async" alt="Frisch geschnittener Baumstamm mit deutlichen Jahresringen, umgeben von Moos">
+   <span class="ring-label l0">Gwatt</span>
+   <span class="ring-label l1">Thun &amp; Spiez</span>
+   <span class="ring-label l2">Umgebung</span>
+  </figure>
+ </div>
+</section>
 
-      <!-- ===================== LEISTUNGEN ===================== -->
-      <section class="section" id="leistungen">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">
-                <b>01</b>
-                <span data-l="de">Leistungen</span>
-                <span data-l="en">Services</span>
-              </p>
-              <h2 class="h2">
-                <span class="line">
-                  <span data-l="de">Was ich</span>
-                  <span data-l="en">What I</span>
-                </span>
-                <span class="line">
-                  <span data-l="de">für dich tue.</span>
-                  <span data-l="en">do for you.</span>
-                </span>
-              </h2>
-            </div>
-            <p class="note">
-              <span data-l="de">
-                Kein Template-Zirkus. Jede Lösung entsteht aus dem Problem
-                heraus. Nicht aus dem, was der Baukasten gerade hergibt.
-              </span>
-              <span data-l="en">
-                No template circus. Every solution grows out of the problem. Not
-                out of whatever a site builder happens to offer.
-              </span>
-            </p>
-          </div>
+<section id="ablauf" class="steps-sec" aria-labelledby="h-ablauf">
+ <div class="wrap">
+  <p class="eyebrow dark"><span class="dot"></span>Ablauf</p>
+  <h2 id="h-ablauf">In vier Schritten zum gepflegten Baum</h2>
+  <ol class="steps">
+   <li class="reveal"><h3>Anrufen oder schreiben</h3><p>Kurz erzählen, um welchen Baum es geht. Ein Foto hilft.</p></li>
+   <li class="reveal"><h3>Begutachtung vor Ort</h3><p>Wir schauen uns Baum, Standort und Zugang an.</p></li>
+   <li class="reveal"><h3>Klare Offerte</h3><p>Sie wissen vorher, was gemacht wird und was es kostet.</p></li>
+   <li class="reveal"><h3>Hochklettern &amp; pflegen</h3><p>Sauber, sicher und mit Respekt vor Baum und Garten.</p></li>
+  </ol>
+ </div>
+</section>
 
-          <div class="svc" data-stagger>
-            <div class="svc-row">
-              <span class="svc-num">01</span>
-              <h3>
-                <span data-l="de">Website-Reparaturen</span>
-                <span data-l="en">Website fixes</span>
-              </h3>
-              <p>
-                <span data-l="de">
-                  Kaputte Layouts, fehlerhafte Skripte, tote Links: Ich
-                  diagnostiziere gründlich und repariere nachhaltig — auch an
-                  Code, den ich nicht selbst geschrieben habe.
-                </span>
-                <span data-l="en">
-                  Broken layouts, faulty scripts, dead links: I diagnose
-                  thoroughly and fix things properly — including code I didn't
-                  write myself.
-                </span>
-              </p>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">02</span>
-              <h3>
-                <span data-l="de">Individuelle Websites</span>
-                <span data-l="en">Custom websites</span>
-              </h3>
-              <p>
-                <span data-l="de">
-                  Massgeschneidert statt von der Stange: Struktur, Design und
-                  Code entstehen für dich — nicht für alle.
-                </span>
-                <span data-l="en">
-                  Tailored instead of off-the-rack: structure, design and code
-                  are made for you — not for everyone.
-                </span>
-              </p>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">03</span>
-              <h3>
-                <span data-l="de">Kreatives Design</span>
-                <span data-l="en">Creative design</span>
-              </h3>
-              <p>
-                <span data-l="de">
-                  Von der ersten Skizze bis zum Feinschliff: Interfaces mit
-                  eigener Handschrift, die im Kopf bleiben.
-                </span>
-                <span data-l="en">
-                  From the first sketch to the final polish: interfaces with
-                  their own signature that stick in the head.
-                </span>
-              </p>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">04</span>
-              <h3>
-                <span data-l="de">Responsives Design</span>
-                <span data-l="en">Responsive design</span>
-              </h3>
-              <p>
-                <span data-l="de">
-                  Vom Smartphone bis zum Studio-Monitor: Jede Ansicht sitzt.
-                  Getestet auf echten Geräten, nicht auf Folien.
-                </span>
-                <span data-l="en">
-                  From smartphone to studio monitor: every view fits. Tested on
-                  real devices, not on slide decks.
-                </span>
-              </p>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">05</span>
-              <h3>
-                <span data-l="de">Website-Konvertierung</span>
-                <span data-l="en">Website conversion</span>
-              </h3>
-              <p>
-                <span data-l="de">
-                  Altlasten? Ich überführe bestehende Seiten in moderne,
-                  schnelle Standards — Inhalte bleiben, Ballast geht.
-                </span>
-                <span data-l="en">
-                  Legacy baggage? I move existing sites onto modern, fast
-                  standards — content stays, ballast goes.
-                </span>
-              </p>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">06</span>
-              <h3>
-                <span data-l="de">Web-Editoren</span>
-                <span data-l="en">Web editors</span>
-              </h3>
-              <p>
-                <span data-l="de">
-                  WordPress, Wix &amp; Co.: Einrichtung, Customizing und
-                  Schulung — damit du danach selbst sicher arbeitest.
-                </span>
-                <span data-l="en">
-                  WordPress, Wix &amp; co: setup, customising and training — so
-                  you can work confidently on your own afterwards.
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+<section class="faq" aria-labelledby="h-faq">
+ <div class="wrap narrow">
+  <p class="eyebrow dark"><span class="dot"></span>Gut zu wissen</p>
+  <h2 id="h-faq">Häufige Fragen</h2>
+  <details><summary>Was kostet eine Baumpflege?</summary><p>Das hängt von Baumart, Grösse, Zugänglichkeit und Umfang ab. Nach einer kurzen Begutachtung vor Ort erhalten Sie eine klare Offerte.</p></details>
+  <details><summary>Brauche ich eine Bewilligung, um einen Baum zu schneiden oder zu fällen?</summary><p>Bei geschützten Bäumen oder Hecken kann eine Bewilligung der Gemeinde nötig sein. Fragen Sie im Zweifel bei Ihrer Gemeinde nach. Bei der Besichtigung sagen wir Ihnen, worauf Sie achten sollten.</p></details>
+  <details><summary>Wann ist die beste Zeit für einen Baumschnitt?</summary><p>Das hängt stark von der Baumart und vom Ziel des Schnitts ab. Am besten schauen wir Ihren Baum gemeinsam an und planen den passenden Zeitpunkt.</p></details>
+ </div>
+</section>
 
-      <!-- ===================== ARBEIT ===================== -->
-      <section class="section section--alt" id="arbeit">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">
-                <b>02</b>
-                <span data-l="de">Arbeit &amp; Kundschaft</span>
-                <span data-l="en">Work &amp; clients</span>
-              </p>
-              <h2 class="h2">
-                <span class="line">
-                  <span data-l="de">Ausgewählte</span>
-                  <span data-l="en">Selected</span>
-                </span>
-                <span class="line">
-                  <span data-l="de">Projekte.</span>
-                  <span data-l="en">projects.</span>
-                </span>
-              </h2>
-            </div>
-            <p class="note">
-              <span data-l="de">
-                Drei Projekte, drei Welten: Gaming-Community, Fotografie und
-                eine gerettete Musikschule. Alle live erreichbar.
-              </span>
-              <span data-l="en">
-                Three projects, three worlds: a gaming community, photography,
-                and a rescued music school. All live online.
-              </span>
-            </p>
-          </div>
+<section id="kontakt" class="contact" aria-labelledby="h-kontakt">
+ <picture class="contact-bg"><img src="/assets/img/wurzeln-1200.webp" srcset="/assets/img/wurzeln-480.webp 480w, /assets/img/wurzeln-800.webp 800w, /assets/img/wurzeln-1200.webp 1200w, /assets/img/wurzeln-1800.webp 1800w" sizes="100vw" width="1800" height="1005" loading="lazy" decoding="async" alt=""></picture>
+ <div class="wrap contact-inner">
+  <p class="eyebrow"><span class="dot"></span>Kontakt</p>
+  <h2 id="h-kontakt">Ein Anruf, und wir schauen uns Ihren Baum an.</h2>
+  <a class="bigphone" href="tel:+41774842460">077 484 24 60</a>
+  <div class="cgrid">
+   <div><h3>E-Mail</h3><p><a href="mailto:dario.l.wiedmer@hispeed.ch">dario.l.wiedmer@hispeed.ch</a></p></div>
+   <div><h3>Adresse</h3><p>Baumpflege Wiedmer<br>Dario Wiedmer<br>Bahnweg 8, 3645 Gwatt (Thun)</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Bahnweg+8+3645+Gwatt" rel="noopener">Auf der Karte öffnen</a></p></div>
+   <div><h3>Erreichbar</h3><p>Montag bis Freitag<br>Termine nach Vereinbarung</p></div>
+  </div>
+ </div>
+</section>
+</main>
 
-          <div class="work">
-            <article class="work-item">
-              <a
-                class="work-media"
-                href="https://unitedpro.ch"
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  src="assets/img/work-unitedpro.webp?v=20261028"
-                  alt="Vorschau der Startseite von unitedpro.ch"
-                  width="1600"
-                  height="868"
-                  loading="lazy"
-                />
-                <span class="work-live">LIVE</span>
-              </a>
-              <div class="work-info">
-                <p class="meta">
-                  <span class="work-idx">01</span>
-                  —
-                  <span data-l="de">Gaming-Community</span>
-                  <span data-l="en">Gaming community</span>
-                </p>
-                <h3>
-                  <a href="https://unitedpro.ch" target="_blank" rel="noopener">
-                    unitedpro.ch
-                  </a>
-                </h3>
-                <p>
-                  <span data-l="de">
-                    Gaming-Community-Website, entwickelt mit HTML, CSS und
-                    jQuery. Fokus auf Team, News und Discord-Integration.
-                  </span>
-                  <span data-l="en">
-                    Gaming community website built with HTML, CSS and jQuery.
-                    Focused on team, news and Discord integration.
-                  </span>
-                </p>
-                <ul class="tags">
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>jQuery</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="work-item">
-              <a
-                class="work-media"
-                href="https://martinschmidt.ch"
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  src="assets/img/work-martinschmidt.webp?v=20261028"
-                  alt="Vorschau der Galerie von martinschmidt.ch"
-                  width="1600"
-                  height="868"
-                  loading="lazy"
-                />
-                <span class="work-live">LIVE</span>
-              </a>
-              <div class="work-info">
-                <p class="meta">
-                  <span class="work-idx">02</span>
-                  —
-                  <span data-l="de">Portfolio &amp; Fotografie</span>
-                  <span data-l="en">Portfolio &amp; photography</span>
-                </p>
-                <h3>
-                  <a
-                    href="https://martinschmidt.ch"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    martinschmidt.ch
-                  </a>
-                </h3>
-                <p>
-                  <span data-l="de">
-                    Meine persönliche Website — modern, minimalistisch und
-                    individuell. Realisiert mit HTML, CSS und JavaScript.
-                  </span>
-                  <span data-l="en">
-                    My personal website — modern, minimal and individual. Built
-                    with HTML, CSS and JavaScript.
-                  </span>
-                </p>
-                <ul class="tags">
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>JavaScript</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="work-item">
-              <a
-                class="work-media"
-                href="https://musikschule-kurtschmid.ch"
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  src="assets/img/work-kurtschmid.webp?v=20261028"
-                  alt="Vorschau der Website der Musikschule Kurt Schmid"
-                  width="1600"
-                  height="733"
-                  loading="lazy"
-                />
-                <span class="work-live">LIVE</span>
-              </a>
-              <div class="work-info">
-                <p class="meta">
-                  <span class="work-idx">03</span>
-                  —
-                  <span data-l="de">Musikschule · Rettung</span>
-                  <span data-l="en">Music school · rescue</span>
-                </p>
-                <h3>
-                  <a
-                    href="https://musikschule-kurtschmid.ch"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Kurt Schmid
-                  </a>
-                </h3>
-                <p>
-                  <span data-l="de">
-                    Rettung und Verbesserung einer Musikschul-Website nach
-                    Datenverlust beim Hoster. Umsetzung mit generischem
-                    Website-Builder.
-                  </span>
-                  <span data-l="en">
-                    Rescue and improvement of a music school website after data
-                    loss at the hoster. Delivered with a generic website
-                    builder.
-                  </span>
-                </p>
-                <ul class="tags">
-                  <li>Website-Builder</li>
-                  <li>Support</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================== PROFIL ===================== -->
-      <section class="section" id="profil">
-        <div class="wrap">
-          <p class="eyebrow">
-            <b>03</b>
-            <span data-l="de">Profil</span>
-            <span data-l="en">About</span>
-          </p>
-          <div class="profile">
-            <div class="profile-text">
-              <h2 class="h2">
-                <span class="line">
-                  <span data-l="de">Hinter</span>
-                  <span data-l="en">Behind</span>
-                </span>
-                <span class="line">
-                  <span data-l="de">SchmidtBit</span>
-                  <span data-l="en">SchmidtBit</span>
-                </span>
-                <span class="line">
-                  <span data-l="de">steckt Martin.</span>
-                  <span data-l="en">is Martin.</span>
-                </span>
-              </h2>
-              <p class="lead" style="margin-top: 1.5rem">
-                <span data-l="de">
-                  Webentwickler aus Thun. Ich verwandle Ideen in Code und Design
-                  — Websites, die nicht nur gut aussehen, sondern sich auch gut
-                  anfühlen.
-                </span>
-                <span data-l="en">
-                  A web developer from Thun. I turn ideas into code and design —
-                  websites that don't just look good, they feel good.
-                </span>
-              </p>
-              <p>
-                <span data-l="de">
-                  Mein Werkzeug: HTML, CSS, JavaScript und jQuery — plus ein
-                  gutes Auge für Details. Ich arbeite direkt mit dir, ohne
-                  Agenturapparat: kurze Wege, klare Ansagen, fertige Ergebnisse.
-                </span>
-                <span data-l="en">
-                  My tools: HTML, CSS, JavaScript and jQuery — plus an eye for
-                  detail. I work with you directly, no agency machinery: short
-                  paths, clear words, finished results.
-                </span>
-              </p>
-              <p>
-                <span data-l="de">
-                  Wenn ich nicht programmiere, erkunde ich neue Webtechnologien,
-                  experimentiere mit Layouts oder bin draussen in den Bergen
-                  unterwegs.
-                </span>
-                <span data-l="en">
-                  When I'm not coding, I'm exploring new web technologies,
-                  experimenting with layouts, or out in the Swiss mountains.
-                </span>
-              </p>
-              <dl class="facts">
-                <dt>
-                  <span data-l="de">Standort</span>
-                  <span data-l="en">Location</span>
-                </dt>
-                <dd>
-                  Thun,
-                  <span data-l="de">Schweiz</span>
-                  <span data-l="en">Switzerland</span>
-                </dd>
-                <dt>
-                  <span data-l="de">Fokus</span>
-                  <span data-l="en">Focus</span>
-                </dt>
-                <dd>
-                  <span data-l="de">Web-Entwicklung &amp; -Rettung</span>
-                  <span data-l="en">Web development &amp; rescue</span>
-                </dd>
-                <dt>
-                  <span data-l="de">Sprachen</span>
-                  <span data-l="en">Languages</span>
-                </dt>
-                <dd>Deutsch / English</dd>
-                <dt>
-                  <span data-l="de">Erreichbar</span>
-                  <span data-l="en">Available</span>
-                </dt>
-                <dd>
-                  <span data-l="de">Mo–Sa, 18–22 Uhr</span>
-                  <span data-l="en">Mon–Sat, 6–10 pm</span>
-                </dd>
-              </dl>
-            </div>
-
-            <div class="stack" data-meters>
-              <h3>
-                <span data-l="de">Werkzeugkasten</span>
-                <span data-l="en">Toolbox</span>
-              </h3>
-              <div class="meter">
-                <div class="meter-top">
-                  <b>HTML</b>
-                  <span data-count="95">95%</span>
-                </div>
-                <div class="meter-track">
-                  <div class="meter-fill" style="--v: 0.95"></div>
-                </div>
-              </div>
-              <div class="meter">
-                <div class="meter-top">
-                  <b>CSS</b>
-                  <span data-count="95">95%</span>
-                </div>
-                <div class="meter-track">
-                  <div class="meter-fill" style="--v: 0.95"></div>
-                </div>
-              </div>
-              <div class="meter">
-                <div class="meter-top">
-                  <b data-l="de">Web-Editoren</b>
-                  <b data-l="en">Web editors</b>
-                  <span data-count="80">80%</span>
-                </div>
-                <div class="meter-track">
-                  <div class="meter-fill" style="--v: 0.8"></div>
-                </div>
-              </div>
-              <div class="meter">
-                <div class="meter-top">
-                  <b>JavaScript</b>
-                  <span data-count="75">75%</span>
-                </div>
-                <div class="meter-track">
-                  <div class="meter-fill" style="--v: 0.75"></div>
-                </div>
-              </div>
-              <div class="meter">
-                <div class="meter-top">
-                  <b>jQuery</b>
-                  <span data-count="70">70%</span>
-                </div>
-                <div class="meter-track">
-                  <div class="meter-fill" style="--v: 0.7"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================== KONTAKT ===================== -->
-      <section class="reach on-flame" id="kontakt">
-        <div class="wrap">
-          <p class="eyebrow">
-            <b>04</b>
-            <span data-l="de">Kontakt</span>
-            <span data-l="en">Contact</span>
-          </p>
-          <h2 class="h2">
-            <span class="line">
-              <span data-l="de">Lass uns</span>
-              <span data-l="en">Let's build</span>
-            </span>
-            <span class="line">
-              <span data-l="de">bauen.</span>
-              <span data-l="en">something.</span>
-            </span>
-          </h2>
-          <a class="mail" href="mailto:martinschmidt1107@gmail.com">
-            martinschmidt1107@gmail.com
-          </a>
-          <dl class="reach-list">
-            <div>
-              <dt>
-                <span data-l="de">Standort</span>
-                <span data-l="en">Location</span>
-              </dt>
-              <dd>
-                Thun,
-                <span data-l="de">Schweiz</span>
-                <span data-l="en">Switzerland</span>
-              </dd>
-            </div>
-            <div>
-              <dt>
-                <span data-l="de">Verfügbarkeit</span>
-                <span data-l="en">Availability</span>
-              </dt>
-              <dd>
-                <span data-l="de">Mo–Sa, 18–22 Uhr</span>
-                <span data-l="en">Mon–Sat, 6–10 pm</span>
-              </dd>
-            </div>
-            <div>
-              <dt>
-                <span data-l="de">Preise</span>
-                <span data-l="en">Pricing</span>
-              </dt>
-              <dd>
-                <span data-l="de">Individuell — Offerte gratis</span>
-                <span data-l="en">Individual — free quote</span>
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="form-shell section--alt">
-        <div class="wrap">
-          <form class="form" id="contact-form" novalidate>
-            <p class="hp" aria-hidden="true">
-              <label>
-                Don't fill this out if you're human:
-                <input name="bot-field" tabindex="-1" autocomplete="off" />
-              </label>
-            </p>
-            <div class="row">
-              <div>
-                <label for="name">
-                  <span data-l="de">Dein Name</span>
-                  <span data-l="en">Your name</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  autocomplete="name"
-                  required
-                />
-              </div>
-              <div>
-                <label for="email">E-Mail</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  autocomplete="email"
-                  required
-                />
-              </div>
-            </div>
-            <div>
-              <label for="subject">
-                <span data-l="de">Betreff</span>
-                <span data-l="en">Subject</span>
-              </label>
-              <input type="text" id="subject" name="subject" required />
-            </div>
-            <div>
-              <label for="message">
-                <span data-l="de">Deine Nachricht</span>
-                <span data-l="en">Your message</span>
-              </label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <button class="btn" type="submit">
-              <span data-l="de">Nachricht senden</span>
-              <span data-l="en">Send message</span>
-              <span class="ar" aria-hidden="true">→</span>
-            </button>
-            <p class="form-note">
-              <span data-l="de">
-                Das Formular öffnet dein eigenes E-Mail-Programm mit allen
-                Angaben — kein Server, kein Tracking.
-              </span>
-              <span data-l="en">
-                The form opens your own mail app with everything filled in — no
-                server, no tracking.
-              </span>
-            </p>
-            <noscript>
-              <p class="form-note">
-                <span data-l="de">
-                  JavaScript ist deaktiviert — schreib mir bitte direkt an
-                  martinschmidt1107@gmail.com.
-                </span>
-                <span data-l="en">
-                  JavaScript is disabled — please write me directly at
-                  martinschmidt1107@gmail.com.
-                </span>
-              </p>
-            </noscript>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="site-foot">
-      <div class="wrap">
-        <!-- prettier-ignore -->
-        <p class="foot-mark" aria-hidden="true">SCHMIDT<em>BIT</em></p>
-        <div class="foot-cols">
-          <div>
-            <h4>
-              <span data-l="de">Navigation</span>
-              <span data-l="en">Navigation</span>
-            </h4>
-            <ul>
-              <li>
-                <a href="#leistungen">
-                  <span data-l="de">Leistungen</span>
-                  <span data-l="en">Services</span>
-                </a>
-              </li>
-              <li>
-                <a href="#arbeit">
-                  <span data-l="de">Arbeit</span>
-                  <span data-l="en">Work</span>
-                </a>
-              </li>
-              <li>
-                <a href="#profil">
-                  <span data-l="de">Profil</span>
-                  <span data-l="en">About</span>
-                </a>
-              </li>
-              <li>
-                <a href="#kontakt">
-                  <span data-l="de">Kontakt</span>
-                  <span data-l="en">Contact</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>
-              <span data-l="de">Rechtliches</span>
-              <span data-l="en">Legal</span>
-            </h4>
-            <ul>
-              <li><a href="impressum.html">Impressum</a></li>
-              <li>
-                <a href="datenschutz.html">
-                  <span data-l="de">Datenschutz</span>
-                  <span data-l="en">Privacy</span>
-                </a>
-              </li>
-              <li>
-                <a href="nutzungsbedingungen.html">
-                  <span data-l="de">Nutzungsbedingungen</span>
-                  <span data-l="en">Terms of use</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>
-              <span data-l="de">Anderswo</span>
-              <span data-l="en">Elsewhere</span>
-            </h4>
-            <ul>
-              <li><a href="it-fotd.html">IT Fact of the Day</a></li>
-              <li>
-                <a
-                  href="https://github.com/TRGamer-tech"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li><a href="mailto:martinschmidt1107@gmail.com">E-Mail</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="foot-base">
-          <p>
-            &copy;
-            <span id="year">2026</span>
-            SchmidtBit —
-            <span data-l="de">handgemacht in Thun.</span>
-            <span data-l="en">handmade in Thun.</span>
-          </p>
-          <p>
-            <span data-l="de">
-              Kein Tracking. Keine Cookies. Kein Baukasten.
-            </span>
-            <span data-l="en">No tracking. No cookies. No site builder.</span>
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  </body>
+<footer class="foot">
+ <p>© 2026 Baumpflege Wiedmer · Dario Wiedmer · Gwatt (Thun)</p>
+ <p><a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+ <p class="credit">Website: <a href="https://schmidtbit.ch">schmidtbit.ch</a></p>
+</footer>
+<script src="/assets/js/main.js" defer></script>
+</body>
 </html>
