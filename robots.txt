@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.kohlbrenner-lehmbau.ch/sitemap.xml

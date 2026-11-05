@@ -1,0 +1,21 @@
+{
+ "name": "Malerei & Lehmbau Daniel Kohlbrenner",
+ "short_name": "Kohlbrenner",
+ "icons": [
+  {
+   "src": "/apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#2a241e",
+ "background_color": "#f5efe4",
+ "display": "standalone",
+ "start_url": "/",
+ "lang": "de-CH"
+}
