@@ -45,7 +45,8 @@ h3{font-size:1.35rem}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.75rem 1.5rem;border-radius:999px;background:var(--forest);color:var(--paper);font-weight:700;text-decoration:none;border:2px solid var(--forest);transition:transform .2s,box-shadow .2s;text-align:center}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn{transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.16)}
 .btn-sap{background:var(--sap);border-color:var(--sap);color:var(--forest)}
 .btn-ghost{background:transparent;border-color:rgba(255,255,255,.85);color:#fff}
 .btn-small{min-height:46px;padding:.5rem 1.1rem;font-size:.95rem}
@@ -59,8 +60,7 @@ section{padding:clamp(4rem,9vw,7rem) 0}
 /* Hero */
 .hero{position:relative;min-height:min(92svh,860px);display:flex;align-items:flex-end;color:#fff;padding:0;overflow:hidden;isolation:isolate}
 .hero-img,.hero-img img{position:absolute;inset:0;width:100%;height:100%}
-.hero-img img{object-fit:cover;object-position:60% 30%;animation:kenburns 24s ease-in-out infinite alternate;transform-origin:65% 45%}
-@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero-img img{object-fit:cover;object-position:60% 30%}
 .hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(15,25,14,.15) 0%,rgba(15,25,14,.25) 40%,rgba(12,20,11,.82) 100%)}
 .hero-inner{position:relative;z-index:1;width:min(1180px,100% - 2.5rem);margin:0 auto;padding:6rem 0 clamp(3.5rem,8vw,6rem)}
 .hero h1{font-size:clamp(2.4rem,7.2vw,5.4rem);font-weight:700;max-width:14ch;text-shadow:0 2px 24px rgba(0,0,0,.35);animation:lift .9s .1s both}
@@ -69,18 +69,14 @@ section{padding:clamp(4rem,9vw,7rem) 0}
 .hero .eyebrow{animation:rise .9s both}
 .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;animation:rise .9s .4s both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.scroll-cue{position:absolute;z-index:1;left:50%;bottom:1.1rem;width:28px;height:44px;margin-left:-14px;border:2px solid rgba(255,255,255,.7);border-radius:16px}
-.scroll-cue span{position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:cue 1.8s infinite}
-@keyframes cue{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
-@media (max-width:600px){.scroll-cue{display:none}.cta .btn{flex:1 1 100%}}
+@media (max-width:600px){.cta .btn{flex:1 1 100%}}
 
 /* Leistungen */
 .services{background:var(--paper)}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;margin-top:2.5rem}
 .split.flip .photo{order:2}
 .photo{margin:0;border-radius:var(--r);overflow:hidden;box-shadow:0 24px 50px -24px rgba(31,51,32,.5);aspect-ratio:4/3}
-.photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
-.photo:hover img{transform:scale(1.04)}
+.photo img{width:100%;height:100%;object-fit:cover}
 .split-text{display:grid;gap:1rem}
 .svc{background:#fff;border-radius:var(--r);padding:1.6rem 1.6rem 1.4rem;border:1px solid rgba(31,51,32,.08)}
 .svc p{margin:0;color:var(--mute)}
@@ -89,10 +85,8 @@ section{padding:clamp(4rem,9vw,7rem) 0}
 
 /* Über Dario */
 .about{background:var(--forest);color:#e8ecdf;position:relative;overflow:hidden}
-.about::before{content:"";position:absolute;right:-18vw;top:50%;width:60vw;max-width:720px;aspect-ratio:1;transform:translateY(-50%);background:url(/assets/img/ringe-800.webp) center/cover;border-radius:50%;opacity:.13}
 .about-inner{position:relative;max-width:780px}
 .about h2{color:#fff}
-.quote{font:italic 500 clamp(1.3rem,3vw,1.8rem)/1.4 "Fraunces",serif;color:var(--sap);margin:0 0 1.2rem;padding-left:1.1rem;border-left:3px solid var(--sap)}
 
 /* Gebiet */
 .area{background:var(--linen)}
@@ -101,8 +95,7 @@ section{padding:clamp(4rem,9vw,7rem) 0}
 .places{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:1.4rem 0 0}
 .places li{background:#fff;border:1px solid rgba(90,63,44,.2);padding:.35rem .9rem;border-radius:999px;font-weight:600;font-size:.92rem;color:var(--bark)}
 .rings{position:relative;margin:0;width:min(100%,520px);justify-self:center;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px -30px rgba(27,20,15,.7)}
-.rings img{width:100%;height:100%;object-fit:cover;animation:spin 140s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+.rings img{width:100%;height:100%;object-fit:cover}
 .ring-label{position:absolute;left:50%;transform:translate(-50%,-50%);background:rgba(27,20,15,.82);color:#fff;font-weight:700;font-size:clamp(.72rem,2.6vw,.9rem);padding:.3rem .75rem;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .l0{top:50%;background:var(--sap);color:var(--forest)}
 .l1{top:28%}
@@ -151,7 +144,7 @@ section{padding:clamp(4rem,9vw,7rem) 0}
 .js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
  .js .reveal{opacity:1;transform:none;transition:none}
- .hero-img img,.rings img,.scroll-cue span{animation:none}
+
  .hero h1,.hero .lead,.hero .eyebrow,.cta{animation:none}
  .btn,.photo img{transition:none}
 }
