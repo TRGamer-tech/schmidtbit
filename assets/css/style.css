@@ -1108,9 +1108,13 @@ html.menu-open .site-head {
   display: grid;
   gap: 1.1rem;
   align-content: start;
+  container-type: inline-size;
 }
 .work-info h3 {
   font-size: clamp(2.1rem, 5.4vw, 4.2rem);
+  /* Nie breiter als die eigene Spalte: der längste Namensteil („martinschmidt“, 9.23em)
+     passt in 10cqi. Muss ein Name umbrechen, dann am <wbr> vor „.ch“, nicht mitten im Wort. */
+  font-size: min(clamp(2.1rem, 5.4vw, 4.2rem), 10cqi);
   font-weight: 850;
   font-stretch: 108%;
   letter-spacing: -0.015em;
