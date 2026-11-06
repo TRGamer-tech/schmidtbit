@@ -563,7 +563,8 @@ function copyToClipboard() {
   const prefix = isArchive ? "Sometime" : "Today";
   const textToCopy = `${prefix} in ${year}: ${fact} - via schmidtbit.ch/it-fotd`;
 
-  // Modern Clipboard API
+  // Modern Clipboard API (fehlt ohne HTTPS und in alten Browsern)
+  if (!navigator.clipboard || !navigator.clipboard.writeText) return;
   navigator.clipboard
     .writeText(textToCopy)
     .then(() => {
@@ -576,6 +577,18 @@ function copyToClipboard() {
     .catch((err) => {
       console.error("Failed to copy: ", err);
     });
+}
+
+// Die Quell-URL kommt aus einer fremden API: nur https-Links auf Wikipedia übernehmen
+function wikipediaUrl(u) {
+  try {
+    const url = new URL(u);
+    if (url.protocol === "https:" && /(^|\.)wikipedia\.org$/.test(url.hostname))
+      return url.href;
+  } catch (e) {
+    /* keine gültige URL */
+  }
+  return null;
 }
 
 // API-Abruf mit Timeout und Retry
@@ -678,8 +691,13 @@ async function loadFact() {
         timeDelta.innerText = "";
       }
       yearContainer.classList.remove("opacity-0");
-      if (event.pages && event.pages[0]) {
-        sourceLink.href = event.pages[0].content_urls.desktop.page;
+      const page = event.pages && event.pages[0];
+      const href =
+        page && page.content_urls && page.content_urls.desktop
+          ? wikipediaUrl(page.content_urls.desktop.page)
+          : null;
+      if (href) {
+        sourceLink.href = href;
         sourceLink.classList.remove("hidden");
       }
     } else {

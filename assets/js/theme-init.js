@@ -4,15 +4,17 @@
   var d = document.documentElement,
     t,
     l;
+  // Eigene Wahl über den Theme-Schalter (main.js), sonst folgt die Seite dem System
   try {
-    localStorage.removeItem("sb-theme");
+    t = localStorage.getItem("sb-theme");
+  } catch (e) {
+    t = null;
+  }
+  if (t !== "light" && t !== "dark") {
     t =
-      window.matchMedia &&
-      matchMedia("(prefers-color-scheme: light)").matches
+      window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches
         ? "light"
         : "dark";
-  } catch (e) {
-    t = "dark";
   }
   d.setAttribute("data-theme", t);
   try {

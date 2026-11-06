@@ -6,13 +6,13 @@
     <title>Datenschutzerklärung — SchmidtBit</title>
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <script src="assets/js/theme-init.js?v=20261106"></script>
-    <link rel="stylesheet" href="assets/css/style.css?v=20261106" />
+    <script src="assets/js/theme-init.js?v=20261106-2"></script>
+    <link rel="stylesheet" href="assets/css/style.css?v=20261106-2" />
     <script defer src="assets/js/vendor/gsap.min.js"></script>
     <script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
     <script defer src="assets/js/vendor/ScrollToPlugin.min.js"></script>
     <script defer src="assets/js/vendor/ScrambleTextPlugin.min.js"></script>
-    <script defer src="assets/js/main.js?v=20261106"></script>
+    <script defer src="assets/js/main.js?v=20261106-2"></script>
   </head>
   <body>
     <a class="skip" href="#main">
@@ -20,7 +20,7 @@
       <span data-l="en">Skip to content</span>
     </a>
 
-    <header class="site-head is-stuck" id="site-head">
+    <header class="site-head site-head--sub is-stuck" id="site-head">
       <a class="brand" href="index.html" aria-label="SchmidtBit — Startseite">
         <img
           class="brand-logo"
@@ -73,8 +73,8 @@
           </span>
         </h1>
         <p class="lead meta">
-          <span data-l="de">Stand: Oktober 2026</span>
-          <span data-l="en">Last updated: October 2026</span>
+          <span data-l="de">Stand: November 2026</span>
+          <span data-l="en">Last updated: November 2026</span>
         </p>
       </div>
 
@@ -118,25 +118,35 @@
         </section>
         <section>
           <h2>
-            <span data-l="de">3. Hosting und Server-Logfiles</span>
-            <span data-l="en">3. Hosting and server log files</span>
+            <span data-l="de">3. Hosting, Cloudflare und Server-Logfiles</span>
+            <span data-l="en">3. Hosting, Cloudflare and server log files</span>
           </h2>
           <p data-l="de">
-            Diese Website wird auf einem eigenen Server von mir betrieben, es
-            kommt kein externer Hosting-Anbieter zum Einsatz. Beim Aufruf werden
-            technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit,
-            aufgerufene Seite, Browsertyp und Referrer in Server-Logfiles
-            verarbeitet. Das ist für den sicheren und stabilen Betrieb nötig
-            (berechtigtes Interesse). Die Logfiles werden nur so lange
-            aufbewahrt, wie es für Betrieb und Sicherheit nötig ist.
+            Diese Website läuft auf einem eigenen Server von mir. Alle Aufrufe
+            werden über das Netzwerk von Cloudflare, Inc. (USA) geleitet, das
+            die Website als Reverse-Proxy ausliefert und vor Angriffen schützt.
+            Dabei bearbeiten Cloudflare und mein Server technisch notwendige
+            Daten wie IP-Adresse, Datum und Uhrzeit, aufgerufene Seite,
+            Browsertyp und Referrer. Das ist für den sicheren und stabilen
+            Betrieb nötig (berechtigtes Interesse). Bei Verbindungsfehlern kann
+            dein Browser zudem technische Fehlerberichte an Cloudflare senden
+            (Network Error Logging). Cloudflare kann Daten auch in den USA
+            bearbeiten; die Übermittlung stützt sich auf die von Cloudflare
+            bereitgestellten Datenschutzgarantien. Die Logfiles werden nur so
+            lange aufbewahrt, wie es für Betrieb und Sicherheit nötig ist.
           </p>
           <p data-l="en">
-            This website runs on my own server; no external hosting provider is
-            used. When you visit it, technically necessary data such as IP
-            address, date and time, requested page, browser type and referrer is
-            processed in server log files. This is required for secure and
-            stable operation (legitimate interest). Log files are kept only as
-            long as needed for operation and security.
+            This website runs on my own server. All requests are routed through
+            the network of Cloudflare, Inc. (USA), which delivers the website as
+            a reverse proxy and protects it against attacks. In doing so,
+            Cloudflare and my server process technically necessary data such as
+            IP address, date and time, requested page, browser type and
+            referrer. This is required for secure and stable operation
+            (legitimate interest). If a connection fails, your browser may also
+            send technical error reports to Cloudflare (Network Error Logging).
+            Cloudflare may also process data in the USA; the transfer relies on
+            the data protection safeguards provided by Cloudflare. Log files are
+            kept only as long as needed for operation and security.
           </p>
         </section>
         <section>
@@ -178,20 +188,28 @@
         </section>
         <section>
           <h2>
-            <span data-l="de">6. Schriften und Bibliotheken</span>
-            <span data-l="en">6. Fonts and libraries</span>
+            <span data-l="de">6. Schriften, Bibliotheken und Wikipedia</span>
+            <span data-l="en">6. Fonts, libraries and Wikipedia</span>
           </h2>
           <p data-l="de">
             Alle Schriften (Anybody, Instrument Sans) und
-            JavaScript-Bibliotheken (GSAP) werden selbst vom Server dieser
-            Website ausgeliefert. Es werden keine Inhalte von Dritt-CDNs
-            nachgeladen und keine Daten an Drittanbieter übermittelt.
+            JavaScript-Bibliotheken (GSAP) werden vom Server dieser Website
+            ausgeliefert (über Cloudflare, siehe Ziffer 3). Es werden keine
+            Inhalte von fremden CDNs nachgeladen. Einzige Ausnahme ist die Seite
+            «IT Fact of the Day» (it-fotd.html): Sie lädt die Ereignisse des
+            Tages direkt bei Wikipedia (en.wikipedia.org, Wikimedia Foundation,
+            USA). Dabei erhält Wikimedia deine IP-Adresse und die üblichen
+            Browserangaben. Die übrigen Seiten laden nichts von Wikipedia.
           </p>
           <p data-l="en">
             All fonts (Anybody, Instrument Sans) and JavaScript libraries (GSAP)
-            are served from this website's own server. No content is loaded from
-            third-party CDNs and no data is transmitted to third-party
-            providers.
+            are served from this website's own server (via Cloudflare, see
+            section 3). No content is loaded from third-party CDNs. The only
+            exception is the "IT Fact of the Day" page (it-fotd.html): it loads
+            the day's events directly from Wikipedia (en.wikipedia.org,
+            Wikimedia Foundation, USA). Wikimedia receives your IP address and
+            the usual browser information. The other pages load nothing from
+            Wikipedia.
           </p>
         </section>
         <section>
@@ -200,16 +218,16 @@
             <span data-l="en">7. Local storage</span>
           </h2>
           <p data-l="de">
-            Deine Sprachauswahl (Deutsch oder Englisch) und deine
-            Farbschema-Wahl (dunkel oder hell) werden im localStorage deines
-            Browsers gespeichert. Diese Information verlässt dein Gerät nicht.
-            Es werden keine Tracking- oder Werbe-Cookies eingesetzt.
+            Wenn du die Sprache (Deutsch oder Englisch) oder das Farbschema
+            (dunkel oder hell) umschaltest, wird deine Wahl im localStorage
+            deines Browsers gespeichert. Diese Information verlässt dein Gerät
+            nicht. Es werden keine Tracking- oder Werbe-Cookies eingesetzt.
           </p>
           <p data-l="en">
-            Your language choice (German or English) and your theme choice (dark
-            or light) are stored in your browser's localStorage. This
-            information does not leave your device. No tracking or advertising
-            cookies are used.
+            When you switch the language (German or English) or the theme (dark
+            or light), your choice is stored in your browser's localStorage.
+            This information does not leave your device. No tracking or
+            advertising cookies are used.
           </p>
         </section>
         <section>

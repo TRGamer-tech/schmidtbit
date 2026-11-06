@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SCHMIDTBIT - IT Fact of the day</title>
     <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
-    <link rel="stylesheet" href="/assets/css/it-fotd.css?v=20261106" />
+    <link rel="stylesheet" href="/assets/css/it-fotd.css?v=20261106-2" />
   </head>
   <body
     class="theme-text flex items-center justify-center min-h-screen p-4 transition-colors duration-500"
   >
     <div
-      class="max-w-2xl w-full bg-gray-800 border-2 theme-border p-8 rounded-lg theme-shadow flex flex-col gap-6 transition-all duration-500 relative"
+      class="fotd-card max-w-2xl w-full bg-gray-800 border-2 theme-border p-8 rounded-lg theme-shadow flex flex-col gap-6 transition-all duration-500 relative"
     >
       <!-- Toast Notification (Hidden by default) -->
       <div
@@ -21,10 +21,12 @@
         DATA_COPIED_TO_CLIPBOARD
       </div>
       <!-- Header -->
-      <div class="flex justify-between items-end border-b border-gray-700 pb-4">
+      <div
+        class="flex flex-wrap gap-4 justify-between items-end border-b border-gray-700 pb-4"
+      >
         <div>
           <h1
-            class="text-3xl font-bold uppercase tracking-widest theme-text-bold theme-text-shadow"
+            class="fotd-title text-3xl font-bold uppercase tracking-widest theme-text-bold theme-text-shadow"
           >
             System.Fact()
           </h1>
@@ -32,7 +34,7 @@
             Initializing...
           </p>
         </div>
-        <div class="text-xs text-gray-500 text-right">
+        <div class="ml-auto text-xs text-gray-500 text-right">
           STATUS:
           <span id="status-display" class="theme-text-bold animate-pulse">
             ONLINE
@@ -76,6 +78,7 @@
           id="source-link"
           href="#"
           target="_blank"
+          rel="noopener noreferrer"
           class="text-xs font-bold theme-text-bold theme-hover transition-colors hidden flex items-center gap-2"
         >
           <span>[ READ SOURCE ]</span>
@@ -99,6 +102,6 @@
         </div>
       </div>
     </div>
-    <script src="/assets/js/it-fotd.js?v=20261106"></script>
+    <script src="/assets/js/it-fotd.js?v=20261106-2"></script>
   </body>
 </html>

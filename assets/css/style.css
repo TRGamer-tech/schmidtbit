@@ -240,8 +240,13 @@ html[lang="en"] [data-l="de"] {
   transform-origin: left;
 }
 
+/* Untergrenze schrumpft auf sehr schmalen Handys, damit „Ausgewählte“ (8.6em) passt */
 .h2 {
-  font-size: clamp(2.2rem, 6.6vw, 5.6rem);
+  font-size: clamp(
+    min(2.2rem, calc((100vw - 2 * var(--gut)) / 9)),
+    6.6vw,
+    5.6rem
+  );
   font-weight: 850;
   font-stretch: 116%;
   letter-spacing: -0.015em;
@@ -290,10 +295,13 @@ html[lang="en"] [data-l="de"] {
     color 0.25s var(--ease),
     transform 0.25s var(--ease);
 }
-.btn:hover {
-  background: var(--fg);
-  color: var(--bg);
-  transform: translateY(-2px);
+/* Hover nur mit Maus: auf Touchgeräten bliebe der Zustand nach dem Tippen hängen */
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--fg);
+    color: var(--bg);
+    transform: translateY(-2px);
+  }
 }
 .btn:active {
   transform: scale(0.97);
@@ -301,8 +309,10 @@ html[lang="en"] [data-l="de"] {
 .btn .ar {
   transition: transform 0.3s var(--ease);
 }
-.btn:hover .ar {
-  transform: translateX(4px);
+@media (hover: hover) {
+  .btn:hover .ar {
+    transform: translateX(4px);
+  }
 }
 
 .btn-ghost {
@@ -310,10 +320,12 @@ html[lang="en"] [data-l="de"] {
   color: var(--fg);
   box-shadow: inset 0 0 0 2px var(--line-strong);
 }
-.btn-ghost:hover {
-  background: var(--fg);
-  color: var(--bg);
-  box-shadow: inset 0 0 0 2px var(--fg);
+@media (hover: hover) {
+  .btn-ghost:hover {
+    background: var(--fg);
+    color: var(--bg);
+    box-shadow: inset 0 0 0 2px var(--fg);
+  }
 }
 
 .link-u {
@@ -545,9 +557,11 @@ html[lang="en"] [data-l="de"] {
     border-color 0.25s,
     transform 0.4s var(--ease);
 }
-.theme-toggle:hover {
-  border-color: var(--accent);
-  transform: rotate(40deg);
+@media (hover: hover) {
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    transform: rotate(40deg);
+  }
 }
 .theme-toggle svg {
   width: 1rem;
@@ -570,8 +584,8 @@ html[data-theme="light"] .theme-toggle .i-moon {
 .burger {
   display: none;
   place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
   border: 0;
   background: transparent;
@@ -625,6 +639,28 @@ html[data-theme="light"] .theme-toggle .i-moon {
   }
 }
 
+/* Handys: Sprache und Farbschema wandern ins Menü, im Header bleiben Marke und Burger.
+   Unterseiten haben kein Menü, dort fällt stattdessen der Schriftzug weg. */
+@media (max-width: 30rem) {
+  .site-head:not(.site-head--sub) .head-tools > .lang,
+  .site-head:not(.site-head--sub) .head-tools > .theme-toggle {
+    display: none;
+  }
+}
+@media (max-width: 34rem) {
+  .site-head--sub .wordmark {
+    display: none;
+  }
+  .site-head--sub .brand-logo {
+    margin-right: 0;
+  }
+}
+@media (max-width: 22.5rem) {
+  .brand sup {
+    display: none;
+  }
+}
+
 /* Mobiles Vollbild-Menü */
 .mobile-menu {
   position: fixed;
@@ -632,20 +668,32 @@ html[data-theme="light"] .theme-toggle .i-moon {
   z-index: 95;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 0.25rem;
   padding: var(--head-h) var(--gut) 3rem;
   background: var(--bg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   clip-path: inset(0 0 100% 0);
   visibility: hidden;
   transition:
     clip-path 0.55s var(--ease-out),
     visibility 0s linear 0.55s;
 }
+/* Zentriert, solange der Platz reicht; im Querformat scrollbar statt oben abgeschnitten */
+.mobile-menu > :first-child {
+  margin-top: auto;
+}
+.mobile-menu > :last-child {
+  margin-bottom: auto;
+}
 .mobile-menu.open {
   clip-path: inset(0 0 0 0);
   visibility: visible;
   transition: clip-path 0.55s var(--ease-out);
+}
+/* Scrollt das Menü, darf nichts unter dem transparenten Header durchscheinen */
+html.menu-open .site-head {
+  background: var(--bg);
 }
 .mobile-menu a {
   font: 800 clamp(2.2rem, 9vw, 3.4rem)/1.15 var(--display);
@@ -662,6 +710,35 @@ html[data-theme="light"] .theme-toggle .i-moon {
 }
 .mobile-menu .mm-foot {
   margin-top: 1.5rem;
+}
+@media (orientation: landscape) and (max-height: 30rem) {
+  .mobile-menu {
+    padding-bottom: 1.5rem;
+  }
+  .mobile-menu a {
+    font-size: clamp(1.5rem, 9vh, 2.6rem);
+    padding: 0.35rem 0;
+  }
+}
+
+/* Sprache und Farbschema im Menü, nur wenn sie im Header keinen Platz haben */
+.mm-tools {
+  display: none;
+}
+@media (max-width: 30rem) {
+  .mm-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .mm-tools .lang span {
+    padding: 0.9rem 1.15rem;
+  }
+  .mm-tools .theme-toggle {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -704,8 +781,9 @@ html[data-theme="light"] .theme-toggle .i-moon {
   mask-image: linear-gradient(180deg, transparent, #000 30%, transparent 85%);
 }
 
+/* Das längste Wort („GENOMMEN.“) ist rund 8.7em breit: so passt es auf jede Breite */
 .hero h1 {
-  font-size: min(5.5rem, 11vw);
+  font-size: min(5.5rem, calc((100vw - 2 * var(--gut)) / 9.2));
   font-weight: 880;
   font-stretch: 134%;
   line-height: 0.9;
@@ -718,6 +796,7 @@ html[data-theme="light"] .theme-toggle .i-moon {
 
 .hero-grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   align-items: end;
 }
@@ -726,11 +805,12 @@ html[data-theme="light"] .theme-toggle .i-moon {
     grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
   }
 }
+/* 0.07: die Spalte ist 7/11 breit, 8.7em × 0.07 bleibt darunter (0.075 schnitt den Punkt ab) */
 @media (min-width: 60rem) {
   .hero h1 {
     font-size: min(
       5.5rem,
-      calc((min(100vw - 2 * var(--gut), var(--max)) - 2rem) * 0.075)
+      calc((min(100vw - 2 * var(--gut), var(--max)) - 2rem) * 0.07)
     );
   }
 }
@@ -913,17 +993,21 @@ html[data-theme="light"] .theme-toggle .i-moon {
     grid-template-columns: 5rem minmax(0, 5fr) minmax(0, 6fr);
   }
 }
-.svc-row:hover {
-  background: linear-gradient(90deg, var(--flame-soft), transparent 55%);
-  padding-left: 1rem;
+@media (hover: hover) {
+  .svc-row:hover {
+    background: linear-gradient(90deg, var(--flame-soft), transparent 55%);
+    padding-left: 1rem;
+  }
 }
 .svc-num {
   font: 700 0.95rem/1 var(--mono);
   color: var(--muted);
   transition: color 0.3s;
 }
-.svc-row:hover .svc-num {
-  color: var(--accent);
+@media (hover: hover) {
+  .svc-row:hover .svc-num {
+    color: var(--accent);
+  }
 }
 .svc-row h3 {
   min-width: 0;
@@ -1172,6 +1256,8 @@ html[data-theme="light"] .theme-toggle .i-moon {
 }
 .mail {
   display: inline-block;
+  /* Polster, damit die Adresse auf dem Handy ein genügend grosses Tippziel ist */
+  padding-block: 0.4em;
   font: 850 clamp(1rem, 3.6vw, 2.4rem)/1.1 var(--display);
   font-stretch: 100%;
   letter-spacing: -0.01em;
@@ -1271,7 +1357,8 @@ html[data-theme="light"] .theme-toggle .i-moon {
   left: 50%;
   bottom: 1.5rem;
   z-index: 130;
-  transform: translate(-50%, 150%);
+  /* Ganz aus dem Bild: mit 150% ragte der leere Toast ~10px über den unteren Rand */
+  transform: translate(-50%, calc(100% + 4rem));
   padding: 0.9rem 1.4rem;
   background: var(--fg);
   color: var(--bg);
@@ -1362,6 +1449,11 @@ html[data-theme="light"] .theme-toggle .i-moon {
 .foot-base p {
   margin: 0;
 }
+/* Rechtliche Links auf den Unterseiten: grösseres Tippziel */
+.foot-base a {
+  display: inline-block;
+  padding-block: 0.3rem;
+}
 
 /* --------------------------------------------------------------------------
    Legal / Unterseiten
@@ -1370,13 +1462,22 @@ html[data-theme="light"] .theme-toggle .i-moon {
   padding: calc(var(--head-h) + clamp(3.5rem, 9vw, 7rem)) 0
     clamp(2rem, 5vw, 3.5rem);
 }
+/* Höchstens so gross, dass das längste Wort in die Spalte passt.
+   --h1-fit = dessen Breite in em plus Reserve: „IMPRESSUM“ 8.13em, „BEDINGUNGEN“ 9.81em */
 .page-head h1 {
-  font-size: clamp(2.6rem, 9vw, 8rem);
+  --h1-fit: 8.5;
+  font-size: min(
+    clamp(2.6rem, 9vw, 8rem),
+    calc(min(100vw - 2 * var(--gut), var(--max)) / var(--h1-fit))
+  );
   font-weight: 880;
   font-stretch: 128%;
   letter-spacing: -0.02em;
   line-height: 0.92;
   text-transform: uppercase;
+}
+.page-head--long h1 {
+  --h1-fit: 10.2;
 }
 .page-head .lead {
   margin-top: 1.25rem;
@@ -1393,6 +1494,13 @@ html[data-theme="light"] .theme-toggle .i-moon {
   font-size: clamp(1.35rem, 3vw, 1.9rem);
   font-stretch: 112%;
   margin-bottom: 0.75rem;
+}
+@media (max-width: 30rem) {
+  /* „Haftungsausschluss“ ist auf 320px breiter als die Spalte */
+  .prose h2 {
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
 }
 .prose p {
   color: var(--muted);

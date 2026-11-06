@@ -66,22 +66,41 @@
   });
 
   /* ----------------------------------------------------------------------
-     Theme (Dark/Light)
+     Theme (Dark/Light): eigene Wahl wird gespeichert, sonst gilt das System
      ---------------------------------------------------------------------- */
-  var themeBtn = $(".theme-toggle");
-  if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
+  var mq = window.matchMedia
+    ? matchMedia("(prefers-color-scheme: light)")
+    : null;
+  function storedTheme() {
+    try {
+      return localStorage.getItem("sb-theme");
+    } catch (e) {
+      return null;
+    }
+  }
+  // Mehrere Schalter: im Header und (auf dem Handy) im Menü
+  $$(".theme-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
       var next =
         document.documentElement.getAttribute("data-theme") === "light"
           ? "dark"
           : "light";
+      var system = mq && mq.matches ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
+      try {
+        // Zurück auf die Systemfarbe heisst: wieder dem System folgen
+        if (next === system) localStorage.removeItem("sb-theme");
+        else localStorage.setItem("sb-theme", next);
+      } catch (e) {
+        /* privat */
+      }
     });
-  }
-  // Systemwechsel (Hell/Dunkel) sofort übernehmen
-  if (window.matchMedia) {
-    var mq = matchMedia("(prefers-color-scheme: light)");
+  });
+  // Systemwechsel (Hell/Dunkel) sofort übernehmen, ausser es gibt eine eigene Wahl
+  if (mq) {
     var follow = function (e) {
+      var s = storedTheme();
+      if (s === "light" || s === "dark") return;
       document.documentElement.setAttribute(
         "data-theme",
         e.matches ? "light" : "dark",
@@ -111,10 +130,11 @@
     if (!menu || !burger) return;
     menu.classList.toggle("open", open);
     burger.setAttribute("aria-expanded", String(open));
+    document.documentElement.classList.toggle("menu-open", open);
     document.body.style.overflow = open ? "hidden" : "";
     if (open && hasGsap && !reduceMotion) {
       gsap.fromTo(
-        $$("a, p", menu),
+        $$("a, p, .mm-tools", menu),
         { y: 26, opacity: 0 },
         {
           y: 0,
@@ -140,6 +160,15 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && menu.classList.contains("open")) setMenu(false);
     });
+    // Wird es breiter (Tablet gedreht), verschwindet der Burger: offenes Menü schliessen
+    if (window.matchMedia) {
+      var wide = matchMedia("not all and (max-width: 54rem)");
+      var closeIfWide = function (e) {
+        if (e.matches) setMenu(false);
+      };
+      if (wide.addEventListener) wide.addEventListener("change", closeIfWide);
+      else if (wide.addListener) wide.addListener(closeIfWide);
+    }
   }
 
   /* ----------------------------------------------------------------------
