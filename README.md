@@ -13,6 +13,8 @@ Dies ist das offizielle GitHub für die Seite SchmidtBit. Sie unterliegt der MIT
 ## Design & Technik
 
 - Handgeschriebenes CSS (`assets/css/style.css`), kein Framework, kein CDN
+- Strikte Content-Security-Policy (`script-src 'self'; style-src 'self'`, gesetzt vom Webserver): keine Inline-Skripte, keine `<style>`-Blöcke, keine `style=""`- oder `onclick`-Attribute. Theme/Sprache vor dem Rendern setzt `assets/js/theme-init.js`.
+- `it-fotd.html`: Tailwind CSS v3.4.17 ist statisch in `assets/css/it-fotd.css` erzeugt (kein CDN-Skript). Kommen neue Tailwind-Klassen dazu, die Datei neu erzeugen (Befehl im Kopfkommentar). Die Seite lädt Fakten von `en.wikipedia.org`.
 - Variable Fonts selbst gehostet: Anybody (Display) & Instrument Sans (Text) via Fontsource
 - Animationen: GSAP + ScrollTrigger/ScrollTo/ScrambleText, ebenfalls selbst gehostet (`assets/js/vendor/`)
 - Zweisprachig (DE/EN) über `data-l`-Attribute, gespeichert im localStorage

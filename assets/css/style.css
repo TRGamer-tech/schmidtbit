@@ -1435,3 +1435,13 @@ html[data-theme="light"] .theme-toggle .i-moon {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Ersatz für frühere style-Attribute (die strikte CSP blockiert style="", 2026-11-06)
+   -------------------------------------------------------------------------- */
+.foot-base.foot-base--flush {
+  margin-top: 0;
+}
+.lead.lead--spaced {
+  margin-top: 1.5rem;
+}

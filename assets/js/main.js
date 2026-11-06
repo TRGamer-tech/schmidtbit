@@ -20,6 +20,7 @@
   if (hasGsap) {
     try {
       gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrambleTextPlugin);
+      gsap.config({ nullTargetWarn: false }); // Ziele wie .vf gibt es nicht auf jeder Seite
     } catch (e) {
       hasGsap = false; // Motion ist optional — Kernfunktionen bleiben intakt
     }
@@ -490,7 +491,7 @@
       onEnter: function () {
         fills.forEach(function (fill, i) {
           var v = parseFloat(
-            (fill.style.getPropertyValue("--v") || "1").replace(",", "."),
+            (fill.getAttribute("data-v") || "1").replace(",", "."),
           );
           gsap.fromTo(
             fill,

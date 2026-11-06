@@ -6,39 +6,13 @@
     <title>Impressum — SchmidtBit</title>
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <script>
-      (function () {
-        var d = document.documentElement,
-          t,
-          l;
-        try {
-          localStorage.removeItem("sb-theme");
-          t =
-            window.matchMedia &&
-            matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
-        } catch (e) {
-          t = "dark";
-        }
-        d.setAttribute("data-theme", t);
-        try {
-          l = localStorage.getItem("language");
-        } catch (e) {
-          l = null;
-        }
-        if (l !== "en" && l !== "de") {
-          l = (navigator.language || "de").slice(0, 2) === "en" ? "en" : "de";
-        }
-        d.lang = l;
-      })();
-    </script>
-    <link rel="stylesheet" href="assets/css/style.css?v=20261028" />
+    <script src="assets/js/theme-init.js?v=20261106"></script>
+    <link rel="stylesheet" href="assets/css/style.css?v=20261106" />
     <script defer src="assets/js/vendor/gsap.min.js"></script>
     <script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
     <script defer src="assets/js/vendor/ScrollToPlugin.min.js"></script>
     <script defer src="assets/js/vendor/ScrambleTextPlugin.min.js"></script>
-    <script defer src="assets/js/main.js?v=20261028"></script>
+    <script defer src="assets/js/main.js?v=20261106"></script>
   </head>
   <body>
     <a class="skip" href="#main">
@@ -182,7 +156,7 @@
 
     <footer class="site-foot">
       <div class="wrap">
-        <div class="foot-base" style="margin-top: 0">
+        <div class="foot-base foot-base--flush">
           <p>
             &copy;
             <span id="year">2026</span>
